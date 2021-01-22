@@ -1,0 +1,12 @@
+export ARCH=arm64
+export BOARD=BPI-W2-720P
+export SOC=rtd1296
+export MACH=rtd129x
+export CROSS_COMPILE=aarch64-linux-gnu-
+export UBOOT_CONFIG=rtd1296_sd_bananapi_defconfig
+export KERNEL_CONFIG=rtd129x_bpi_defconfig
+export LICHEE_PLATFORM="linux"
+export GPU_TYPE="mali820"
+export TOPDIR=/home/mitsuki/Download/qua_hdd/linux/linux-5.10.6
+export TARGET_PLATFORM=realtek
+export TARGET_PRODUCT=bpi-w2
