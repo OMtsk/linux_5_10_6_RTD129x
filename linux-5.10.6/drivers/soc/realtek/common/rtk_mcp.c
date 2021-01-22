@@ -29,7 +29,7 @@
 #include <linux/uaccess.h>
 #include <linux/compat.h>
 #include <linux/io.h>
-#include <asm/mutex.h>
+//#include <asm/mutex.h>
 
 #include "rtk_mcp.h"
 

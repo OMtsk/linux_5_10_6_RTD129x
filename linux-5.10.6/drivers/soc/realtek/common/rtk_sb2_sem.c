@@ -21,6 +21,7 @@
 #include <linux/platform_device.h>
 #include <linux/err.h>
 #include <soc/realtek/rtk_sb2_sem.h>
+#include <linux/fs.h>
 
 
 #define SB2_SEM_TRYLOCK_MAX 1024

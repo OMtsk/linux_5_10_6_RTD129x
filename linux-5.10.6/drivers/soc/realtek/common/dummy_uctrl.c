@@ -15,6 +15,7 @@
 #include <linux/fs.h>
 #include <linux/miscdevice.h>
 #include <linux/uaccess.h>
+#include <linux/of.h>
 
 #define RTK_UCTRL_IOCTL_MAGIC 0xEB
 #define RTK_UCTRL_IOCTL_NONE _IO(RTK_UCTRL_IOCTL_MAGIC,  0x00)

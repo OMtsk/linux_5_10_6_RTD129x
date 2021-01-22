@@ -99,7 +99,8 @@ int rpm_debug_sysfs_add(struct device *dev)
 	if (ret)
 		return ret;
 
-	if (pm_runtime_callbacks_present(dev)) {
+//	if (pm_runtime_callbacks_present(dev)) {
+	if (!pm_runtime_has_no_callbacks(dev)) {
 		ret = sysfs_merge_group(&dev->kobj, &rpm_debug_attr_group);
 		if (ret)
 			goto error;
