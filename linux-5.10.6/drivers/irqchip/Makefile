@@ -114,3 +114,8 @@ obj-$(CONFIG_LOONGSON_PCH_PIC)		+= irq-loongson-pch-pic.o
 obj-$(CONFIG_LOONGSON_PCH_MSI)		+= irq-loongson-pch-msi.o
 obj-$(CONFIG_MST_IRQ)			+= irq-mst-intc.o
 obj-$(CONFIG_SL28CPLD_INTC)		+= irq-sl28cpld.o
+obj-$(CONFIG_ARCH_RTD119X)              += irq-rtd119x.o
+obj-$(CONFIG_ARCH_RTD129x)      += irq-rtd129x.o
+obj-$(CONFIG_ARCH_RTD139x)      += irq-rtd139x.o
+obj-$(CONFIG_ARCH_RTD16xx)              += irq-rtd16xx.o
+

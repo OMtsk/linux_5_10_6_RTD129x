@@ -581,3 +581,8 @@ config VIDEO_RCAR_DRIF
 	  will be called rcar_drif.
 
 endif # SDR_PLATFORM_DRIVERS
+source "drivers/media/platform/rtk_hdmitx/Kconfig"
+source "drivers/media/platform/rtk_hdcptx/Kconfig"
+source "drivers/media/platform/rtk_hdmirx/Kconfig"
+source "drivers/media/platform/rtk_dptx/Kconfig"
+

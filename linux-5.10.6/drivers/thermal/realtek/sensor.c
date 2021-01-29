@@ -99,8 +99,8 @@ static int thermal_sensor_device_add(struct device *dev,
 	list_add(&tdev->list, &sensor_device_list);
 	tdev->passive_delay = tdev->tz->passive_delay;
 	tdev->polling_delay = tdev->tz->polling_delay;
-	tdev->set_mode = tdev->tz->ops->set_mode;
-	tdev->tz->ops->set_mode = thermal_sensor_set_mode;
+	tdev->set_mode = tdev->tz->ops->change_mode;
+	tdev->tz->ops->change_mode = thermal_sensor_set_mode;
 	return 0;
 }
 
@@ -214,7 +214,7 @@ static void thermal_sensor_shutdown(struct platform_device *pdev)
 	struct thermal_sensor_device *tdev = platform_get_drvdata(pdev);
 
 	dev_info(dev, "%s: stop tz_dev\n", __func__);
-	tdev->tz->ops->set_mode(tdev->tz, THERMAL_DEVICE_DISABLED);
+	tdev->tz->ops->change_mode(tdev->tz, THERMAL_DEVICE_DISABLED);
 };
 
 

@@ -69,6 +69,19 @@ obj-$(CONFIG_VIDEO_STM32_DCMI)		+= stm32/
 
 obj-$(CONFIG_VIDEO_MEDIATEK_VPU)	+= mtk-vpu/
 
+obj-$(CONFIG_RTK_HDMITX)        += rtk_hdmitx/
+obj-$(CONFIG_RTK_HDCP_1x)   += rtk_hdcptx/
+ifeq ($(CONFIG_ARCH_RTD129x),y)
+obj-$(CONFIG_RTK_HDMIRX)    += rtk_hdmirx/rtd129x/
+endif
+ifeq ($(CONFIG_ARCH_RTD16xx),y)
+obj-$(CONFIG_RTK_HDMIRX)    += rtk_hdmirx/rtd161x/
+endif
+obj-$(CONFIG_CEC)     += rtk_cec/
+obj-$(CONFIG_XEN_CECDEV_FRONTEND)     += rtk_cec/
+obj-$(CONFIG_RTK_DPTX)    += rtk_dptx/
+
+
 obj-$(CONFIG_VIDEO_MEDIATEK_VCODEC)	+= mtk-vcodec/
 
 obj-$(CONFIG_VIDEO_MEDIATEK_MDP)	+= mtk-mdp/

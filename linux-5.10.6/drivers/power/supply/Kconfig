@@ -774,4 +774,12 @@ config RN5T618_POWER
 	  This driver can also be built as a module. If so, the module will be
 	  called rn5t618_power.
 
+config RTD1XXX_POWER
+    tristate "RTD1XXX power supply driver"
+    default y
+    help
+      This driver provides support for the power supply to make Android happy.
+
+
+
 endif # POWER_SUPPLY
