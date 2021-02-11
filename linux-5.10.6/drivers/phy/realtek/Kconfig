@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: GPL-2.0-only
+config PHY_RTK_SATA
+    tristate "Realtek SATA PHY driver"
+    depends on OF
+    select GENERIC_PHY
+    help
+      Support for SATA GEN3 PHY on realtek chipsets.

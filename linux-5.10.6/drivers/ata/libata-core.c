@@ -64,6 +64,10 @@
 #include "libata.h"
 #include "libata-transport.h"
 
+#ifdef CONFIG_AHCI_RTK
+extern void rtk_sata_phy_poweron(struct ata_link *link);
+#endif
+
 const struct ata_port_operations ata_base_port_ops = {
 	.prereset		= ata_std_prereset,
 	.postreset		= ata_std_postreset,
@@ -5150,6 +5154,9 @@ void ata_dev_init(struct ata_device *dev)
 	link->sata_spd_limit = link->hw_sata_spd_limit;
 	link->sata_spd = 0;
 
+#if defined(CONFIG_AHCI_RTK)
+    sata_set_spd(link);
+#endif
 	/* High bits of dev->flags are used to record warm plug
 	 * requests which occur asynchronously.  Synchronize using
 	 * host lock.

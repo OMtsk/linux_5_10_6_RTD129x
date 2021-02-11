@@ -47,6 +47,10 @@
 
 #include "irq-gic-common.h"
 
+#if defined(CONFIG_ARCH_MULTI_V7)
+#include <linux/rtk_trace.h>
+#endif
+
 #ifdef CONFIG_ARM64
 #include <asm/cpufeature.h>
 
@@ -482,8 +486,22 @@ static void gic_dist_init(struct gic_chip_data *gic)
 	cpumask = gic_get_cpumask(gic);
 	cpumask |= cpumask << 8;
 	cpumask |= cpumask << 16;
-	for (i = 32; i < gic_irqs; i += 4)
+#ifdef CONFIG_RTK_PLATFORM
+#ifdef CONFIG_ARCH_RTD119X
+    for (i = 32; i < gic_irqs; i += 4)
+                writel_relaxed(0x03030303, base + GIC_DIST_TARGET + i * 4 / 4);
+#else
+    for (i = 32; i < gic_irqs; i += 4)
+        writel_relaxed(0x0F0F0F0F, base + GIC_DIST_TARGET + i * 4 / 4);
+#endif
+#else
+    for (i = 32; i < gic_irqs; i += 4)
+        writel_relaxed(cpumask, base + GIC_DIST_TARGET + i * 4 / 4);
+#endif /* CONFIG_RTK_PLATFORM */
+
+/*	for (i = 32; i < gic_irqs; i += 4)
 		writel_relaxed(cpumask, base + GIC_DIST_TARGET + i * 4 / 4);
+*/
 
 	gic_dist_config(base, gic_irqs, NULL);
 
@@ -714,7 +732,20 @@ static int gic_notifier(struct notifier_block *self, unsigned long cmd,	void *v)
 {
 	int i;
 
-	for (i = 0; i < CONFIG_ARM_GIC_MAX_NR; i++) {
+//	for (i = 0; i < CONFIG_ARM_GIC_MAX_NR; i++) {
+#ifdef CONFIG_RTK_XEN_SUPPORT
+    if (xen_domain() && !xen_initial_domain()) {
+        pr_info("%s, skip under domu\n", __func__);
+        return NOTIFY_OK;
+    }
+#endif
+
+    for (i = 0; i < CONFIG_ARM_GIC_MAX_NR; i++) {
+#ifdef CONFIG_GIC_NON_BANKED
+        /* Skip over unused GICs */
+        if (!gic_data[i].get_base)
+            continue;
+#endif
 		switch (cmd) {
 		case CPU_PM_ENTER:
 			gic_cpu_save(&gic_data[i]);

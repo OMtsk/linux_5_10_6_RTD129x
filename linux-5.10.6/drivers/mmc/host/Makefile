@@ -112,3 +112,21 @@ endif
 
 obj-$(CONFIG_MMC_SDHCI_XENON)	+= sdhci-xenon-driver.o
 sdhci-xenon-driver-y		+= sdhci-xenon.o sdhci-xenon-phy.o
+obj-$(CONFIG_MMC_SDHCI_RTK)     += sdhci-rtk.o
+
+ifeq ($(CONFIG_CB710_DEBUG),y)
+    CFLAGS-cb710-mmc    += -DDEBUG
+endif
+
+obj-$(CONFIG_MMC_RTK_SDMMC)     += rtk-sdmmc.o
+obj-y                   += sdmmc_export.o
+
+ifeq ($(CONFIG_ARCH_RTD119X),y)
+	obj-$(CONFIG_MMC_RTK_EMMC)              += rtkemmc_rtd119x.o
+else
+	obj-$(CONFIG_MMC_RTK_EMMC)              += rtkemmc.o
+endif
+
+#obj-$(CONFIG_MMC_RTK_EMMC)     += rtkemmc.o
+#obj-$(CONFIG_MMC_RTK_EMMC)     += rtkemmc_ops.o
+

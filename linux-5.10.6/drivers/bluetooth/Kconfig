@@ -41,6 +41,13 @@ config BT_HCIBTUSB_AUTOSUSPEND
 	  This can be overridden by passing btusb.enable_autosuspend=[y|n]
 	  on the kernel commandline.
 
+config BT_RTKBTRFKILL
+        tristate "Realtek Bluetooth RFKILL driver"
+        default n
+        help
+          Realtek Bluetooth rfkill driver
+
+
 config BT_HCIBTUSB_BCM
 	bool "Broadcom protocol support"
 	depends on BT_HCIBTUSB

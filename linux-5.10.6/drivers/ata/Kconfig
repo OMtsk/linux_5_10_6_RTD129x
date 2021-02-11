@@ -270,6 +270,10 @@ config AHCI_QORIQ
 	  onboard AHCI SATA.
 
 	  If unsure, say N.
+config AHCI_RTK
+    tristate "Realtek AHCI SATA support"
+	help
+ 	  This option enables support for Realtek AHCI Serial ATA controllers.If unsure, say N.
 
 config SATA_FSL
 	tristate "Freescale 3.0Gbps SATA support"

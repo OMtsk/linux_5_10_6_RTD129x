@@ -170,6 +170,7 @@ snd-soc-rt298-objs := rt298.o
 snd-soc-rt5514-objs := rt5514.o
 snd-soc-rt5514-spi-objs := rt5514-spi.o
 snd-soc-rt5616-objs := rt5616.o
+snd-soc-rt5616-objs := rt5616.o
 snd-soc-rt5631-objs := rt5631.o
 snd-soc-rt5640-objs := rt5640.o
 snd-soc-rt5645-objs := rt5645.o

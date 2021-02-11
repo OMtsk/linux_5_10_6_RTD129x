@@ -7,4 +7,5 @@ obj-y	+= onenand/
 obj-y	+= raw/
 obj-y	+= spi/
 
+nand-objs := rtk_nand.o nand_base_rtk.o
 nandcore-$(CONFIG_MTD_NAND_ECC) += ecc.o

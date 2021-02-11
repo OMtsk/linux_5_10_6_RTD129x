@@ -58,6 +58,10 @@
 #include <asm/pointer_auth.h>
 #include <asm/stacktrace.h>
 
+#ifdef CONFIG_RTK_TRACER
+#include <linux/rtk_trace.h>
+#endif
+
 #if defined(CONFIG_STACKPROTECTOR) && !defined(CONFIG_STACKPROTECTOR_PER_TASK)
 #include <linux/stackprotector.h>
 unsigned long __stack_chk_guard __read_mostly;
@@ -555,6 +559,9 @@ __notrace_funcgraph struct task_struct *__switch_to(struct task_struct *prev,
 	contextidr_thread_switch(next);
 	entry_task_switch(next);
 	uao_thread_switch(next);
+#ifdef CONFIG_RTK_TRACER
+    uncached_logk_pc(LOGK_CTXID, (void*)sched_clock(), (void*)(uint64_t)task_pid_nr(next));
+#endif
 	ssbs_thread_switch(next);
 	erratum_1418040_thread_switch(prev, next);
 

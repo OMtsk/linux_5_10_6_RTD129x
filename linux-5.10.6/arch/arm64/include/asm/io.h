@@ -10,6 +10,8 @@
 
 #include <linux/types.h>
 #include <linux/pgtable.h>
+#include <linux/rtk_trace.h>
+
 
 #include <asm/byteorder.h>
 #include <asm/barrier.h>

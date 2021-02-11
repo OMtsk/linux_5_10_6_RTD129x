@@ -42,6 +42,10 @@
 #error PAGE_OFFSET must be at least 2MB aligned
 #endif
 
+#ifdef CONFIG_RTK_PLATFORM_FPGA
+#define DTB_ADDR 0x02100000
+#endif /* CONFIG_RTK_PLATFORM_FPGA */
+
 /*
  * Kernel startup entry point.
  * ---------------------------
@@ -103,6 +107,19 @@ pe_header:
 	 *  x24        __primary_switch() .. relocate_kernel()  current RELR displacement
 	 */
 SYM_CODE_START(primary_entry)
+#ifdef CONFIG_RTK_PLATFORM_FPGA
+#ifdef CONFIG_ARCH_RTD16xx
+    bl  gicv3_pre_init
+#endif
+#if defined(CONFIG_ARCH_RTD129x) || defined(CONFIG_ARCH_RTD139x)
+    bl  gic_pre_init
+#endif
+    bl  armv8_switch_to_el2
+    ldr x0, =DTB_ADDR
+    ldr x1, =0x0
+    ldr x2, =0x0
+    ldr x3, =0x0
+#endif /* CONFIG_RTK_PLATFORM_FPGA */
 	bl	preserve_boot_args
 	bl	el2_setup			// Drop to EL1, w0=cpu_boot_mode
 	adrp	x23, __PHYS_OFFSET
@@ -694,17 +711,83 @@ SYM_DATA_END(__early_cpu_boot_status)
 
 	.popsection
 
+#ifdef CONFIG_RTK_PLATFORM
+.macro  switch_el, xreg, el3_label, el2_label, el1_label
+    mrs \xreg, CurrentEL
+    cmp \xreg, 0xc
+    b.eq    \el3_label
+    cmp \xreg, 0x8
+    b.eq    \el2_label
+    cmp \xreg, 0x4
+    b.eq    \el1_label
+.endm
+
+.macro armv8_switch_to_el2_m, xreg1
+    /* 64bit EL2 | HCE | SMD | RES1 (Bits[5:4]) | Non-secure EL0/EL1 */
+    mov \xreg1, #0x5b1
+    msr scr_el3, \xreg1
+    msr cptr_el3, xzr   /* Disable coprocessor traps to EL3 */
+    mov \xreg1, #0x33ff
+    msr cptr_el2, \xreg1    /* Disable coprocessor traps to EL2 */
+
+    /* Initialize Generic Timers */
+    msr cntvoff_el2, xzr
+
+    /* Initialize SCTLR_EL2
+     *
+     * setting RES1 bits (29,28,23,22,18,16,11,5,4) to 1
+     * and RES0 bits (31,30,27,26,24,21,20,17,15-13,10-6) +
+     * EE,WXN,I,SA,C,A,M to 0
+     */
+    mov  \xreg1, #0x0830
+    movk    \xreg1, #0x30C5, lsl #16
+    msr sctlr_el2, \xreg1
+
+    /* Return to the EL2_SP2 mode from EL3 */
+    mov \xreg1, sp
+    msr sp_el2, \xreg1      /* Migrate SP */
+    mrs \xreg1, vbar_el3
+    msr vbar_el2, \xreg1        /* Migrate VBAR */
+    mov \xreg1, #0x3c9
+    msr spsr_el3, \xreg1        /* EL2_SP2 | D | A | I | F */
+    msr elr_el3, lr
+    eret
+.endm
+
+SYM_FUNC_START(armv8_switch_to_el2)
+    switch_el x0, 1f, 0f, 0f
+0:  ret
+1:  armv8_switch_to_el2_m x0
+SYM_FUNC_END(armv8_switch_to_el2)
+#endif /* CONFIG_RTK_PLATFORM */
+
+
 	/*
 	 * This provides a "holding pen" for platforms to hold all secondary
 	 * cores are held until we're ready for them to initialise.
 	 */
 SYM_FUNC_START(secondary_holding_pen)
 	bl	el2_setup			// Drop to EL1, w0=cpu_boot_mode
-	bl	set_cpu_boot_mode_flag
+
+	/*bl	set_cpu_boot_mode_flag
 	mrs	x0, mpidr_el1
 	mov_q	x1, MPIDR_HWID_BITMASK
 	and	x0, x0, x1
-	adr_l	x3, secondary_holding_pen_release
+	adr_l	x3, secondary_holding_pen_release*/
+#ifdef CONFIG_RTK_PLATFORM
+    bl armv8_switch_to_el2
+#endif /* CONFIG_RTK_PLATFORM */
+    bl  el2_setup           // Drop to EL1, w0=cpu_boot_mode
+    bl  set_cpu_boot_mode_flag
+    mrs x0, mpidr_el1
+    mov_q   x1, MPIDR_HWID_BITMASK
+    and x0, x0, x1
+#ifdef CONFIG_RTK_PLATFORM
+    adr_l   x3, rtk_secondary_holding_pen_release
+#else
+    adr_l   x3, secondary_holding_pen_release
+#endif /* CONFIG_RTK_PLATFORM */
+
 pen:	ldr	x4, [x3]
 	cmp	x4, x0
 	b.eq	secondary_startup

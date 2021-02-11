@@ -324,7 +324,9 @@ int sata_link_resume(struct ata_link *link, const unsigned long *params,
 		if ((rc = sata_scr_read(link, SCR_CONTROL, &scontrol)))
 			return rc;
 	} while ((scontrol & 0xf0f) != 0x300 && --tries);
-
+#if defined(CONFIG_AHCI_RTK)
+    rtk_sata_phy_poweron(link);
+#endif
 	if ((scontrol & 0xf0f) != 0x300) {
 		ata_link_warn(link, "failed to resume link (SControl %X)\n",
 			     scontrol);

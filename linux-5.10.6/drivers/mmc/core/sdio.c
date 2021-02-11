@@ -27,6 +27,17 @@
 #include "sdio_ops.h"
 #include "sdio_cis.h"
 
+#ifdef CONFIG_MMC_EMBEDDED_SDIO
+#include <linux/mmc/sdio_ids.h>
+#endif
+
+#ifdef CONFIG_MMC_SDHCI_RTK
+void set_SDIO_version(int version);
+int get_SDIO_version(void);
+void rtk_register_set(void);
+#endif
+
+
 MMC_DEV_ATTR(vendor, "0x%04x\n", card->cis.vendor);
 MMC_DEV_ATTR(device, "0x%04x\n", card->cis.device);
 MMC_DEV_ATTR(revision, "%u.%u\n", card->major_rev, card->minor_rev);
@@ -197,7 +208,38 @@ static int sdio_read_cccr(struct mmc_card *card, u32 ocr)
 			if (ret)
 				goto out;
 
-			if (mmc_host_uhs(card->host)) {
+#ifdef CONFIG_MMC_SDHCI_RTK
+                        set_SDIO_version(3);
+                        rtk_register_set();
+#endif
+			 if (mmc_host_uhs(card->host)) {
+                if (data & SDIO_UHS_DDR50)
+                    card->sw_caps.sd3_bus_mode
+                        |= SD_MODE_UHS_DDR50 | SD_MODE_UHS_SDR50
+                            | SD_MODE_UHS_SDR25 | SD_MODE_UHS_SDR12;
+
+                if (data & SDIO_UHS_SDR50)
+                    card->sw_caps.sd3_bus_mode
+                        |= SD_MODE_UHS_SDR50 | SD_MODE_UHS_SDR25
+                            | SD_MODE_UHS_SDR12;
+
+                if (data & SDIO_UHS_SDR104){
+                    card->sw_caps.sd3_bus_mode
+                        |= SD_MODE_UHS_SDR104 | SD_MODE_UHS_SDR50
+                            | SD_MODE_UHS_SDR25 | SD_MODE_UHS_SDR12;
+
+#ifdef CONFIG_MMC_SDHCI_RTK
+                    if(card->host->caps & MMC_CAP_UHS_SDR104) {
+                        set_SDIO_version(4);
+                        rtk_register_set();
+                    }
+#endif
+                }
+            }
+
+
+
+/*			if (mmc_host_uhs(card->host)) {
 				if (data & SDIO_UHS_DDR50)
 					card->sw_caps.sd3_bus_mode
 						|= SD_MODE_UHS_DDR50 | SD_MODE_UHS_SDR50
@@ -212,7 +254,9 @@ static int sdio_read_cccr(struct mmc_card *card, u32 ocr)
 					card->sw_caps.sd3_bus_mode
 						|= SD_MODE_UHS_SDR104 | SD_MODE_UHS_SDR50
 							| SD_MODE_UHS_SDR25 | SD_MODE_UHS_SDR12;
-			}
+			}*/
+
+
 
 			ret = mmc_io_rw_direct(card, 0, 0,
 				SDIO_CCCR_DRIVE_STRENGTH, 0, &data);
