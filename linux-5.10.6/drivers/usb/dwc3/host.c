@@ -10,7 +10,16 @@
 #include <linux/acpi.h>
 #include <linux/platform_device.h>
 
+#ifdef CONFIG_USB_DWC3_RTK
+#include <linux/of_device.h>
+#endif
+
 #include "core.h"
+
+#ifdef CONFIG_XEN_USBHOST_FRONTEND
+extern int rtk_xen_usb_host_irq;
+#endif
+
 
 static int dwc3_host_get_irq(struct dwc3 *dwc)
 {
@@ -64,22 +73,36 @@ int dwc3_host_init(struct dwc3 *dwc)
 	if (!res)
 		return -ENOMEM;
 
+#ifdef CONFIG_XEN_USBHOST_FRONTEND
+    irq = rtk_xen_usb_host_irq;
+#endif
+
 	dwc->xhci_resources[1].start = irq;
 	dwc->xhci_resources[1].end = irq;
 	dwc->xhci_resources[1].flags = res->flags;
 	dwc->xhci_resources[1].name = res->name;
+
+#ifdef CONFIG_USB_RTK_DWC3_DRD_MODE
+    dev_info(dwc->dev, "%s\n", __func__);
+#endif
 
 	xhci = platform_device_alloc("xhci-hcd", PLATFORM_DEVID_AUTO);
 	if (!xhci) {
 		dev_err(dwc->dev, "couldn't allocate xHCI device\n");
 		return -ENOMEM;
 	}
+#ifdef CONFIG_USB_DWC3_RTK
+    of_dma_configure(&xhci->dev, NULL);
+#endif
 
 	xhci->dev.parent	= dwc->dev;
 	ACPI_COMPANION_SET(&xhci->dev, ACPI_COMPANION(dwc->dev));
 
 	dwc->xhci = xhci;
 
+#ifdef CONFIG_USB_RTK_DWC3_DRD_MODE
+    dwc->has_xhci = true;
+#endif
 	ret = platform_device_add_resources(xhci, dwc->xhci_resources,
 						DWC3_XHCI_RESOURCES_NUM);
 	if (ret) {
@@ -129,5 +152,8 @@ err:
 
 void dwc3_host_exit(struct dwc3 *dwc)
 {
+#ifdef CONFIG_USB_RTK_DWC3_DRD_MODE
+    dwc->has_xhci = false;
+#endif
 	platform_device_unregister(dwc->xhci);
 }

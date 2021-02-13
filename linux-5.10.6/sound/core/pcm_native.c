@@ -3272,6 +3272,20 @@ static int snd_pcm_common_ioctl(struct file *file,
 		return snd_pcm_drop(substream);
 	case SNDRV_PCM_IOCTL_PAUSE:
 		return snd_pcm_pause_lock_irq(substream, (unsigned long)arg);
+#ifdef CONFIG_RTK_PLATFORM
+    case SNDRV_PCM_IOCTL_VOLUME_SET:
+    case SNDRV_PCM_IOCTL_VOLUME_GET:
+    case SNDRV_PCM_IOCTL_GET_LATENCY:
+    case SNDRV_PCM_IOCTL_GET_FW_DELAY:
+        snd_printd("############## %s %d\n", __func__, __LINE__);
+        snd_printd("substream->name = %s\n", substream->pcm->card->driver);
+        /* realtek sound card driver name */
+        if((strcmp(substream->pcm->card->driver, "snd_alsa_rtk") == 0))
+            substream->ops->ioctl(substream, cmd, arg);
+
+        return 0;
+#endif /* CONFIG_RTK_PLATFORM */
+	
 	case SNDRV_PCM_IOCTL_WRITEI_FRAMES:
 	case SNDRV_PCM_IOCTL_READI_FRAMES:
 		return snd_pcm_xferi_frames_ioctl(substream, arg);

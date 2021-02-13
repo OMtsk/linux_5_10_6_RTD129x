@@ -17,6 +17,7 @@
 #include <linux/of_irq.h>
 #include <linux/delay.h>
 #include <linux/io.h>
+#include <xen/xen.h>
 
 #include <asm/system_misc.h>
 

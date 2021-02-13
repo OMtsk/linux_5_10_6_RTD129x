@@ -1249,7 +1249,7 @@ static int mmc_select_hs400(struct mmc_card *card)
     max_dtr = card->ext_csd.hs_max_dtr;
     mmc_set_clock(host, max_dtr);
 
-    err = mmc_switch_status(card);
+    err = mmc_switch_status(card, true);
     if (err)
         goto out_err;
 #endif
@@ -1315,7 +1315,7 @@ static int mmc_select_hs400(struct mmc_card *card)
     mmc_set_timing(host, MMC_TIMING_MMC_HS400);
     mmc_set_bus_speed(card);
 
-    err = mmc_switch_status(card);
+    err = mmc_switch_status(card, true);
     if (err)
         goto out_err;
 #endif
@@ -1385,7 +1385,7 @@ int mmc_hs400_to_hs200(struct mmc_card *card)
 
     mmc_set_timing(host, MMC_TIMING_MMC_DDR52);
 
-    err = mmc_switch_status(card);
+    err = mmc_switch_status(card, true);
     if (err)
         goto out_err;
 
@@ -1398,7 +1398,7 @@ int mmc_hs400_to_hs200(struct mmc_card *card)
 
     mmc_set_timing(host, MMC_TIMING_MMC_HS);
 
-    err = mmc_switch_status(card);
+    err = mmc_switch_status(card, true);
     if (err)
         goto out_err;
 
@@ -1413,7 +1413,7 @@ int mmc_hs400_to_hs200(struct mmc_card *card)
 
     mmc_set_timing(host, MMC_TIMING_MMC_HS200);
 
-    err = mmc_switch_status(card);
+    err = mmc_switch_status(card, true);
     if (err)
         goto out_err;
 #endif
@@ -1657,7 +1657,7 @@ static int mmc_select_hs200(struct mmc_card *card)
 #ifdef CONFIG_MMC_RTK_EMMC
         return err;
 #else
-        err = mmc_switch_status(card);
+        err = mmc_switch_status(card,true);
         /*
          * mmc_select_timing() assumes timing has not changed if
          * it is a switch error.

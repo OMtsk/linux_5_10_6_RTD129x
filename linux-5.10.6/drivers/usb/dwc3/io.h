@@ -16,6 +16,11 @@
 #include "debug.h"
 #include "core.h"
 
+#ifdef CONFIG_USB_PATCH_ON_RTK
+/* Add global lock for emmc issue*/
+#include <soc/realtek/rtd129x_lockapi.h>
+#endif
+
 static inline u32 dwc3_readl(void __iomem *base, u32 offset)
 {
 	u32 value;

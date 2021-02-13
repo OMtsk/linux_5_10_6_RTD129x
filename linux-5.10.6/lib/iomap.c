@@ -8,6 +8,8 @@
 #include <linux/io.h>
 
 #include <linux/export.h>
+#include <linux/rtk_trace.h>
+
 
 /*
  * Read/write from/to an (offsettable) iomem cookie. It might be a PIO

@@ -133,6 +133,11 @@ EXPORT_SYMBOL(system_state);
 #define MAX_INIT_ARGS CONFIG_INIT_ENV_ARG_LIMIT
 #define MAX_INIT_ENVS CONFIG_INIT_ENV_ARG_LIMIT
 
+#ifdef CONFIG_RTK_MEM_REMAP
+extern void rtk_mem_remap_of_init(void);
+extern void of_reserved_mem_remap(void);
+#endif
+
 extern void time_init(void);
 /* Default late time init is NULL. archs can override this later. */
 void (*__initdata late_time_init)(void);
@@ -970,6 +975,10 @@ asmlinkage __visible void __init __no_sanitize_address start_kernel(void)
 	boot_init_stack_canary();
 
 	time_init();
+#ifdef CONFIG_RTK_MEM_REMAP
+    //rtk_mem_remap_of_init();
+    of_reserved_mem_remap();
+#endif
 	perf_event_init();
 	profile_init();
 	call_function_init();

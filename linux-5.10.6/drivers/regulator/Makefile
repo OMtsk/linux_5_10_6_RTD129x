@@ -159,8 +159,11 @@ obj-$(CONFIG_REGULATOR_WM8400) += wm8400-regulator.o
 obj-$(CONFIG_REGULATOR_WM8994) += wm8994-regulator.o
 obj-$(CONFIG_REGULATOR_G2227) += g2227-regulator.o
 obj-$(CONFIG_REGULATOR_G2237) += g2237-regulator.o
+obj-$(CONFIG_REGULATOR_SY8827E) += sy8827e-regulator.o
 obj-$(CONFIG_REGULATOR_RTKGPIO) += rtkgpio-regulator.o
 obj-$(CONFIG_REGULATOR_REALTEK_PWM) += rtk-pwm-regulator.o
+obj-$(CONFIG_XEN_REGDEV_FRONTEND) += xen-regfront.o
+obj-$(CONFIG_XEN_REGDEV_BACKEND) += xen-regback/
 obj-$(CONFIG_REGULATOR_RTD119X_GPIO) += rtd119x-gpio-regulator.o
 
 ccflags-$(CONFIG_REGULATOR_DEBUG) += -DDEBUG

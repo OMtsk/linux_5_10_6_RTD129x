@@ -1271,6 +1271,12 @@ MODULE_LICENSE ("GPL");
 #define TMIO_OHCI_DRIVER	ohci_hcd_tmio_driver
 #endif
 
+#ifdef CONFIG_USB_OHCI_RTK
+#include "ohci-rtk.c"
+#define PLATFORM_DRIVER     ohci_rtk_driver
+#endif
+
+
 static int __init ohci_hcd_mod_init(void)
 {
 	int retval = 0;

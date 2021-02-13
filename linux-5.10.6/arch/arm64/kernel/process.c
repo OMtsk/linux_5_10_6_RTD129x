@@ -17,6 +17,7 @@
 #include <linux/sched/debug.h>
 #include <linux/sched/task.h>
 #include <linux/sched/task_stack.h>
+#include <linux/sched/clock.h>
 #include <linux/kernel.h>
 #include <linux/lockdep.h>
 #include <linux/mman.h>

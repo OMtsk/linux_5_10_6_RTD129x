@@ -23,7 +23,7 @@
 #include <asm/hardirq.h>
 #include <asm/exception.h>
 #include <asm/irq.h>
-
+#include <xen/xen.h>
 #include "irq-rtd129x.h"
 
 #define DEV_NAME "RTK_IRQ_MUX"

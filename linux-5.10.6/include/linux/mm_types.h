@@ -355,12 +355,19 @@ struct vm_area_struct {
 
 	/* Function pointers to deal with this struct. */
 	const struct vm_operations_struct *vm_ops;
+#ifdef CONFIG_RTK_PLATFORM
+    const struct vm_operations_struct *vm_rtk_ops;
+#endif /* CONFIG_RTK_PLATFORM */
 
 	/* Information about our backing store: */
 	unsigned long vm_pgoff;		/* Offset (within vm_file) in PAGE_SIZE
 					   units */
 	struct file * vm_file;		/* File we map to (can be NULL). */
 	void * vm_private_data;		/* was vm_pte (shared mem) */
+
+#ifdef CONFIG_RTK_PLATFORM
+    void * vm_rtk_private_data;     /* was vm_pte (shared mem) */
+#endif /* CONFIG_RTK_PLATFORM */
 
 #ifdef CONFIG_SWAP
 	atomic_long_t swap_readahead_info;

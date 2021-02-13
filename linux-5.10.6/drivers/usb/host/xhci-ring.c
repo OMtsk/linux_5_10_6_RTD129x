@@ -2823,6 +2823,10 @@ static void xhci_update_erst_dequeue(struct xhci_hcd *xhci,
 	xhci_write_64(xhci, temp_64, &xhci->ir_set->erst_dequeue);
 }
 
+#ifdef CONFIG_XEN_USBHOST_FRONTEND
+extern void rtk_hostirq_unmask(void);
+#endif
+
 /*
  * xHCI spec says we can get an interrupt, and if the HC has an error condition,
  * we might get bad data out of the event ring.  Section 4.10.2.7 has a list of
@@ -2847,13 +2851,20 @@ irqreturn_t xhci_irq(struct usb_hcd *hcd)
 		goto out;
 	}
 
-	if (!(status & STS_EINT))
+	if (!(status & STS_EINT)){
+#ifdef CONFIG_XEN_USBHOST_FRONTEND
+        rtk_hostirq_unmask();
+#endif
 		goto out;
+}
 
 	if (status & STS_FATAL) {
 		xhci_warn(xhci, "WARNING: Host System Error\n");
 		xhci_halt(xhci);
 		ret = IRQ_HANDLED;
+#ifdef CONFIG_XEN_USBHOST_FRONTEND
+        rtk_hostirq_unmask();
+#endif
 		goto out;
 	}
 
@@ -2882,6 +2893,9 @@ irqreturn_t xhci_irq(struct usb_hcd *hcd)
 		temp_64 = xhci_read_64(xhci, &xhci->ir_set->erst_dequeue);
 		xhci_write_64(xhci, temp_64 | ERST_EHB,
 				&xhci->ir_set->erst_dequeue);
+#ifdef CONFIG_XEN_USBHOST_FRONTEND
+        rtk_hostirq_unmask();
+#endif
 		ret = IRQ_HANDLED;
 		goto out;
 	}
@@ -2899,6 +2913,9 @@ irqreturn_t xhci_irq(struct usb_hcd *hcd)
 
 	xhci_update_erst_dequeue(xhci, event_ring_deq);
 	ret = IRQ_HANDLED;
+#ifdef CONFIG_XEN_USBHOST_FRONTEND
+    rtk_hostirq_unmask();
+#endif
 
 out:
 	spin_unlock_irqrestore(&xhci->lock, flags);

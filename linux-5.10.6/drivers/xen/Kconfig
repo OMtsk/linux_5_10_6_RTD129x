@@ -335,4 +335,5 @@ config XEN_UNPOPULATED_ALLOC
 	  having to balloon out RAM regions in order to obtain physical memory
 	  space to create such mappings.
 
+source "drivers/xen/xenusb/Kconfig"
 endmenu

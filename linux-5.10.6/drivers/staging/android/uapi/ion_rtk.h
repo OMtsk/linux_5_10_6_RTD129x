@@ -60,13 +60,13 @@ struct RTK_ION_IOC_GET_MEMORY_INFO_S {
 };
 
 struct RTK_ION_IOC_SYNC_RANE {
-	int handle;
+	ion_user_handle_t handle;
 	unsigned long long phyAddr;
 	unsigned int len;
 };
 
 struct RTK_ION_IOC_PHY_INFO {
-	int handle;
+	ion_user_handle_t handle;
 	unsigned long long addr;
 	unsigned long long len;
 };

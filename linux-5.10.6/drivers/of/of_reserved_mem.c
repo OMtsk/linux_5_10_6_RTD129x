@@ -438,3 +438,14 @@ struct reserved_mem *of_reserved_mem_lookup(struct device_node *np)
 	return NULL;
 }
 EXPORT_SYMBOL_GPL(of_reserved_mem_lookup);
+
+void of_reserved_mem_remap(void)
+{
+#ifdef CONFIG_RTK_MEM_REMAP
+    /* drivers/soc/realtek/commo/rtk_memory_remap.c */
+    extern void __init rtk_mem_remap_of_init_by_DT(struct reserved_mem *, int);
+    rtk_mem_remap_of_init_by_DT( reserved_mem, reserved_mem_count);
+#endif
+}
+EXPORT_SYMBOL_GPL(of_reserved_mem_remap);
+

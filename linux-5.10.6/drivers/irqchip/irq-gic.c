@@ -38,6 +38,7 @@
 #include <linux/irqchip.h>
 #include <linux/irqchip/chained_irq.h>
 #include <linux/irqchip/arm-gic.h>
+#include <xen/xen.h>
 
 #include <asm/cputype.h>
 #include <asm/irq.h>

@@ -293,6 +293,11 @@ struct mmc_host {
 	u32			max_current_300;
 	u32			max_current_180;
 
+#ifdef CONFIG_RTK_PLATFORM
+    u32         mode; //for rtkemmc_execute_tuning usage
+#endif /* CONFIG_RTK_PLATFORM */
+
+
 #define MMC_VDD_165_195		0x00000080	/* VDD voltage 1.65 - 1.95 */
 #define MMC_VDD_20_21		0x00000100	/* VDD voltage 2.0 ~ 2.1 */
 #define MMC_VDD_21_22		0x00000200	/* VDD voltage 2.1 ~ 2.2 */
@@ -433,6 +438,12 @@ struct mmc_host {
 	const struct mmc_bus_ops *bus_ops;	/* current bus driver */
 	unsigned int		bus_refs;	/* reference counter */
 
+#ifdef CONFIG_RTK_PLATFORM
+    unsigned int        bus_resume_flags;
+    #define MMC_BUSRESUME_MANUAL_RESUME     (1 << 0)
+    #define MMC_BUSRESUME_NEEDS_RESUME      (1 << 1)
+#endif /* CONFIG_RTK_PLATFORM */
+
 	unsigned int		sdio_irqs;
 	struct task_struct	*sdio_irq_thread;
 	struct delayed_work	sdio_irq_work;
@@ -501,6 +512,14 @@ static inline struct mmc_host *mmc_from_priv(void *priv)
 #define mmc_dev(x)	((x)->parent)
 #define mmc_classdev(x)	(&(x)->class_dev)
 #define mmc_hostname(x)	(dev_name(&(x)->class_dev))
+
+#ifdef CONFIG_RTK_PLATFORM
+#define mmc_bus_needs_resume(host) ((host)->bus_resume_flags & MMC_BUSRESUME_NEEDS_RESUME)
+#define mmc_bus_manual_resume(host) ((host)->bus_resume_flags & MMC_BUSRESUME_MANUAL_RESUME)
+int mmc_suspend_host(struct mmc_host *);
+int mmc_resume_host(struct mmc_host *);
+#endif /* CONFIG_RTK_PLATFORM */
+
 
 void mmc_detect_change(struct mmc_host *, unsigned long delay);
 void mmc_request_done(struct mmc_host *, struct mmc_request *);
