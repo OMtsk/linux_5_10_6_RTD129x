@@ -21,7 +21,7 @@
 #include <linux/delay.h>
 #include <linux/dma-mapping.h>
 #include <linux/uaccess.h>
-
+#include <linux/kmemleak.h>
 #include "rtk_rpc.h"
 
 volatile RPC_DEV *rpc_poll_devices;

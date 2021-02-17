@@ -46,7 +46,7 @@ enum ion_heap_type {
 			       */
 };
 
-#if defined(CONFIG_ION_RTK)
+#ifdef CONFIG_ION_RTK
 #define ION_HEAP_SYSTEM_MASK		(1 << ION_HEAP_TYPE_SYSTEM)
 #define ION_HEAP_SYSTEM_CONTIG_MASK	(1 << ION_HEAP_TYPE_SYSTEM_CONTIG)
 #define ION_HEAP_CARVEOUT_MASK		(1 << ION_HEAP_TYPE_CARVEOUT)
@@ -72,7 +72,7 @@ enum ion_heap_type {
  */
 #define ION_FLAG_CACHED_NEEDS_SYNC 2
 
-#if defined(CONFIG_ION_RTK)
+#ifndef CONFIG_ION_RTK
 #define ION_FLAG_NONCACHED		(1 << 31)
 #define ION_FLAG_SCPUACC		(1 << 30)
 #define ION_FLAG_ACPUACC		(1 << 29)
@@ -155,7 +155,7 @@ struct ion_custom_data {
 };
 
 /* 20130208 charleslin: support getting physical address */
-#if defined(CONFIG_ION_RTK)
+#ifndef CONFIG_ION_RTK
 struct ion_phys_data {
 	ion_user_handle_t handle;
 	unsigned long addr;

@@ -75,7 +75,7 @@ static inline struct sync_pt *dma_fence_to_sync_pt(struct dma_fence *fence)
  * Creates a new sync_timeline. Returns the sync_timeline object or NULL in
  * case of error.
  */
-static struct sync_timeline *sync_timeline_create(const char *name)
+struct sync_timeline *sync_timeline_create(const char *name)
 {
 	struct sync_timeline *obj;
 
@@ -95,6 +95,7 @@ static struct sync_timeline *sync_timeline_create(const char *name)
 
 	return obj;
 }
+EXPORT_SYMBOL(sync_timeline_create);
 
 static void sync_timeline_free(struct kref *kref)
 {

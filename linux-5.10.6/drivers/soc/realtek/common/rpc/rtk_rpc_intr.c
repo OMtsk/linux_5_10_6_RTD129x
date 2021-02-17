@@ -25,7 +25,7 @@
 #include <linux/io.h>
 #include <linux/uaccess.h>
 #include <linux/kthread.h>
-
+#include <linux/kmemleak.h>
 
 #include "rtk_rpc.h"
 

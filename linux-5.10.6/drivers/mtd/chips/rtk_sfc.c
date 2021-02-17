@@ -3090,8 +3090,8 @@ static int rtk_EON_segm_erase(struct mtd_info *mtd, struct erase_info *instr) {
 
     up_write(&rw_sem);
 
-    instr->state = MTD_ERASE_DONE;
-    mtd_erase_callback(instr);
+    //instr->state = MTD_ERASE_DONE;
+    //mtd_erase_callback(instr);
 
 #if defined(CONFIG_MTD_RTK_SFC_DEBUG) 
     change_status(ERASE_COMPLETED);
@@ -3295,8 +3295,8 @@ static int rtk_sfc_erase(struct mtd_info *mtd, struct erase_info *instr)
 
     up_write(&rw_sem);
 
-    instr->state = MTD_ERASE_DONE;
-    mtd_erase_callback(instr);
+    //instr->state = MTD_ERASE_DONE;
+    //mtd_erase_callback(instr);
 
 #if defined(CONFIG_MTD_RTK_SFC_DEBUG) 
     change_status(ERASE_COMPLETED);
@@ -3750,7 +3750,7 @@ static int rtk_sfc_attach(struct mtd_info *mtd_info)
      */
 #ifdef CONFIG_MTD_CMDLINE_PARTS
     printk("[%s]descriptor size 0x%x\n",__FUNCTION__,(unsigned int)descriptor.size);    
-    if(!parse_mtd_partitions(&descriptor, part_probes, &mtd_parts, NULL))
+    if(!parse_mtd_partitions(&descriptor, part_probes, NULL))
         nr_parts = mtd_parts.nr_parts;
 #endif
 

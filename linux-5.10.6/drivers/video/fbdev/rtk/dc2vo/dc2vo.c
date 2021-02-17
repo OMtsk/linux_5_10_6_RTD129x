@@ -864,7 +864,7 @@ long dc_wait_vsync_timeout(DC_INFO *pdc_info)
 	read_unlock_irqrestore(&pdc_info->vsync_lock, flags);
 
 	timeout = wait_event_interruptible_hrtimeout(pdc_info->vsync_wait,
-			!ktime_equal(timestamp, pdc_info->vsync_timestamp),
+			!ktime_compare(timestamp, pdc_info->vsync_timestamp),
             ktime_set( 0, (pdc_info->vsync_timeout_ms * NSEC_PER_MSEC)));
 
 	if (timeout ==  -ETIME) {
@@ -895,13 +895,13 @@ static void dc_fence_wait(DC_INFO * pdc_info, struct sync_file *fence)
 	 * by a longer one provides useful information for debugging.
 	 */
 
-	int err = fence_wait_timeout(fence->fence, 1, DC_SHORT_FENCE_TIMEOUT);
+	int err = dma_fence_wait_timeout(fence->fence, 1, DC_SHORT_FENCE_TIMEOUT);
 
 	if (err >= 0)
 		return;
 
 	if (err == -ETIME)
-		err = fence_wait_timeout(fence->fence, 1, DC_LONG_FENCE_TIMEOUT);
+		err = dma_fence_wait_timeout(fence->fence, 1, DC_LONG_FENCE_TIMEOUT);
 
 	if (err < 0)
 		pr_warn("error waiting on fence: %d\n", err);
@@ -909,10 +909,10 @@ static void dc_fence_wait(DC_INFO * pdc_info, struct sync_file *fence)
 
 static void dc_fence_put(struct sync_file *fence)
 {
-	struct fence *my_fence = fence->fence;
+	struct dma_fence *my_fence = fence->fence;
 
 	if (my_fence)
-		kref_put(&my_fence->refcount, fence_release);
+		kref_put(&my_fence->refcount, dma_fence_release);
 }
 
 void dc_buffer_dump(struct dc_buffer *buf)
@@ -1015,13 +1015,13 @@ static struct sync_file *dc_sw_complete_fence(DC_INFO *pdc_info)
 	if (!complete_fence)
 		goto err_fence_create;
 
-    fence_put(&pt->base);
+    dma_fence_put(&pt->base);
 
 	return complete_fence;
 
 err_fence_create:
 	pr_err("[%s %d]\n", __func__, __LINE__);
-	fence_put(&pt->base);
+	dma_fence_put(&pt->base);
 
 err_pt_create:
 	pr_err("[%s %d]\n", __func__, __LINE__);

@@ -982,7 +982,7 @@ static int rtd1295_pwm_probe(struct platform_device *pdev)
 	pwm->chip.ops = &rtd1295_pwm_ops;
 	pwm->chip.base = 0; // -1;
 	pwm->chip.npwm = NUM_PWM;
-	pwm->chip.can_sleep = true;
+	//pwm->chip.can_sleep = true;
 
 	ret = sysfs_create_group(&pdev->dev.kobj, &pwm_dev_attr_group);
 	if (ret < 0) {

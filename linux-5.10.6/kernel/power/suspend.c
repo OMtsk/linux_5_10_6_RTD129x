@@ -16,6 +16,8 @@
 #include <linux/console.h>
 #include <linux/cpu.h>
 #include <linux/cpuidle.h>
+#include <linux/syscalls.h>
+
 #include <linux/gfp.h>
 #include <linux/io.h>
 #include <linux/kernel.h>
@@ -32,6 +34,22 @@
 #include <linux/moduleparam.h>
 
 #include "power.h"
+
+#ifdef CONFIG_RTK_PLATFORM
+int RTK_PM_STATE;
+EXPORT_SYMBOL(RTK_PM_STATE);
+#endif/* CONFIG_RTK_PLATFORM */
+
+#ifdef CONFIG_AHCI_RTK
+extern struct task_struct *rtk_sata_dev_task;
+#endif
+
+#ifdef CONFIG_RTK_XEN_SUPPORT
+extern int xen_suspend_to_ram(void);
+#else
+/* should never reach here */
+static inline int xen_suspend_to_ram(void) { BUG(); };
+#endif
 
 const char * const pm_labels[] = {
 	[PM_SUSPEND_TO_IDLE] = "freeze",
@@ -560,7 +578,8 @@ static int enter_state(suspend_state_t state)
     }
 
     if (state == PM_SUSPEND_MEM){
-        sys_sync();
+        //sys_sync();
+		ksys_sync_helper();
 #ifdef CONFIG_AHCI_RTK
         if (rtk_sata_dev_task != NULL) {
             wake_up_process(rtk_sata_dev_task);

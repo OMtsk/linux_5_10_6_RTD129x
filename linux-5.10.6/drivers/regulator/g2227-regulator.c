@@ -389,8 +389,8 @@ static int g2227_regulator_probe(struct i2c_client *client,
 		if (desc[i].desc.id == G2227_ID_DCDC6 &&
 			(chip_rev == RTD129x_CHIP_REVISION_A00 ||
 			chip_rev == RTD129x_CHIP_REVISION_B00)) {
-			desc[i].state_mem.enabled  = true;
-			desc[i].state_mem.disabled = false;
+			desc[i].state_mem.enabled  = ENABLE_IN_SUSPEND;
+			//desc[i].state_mem.disabled = false;
 		}
 	}
 

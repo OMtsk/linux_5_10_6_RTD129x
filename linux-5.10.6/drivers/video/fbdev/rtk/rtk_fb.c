@@ -40,6 +40,7 @@
 #include <linux/io.h>
 //#include <linux/dma-contiguous.h>
 #include <asm/div64.h>
+#include <linux/device.h>
 
 #include "debug.h"
 #include "rtk_fb.h"

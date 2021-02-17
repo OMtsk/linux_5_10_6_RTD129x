@@ -40,6 +40,10 @@ typedef int __bitwise suspend_state_t;
 #define PM_SUSPEND_MIN		PM_SUSPEND_TO_IDLE
 #define PM_SUSPEND_MAX		((__force suspend_state_t) 4)
 
+#ifdef CONFIG_RTK_PLATFORM
+extern int RTK_PM_STATE;
+#endif /* CONFIG_RTK_PLATFORM */
+
 enum suspend_stat_step {
 	SUSPEND_FREEZE = 1,
 	SUSPEND_PREPARE,

@@ -418,7 +418,8 @@ static int rtk_gspi_probe(struct platform_device *pdev)
 	struct rtk_gspi *hw;
 	struct spi_master *master;
 	struct clk *clk = clk_get(&pdev->dev, NULL);
-	struct reset_control *rstc = reset_control_get(&pdev->dev, NULL);
+	//struct reset_control *rstc = reset_control_get(&pdev->dev, NULL);
+	struct reset_control *rstc = reset_control_get_exclusive(&pdev->dev, NULL);
 
 	int err = -ENODEV;
 

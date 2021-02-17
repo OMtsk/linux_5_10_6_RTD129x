@@ -41,7 +41,7 @@
 #include "ion_priv.h"
 #include "compat_ion.h"
 
-#if defined(CONFIG_ION_RTK)
+#ifndef CONFIG_ION_RTK
 #include "../uapi/ion_rtk.h"
 #endif
 
@@ -406,7 +406,7 @@ static int ion_handle_add(struct ion_client *client, struct ion_handle *handle)
 	return 0;
 }
 
-#if defined(CONFIG_ION_RTK)
+#ifndef CONFIG_ION_RTK
 struct ion_heap * ion_get_client_heap_by_mask(struct ion_client *client,  unsigned int heap_id_mask)
 {
 	struct ion_device *dev = client->dev;
@@ -508,7 +508,7 @@ void ion_free(struct ion_client *client, struct ion_handle *handle)
 }
 EXPORT_SYMBOL(ion_free);
 
-#if defined(CONFIG_ION_RTK)
+#ifndef CONFIG_ION_RTK
 int ion_phys(struct ion_client *client, struct ion_handle *handle,
 	     ion_phys_addr_t *addr, size_t *len)
 {
@@ -855,7 +855,7 @@ void ion_client_destroy(struct ion_client *client)
 }
 EXPORT_SYMBOL(ion_client_destroy);
 
-#if defined(CONFIG_ION_RTK)
+#ifdef CONFIG_ION_RTK
 struct sg_table *ion_sg_table(struct ion_client *client,
 	struct ion_handle *handle)
 {
@@ -1011,7 +1011,7 @@ static void ion_vm_close(struct vm_area_struct *vma)
 	}
 	mutex_unlock(&buffer->lock);
 }
-#if defined(CONFIG_ION_RTK)
+#ifndef CONFIG_ION_RTK
 const struct vm_operations_struct ion_vma_ops = {
 	.open = ion_vm_open,
 	.close = ion_vm_close,
@@ -1046,7 +1046,7 @@ static int ion_mmap(struct dma_buf *dmabuf, struct vm_area_struct *vma)
 		return 0;
 	}
 
-#if defined(CONFIG_ION_RTK)
+#ifndef CONFIG_ION_RTK
 #if 0
 	if (buffer->heap->type == RTK_PHOENIX_ION_HEAP_TYPE_MEDIA ||
 		buffer->heap->type == RTK_PHOENIX_ION_HEAP_TYPE_AUDIO ||
@@ -1073,7 +1073,7 @@ static int ion_mmap(struct dma_buf *dmabuf, struct vm_area_struct *vma)
 	return ret;
 }
 
-#if defined(CONFIG_ION_RTK)
+#ifndef CONFIG_ION_RTK
 int ion_mmap_by_handle(struct ion_handle *handle, struct vm_area_struct *vma)
 {
 	struct dma_buf dmabuf;
@@ -1257,7 +1257,7 @@ struct ion_handle *ion_import_dma_buf_fd(struct ion_client *client, int fd)
 }
 EXPORT_SYMBOL(ion_import_dma_buf_fd);
 
-#if defined(CONFIG_ION_RTK)
+#ifndef CONFIG_ION_RTK
 struct ion_handle *ion_import_dma_buf_point(struct ion_client *client, struct dma_buf *dmabuf)
 {
 	struct ion_buffer *buffer;
