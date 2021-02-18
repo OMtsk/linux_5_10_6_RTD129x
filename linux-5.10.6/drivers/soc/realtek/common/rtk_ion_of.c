@@ -7,7 +7,8 @@
 #include <linux/slab.h>
 #include <linux/of.h>
 #include <linux/of_address.h>
-#include <linux/dma-contiguous.h>
+//#include <linux/dma-contiguous.h>
+#include <linux/dma-map-ops.h>
 
 #if LINUX_VERSION_CODE > KERNEL_VERSION(3, 10, 9)
 #include "../../drivers/staging/android/ion/ion.h"

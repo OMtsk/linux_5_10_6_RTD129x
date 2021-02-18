@@ -278,7 +278,7 @@ static int ohci_rtk_drv_remove(struct platform_device *pdev)
 		struct ohci_hcd *ohci;
 		ohci = hcd_to_ohci(hcd);
 		if (ohci->wrap_reg)
-			__iounmap(ohci->wrap_reg);
+			iounmap(ohci->wrap_reg);
 	}
 #endif
 

@@ -338,10 +338,12 @@ static int rtk_i2c_suspend(struct device *dev)
 
 	pr_info("[I2C] Enter %s\n", __func__);
 
-	i2c_lock_adapter(&i2c_dev->adapter);
+	//i2c_lock_adapter(&i2c_dev->adapter);
+	i2c_lock_bus(&i2c_dev->adapter, I2C_LOCK_ROOT_ADAPTER);
 	i2c_dev->is_suspended = true;
 	clk_disable_unprepare(i2c_dev->div_clk);
-	i2c_unlock_adapter(&i2c_dev->adapter);
+	//i2c_unlock_adapter(&i2c_dev->adapter);
+	i2c_lock_bus(&i2c_dev->adapter, I2C_LOCK_ROOT_ADAPTER);
 
 	pr_info("[I2C] Exit %s\n", __func__);
 	return 0;
@@ -354,20 +356,20 @@ static int rtk_i2c_resume(struct device *dev)
 
 	pr_info("[I2C] Enter %s\n", __func__);
 
-	i2c_lock_adapter(&i2c_dev->adapter);
+	i2c_lock_bus(&i2c_dev->adapter,I2C_LOCK_ROOT_ADAPTER);
 
 	clk_prepare_enable(i2c_dev->div_clk);
 
 	ret = rtk_i2c_init(i2c_dev);
 
 	if (ret) {
-		i2c_unlock_adapter(&i2c_dev->adapter);
+		i2c_unlock_bus(&i2c_dev->adapter, I2C_LOCK_ROOT_ADAPTER);
 		return ret;
 	}
 
 	i2c_dev->is_suspended = false;
 
-	i2c_unlock_adapter(&i2c_dev->adapter);
+	i2c_unlock_bus(&i2c_dev->adapter, I2C_LOCK_ROOT_ADAPTER);
 
 	pr_info("[I2C] Exit %s\n", __func__);
 	return 0;

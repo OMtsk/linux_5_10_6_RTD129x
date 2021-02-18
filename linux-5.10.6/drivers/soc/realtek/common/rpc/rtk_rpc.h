@@ -20,6 +20,7 @@
 #include <linux/devfs_fs_kernel.h>
 #endif
 #include "soc/realtek/memory.h"
+//#include <linux/kmemleak.h>
 
 #define MY_COPY
 

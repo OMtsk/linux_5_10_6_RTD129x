@@ -72,7 +72,7 @@ enum ion_heap_type {
  */
 #define ION_FLAG_CACHED_NEEDS_SYNC 2
 
-#ifndef CONFIG_ION_RTK
+#ifdef CONFIG_ION_RTK
 #define ION_FLAG_NONCACHED		(1 << 31)
 #define ION_FLAG_SCPUACC		(1 << 30)
 #define ION_FLAG_ACPUACC		(1 << 29)
@@ -155,7 +155,7 @@ struct ion_custom_data {
 };
 
 /* 20130208 charleslin: support getting physical address */
-#ifndef CONFIG_ION_RTK
+#ifdef CONFIG_ION_RTK
 struct ion_phys_data {
 	ion_user_handle_t handle;
 	unsigned long addr;

@@ -23,7 +23,8 @@
 #include <linux/vmalloc.h>
 #include <linux/bitops.h>
 #include <linux/sched.h>
-#include <linux/dma-contiguous.h>
+//#include <linux/dma-contiguous.h>
+#include <linux/dma-map-ops.h>
 #include <linux/cma.h>
 #include <linux/module.h>
 

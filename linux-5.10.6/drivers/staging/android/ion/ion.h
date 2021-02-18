@@ -118,7 +118,7 @@ struct ion_handle *ion_alloc(struct ion_client *client, size_t len,
  */
 void ion_free(struct ion_client *client, struct ion_handle *handle);
 
-#ifndef CONFIG_ION_RTK
+#ifdef CONFIG_ION_RTK
 
 /**
  * ion_phys - returns the physical address and len of a handle
@@ -207,7 +207,7 @@ struct ion_handle *ion_import_dma_buf(struct ion_client *client,
  */
 struct ion_handle *ion_import_dma_buf_fd(struct ion_client *client, int fd);
 
-#ifndef CONFIG_ION_RTK
+#ifdef CONFIG_ION_RTK
 struct ion_handle *ion_import_dma_buf_point(struct ion_client *client, struct dma_buf *dmabuf);
 int ion_mmap_by_handle(struct ion_handle *handle, struct vm_area_struct *vma);
 extern const struct vm_operations_struct ion_vma_ops;

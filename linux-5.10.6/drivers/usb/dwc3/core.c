@@ -1094,8 +1094,8 @@ static int dwc3_core_init(struct dwc3 *dwc)
 
 #ifdef CONFIG_USB_PATCH_ON_RTK
     if (dwc->revision >= DWC3_REVISION_300A)
-        dwc3_writel(dwc->regs, DWC3_DEV_IMOD,
-                    dwc3_readl(dwc->regs, DWC3_DEV_IMOD) | DWC3_DEVICE_IMODI(0x1));
+        dwc3_writel(dwc->regs, DWC3_DEV_IMOD(0)(0),
+                    dwc3_readl(dwc->regs, DWC3_DEV_IMOD(0)) | DWC3_DEVICE_IMODI(0x1));
 #endif
 
 #endif
@@ -2093,8 +2093,8 @@ static int dwc3_resume(struct device *dev)
 
 #ifdef CONFIG_USB_PATCH_ON_RTK
     if (dwc->revision >= DWC3_REVISION_300A)
-        dwc3_writel(dwc->regs, DWC3_DEV_IMOD,
-                dwc3_readl(dwc->regs, DWC3_DEV_IMOD) |
+        dwc3_writel(dwc->regs, DWC3_DEV_IMOD(0),
+                dwc3_readl(dwc->regs, DWC3_DEV_IMOD(0)) |
                     DWC3_DEVICE_IMODI(0x1));
 #endif
 

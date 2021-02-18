@@ -265,7 +265,7 @@ static int ahci_rtk_probe(struct platform_device *pdev)
 	ahci_dev->chip_revision = get_rtd_chip_revision();
 	ahci_dev->dev = dev;
 
-	hpriv = ahci_platform_get_resources(pdev);
+	hpriv = ahci_platform_get_resources(pdev, 0);
 	if (IS_ERR(hpriv))
 		return PTR_ERR(hpriv);
 	g_hpriv = hpriv;

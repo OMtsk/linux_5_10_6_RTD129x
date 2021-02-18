@@ -152,6 +152,10 @@ textofs-$(CONFIG_ARCH_MSM8X60) := 0x00208000
 textofs-$(CONFIG_ARCH_MSM8960) := 0x00208000
 textofs-$(CONFIG_ARCH_MESON) := 0x00208000
 textofs-$(CONFIG_ARCH_AXXIA) := 0x00308000
+textofs-$(CONFIG_ARCH_RTD119X) := 0x00108000
+textofs-$(CONFIG_ARCH_RTD129x) := 0x00208000
+textofs-$(CONFIG_ARCH_RTD139x) := 0x00208000
+
 
 # Machine directory name.  This list is sorted alphanumerically
 # by CONFIG_* macro name.
@@ -227,6 +231,10 @@ machine-$(CONFIG_ARCH_VT8500)		+= vt8500
 machine-$(CONFIG_ARCH_ZX)		+= zx
 machine-$(CONFIG_ARCH_ZYNQ)		+= zynq
 machine-$(CONFIG_PLAT_SPEAR)		+= spear
+machine-$(CONFIG_ARCH_RTD119X)  += rtd119x
+machine-$(CONFIG_ARCH_RTD129x)  += rtd129x
+machine-$(CONFIG_ARCH_RTD139x)  += rtd139x
+
 
 # Platform directory name.  This list is sorted alphanumerically
 # by CONFIG_* macro name.

@@ -24,12 +24,15 @@
 #include <linux/kthread.h>
 #include <linux/io.h>
 #include <linux/uaccess.h>
+#include <linux/kmemleak.h>
 
 #include "rtk_rpc.h"
 
 #define TIMEOUT (5*HZ)
 
-static struct radix_tree_root kernel_rpc_tree = RADIX_TREE_INIT(GFP_ATOMIC);
+RADIX_TREE(kernel_rpc_tree, GFP_ATOMIC);
+//static struct radix_tree_root kernel_rpc_tree = RADIX_TREE_INIT(GFP_ATOMIC);
+//static struct radix_tree_root kernel_rpc_tree = RADIX_TREE_INIT(kernel_rpc_tree, GFP_ATOMIC);
 //static struct semaphore kernel_rpc_sem;
 DECLARE_RWSEM(kernel_rpc_sem);
 

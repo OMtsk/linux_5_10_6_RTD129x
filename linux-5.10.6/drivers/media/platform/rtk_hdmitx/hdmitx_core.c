@@ -262,7 +262,8 @@ static int rtk_hdmi_probe(struct platform_device *pdev)
 		goto end;
 	}
 
-	tx_dev.reset_hdmi = reset_control_get(&pdev->dev, "rstn_hdmi");
+	tx_dev.reset_hdmi = reset_control_get_exclusive(&pdev->dev, "rstn_hdmi");
+	//tx_dev.reset_hdmi = reset_control_get(&pdev->dev, "rstn_hdmi");
 	if (IS_ERR(tx_dev.reset_hdmi)) {
 		HDMI_ERROR("Can't get reset_control reset_hdmi");
 		goto end;

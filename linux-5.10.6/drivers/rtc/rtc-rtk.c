@@ -20,6 +20,8 @@
 #include <linux/of_address.h>
 #include <linux/of_irq.h>
 #include <linux/clk.h>
+//#include <uapi/linux/time.h>
+#include <linux/time64.h>
 
 #include "rtc-rtk.h"
 
@@ -169,7 +171,7 @@ static int venus_rtc_alarm_aie_state(void)
 	return ret;
 }
 
-static void venus_rtc_read_alarm_persistent_clock(struct timespec *ts)
+static void venus_rtc_read_alarm_persistent_clock(struct timespec64 *ts)
 {
 	int day, hour, min;
 	int ret;
@@ -190,7 +192,7 @@ static void venus_rtc_read_alarm_persistent_clock(struct timespec *ts)
 		day = 0;
 	}
 
-	cur_time = mktime(rtk_base_year + 1900, 1, 1, 0, 0, 0);
+	cur_time = mktime64(rtk_base_year + 1900, 1, 1, 0, 0, 0);
 	ts->tv_sec = ((day * 24 + hour) * 60 + min) * 60 + cur_time;
 	ts->tv_nsec = 0;
 }
@@ -200,7 +202,7 @@ static int venus_rtc_set_alarm_mmss(unsigned long nowtime)
 	unsigned long flags;
 	int day, hour, min, hms;
 	unsigned long off_sec;
-	unsigned long base_sec = mktime(rtk_base_year + 1900, 1, 1, 0, 0, 0);
+	unsigned long base_sec = mktime64(rtk_base_year + 1900, 1, 1, 0, 0, 0);
 
 	off_sec = nowtime - base_sec;
 	if (base_sec > nowtime) {
@@ -235,7 +237,7 @@ static int venus_rtc_set_alarm_mmss(unsigned long nowtime)
 }
 #endif /*ALARM_ENABLE*/
 
-static void rtk_read_persistent_clock(struct device *dev, struct timespec *ts)
+static void rtk_read_persistent_clock(struct device *dev, struct timespec64 *ts)
 {
 	unsigned int retried = 0;
 	unsigned int day, hour, min, sec;
@@ -258,7 +260,7 @@ retry:
 	}
 	spin_unlock_irqrestore(&rtk_rtc_lock, flags);
 
-	cur_time = mktime(rtk_base_year + 1900, 1, 1, 0, 0, 0);
+	cur_time = mktime64(rtk_base_year + 1900, 1, 1, 0, 0, 0);
 	ts->tv_sec = ((day * 24 + hour) * 60 + min) * 60 + sec + cur_time;
 	ts->tv_nsec = 0;
 }
@@ -268,7 +270,7 @@ static int rtc_mips_set_mmss(struct device *dev, unsigned long nowtime)
 	unsigned long flags;
 	int day, hour, min, sec, hms;
 	unsigned long off_sec;
-	unsigned long base_sec = mktime(rtk_base_year + 1900, 1, 1, 0, 0, 0);
+	unsigned long base_sec = mktime64(rtk_base_year + 1900, 1, 1, 0, 0, 0);
 
 	off_sec = nowtime - base_sec;
 	if (base_sec > nowtime) {
@@ -311,10 +313,10 @@ static int rtc_mips_set_mmss(struct device *dev, unsigned long nowtime)
 /* rtc_class_ops */
 static int rtk_rtc_gettime(struct device *dev, struct rtc_time *tm)
 {
-	struct timespec ts;
+	struct timespec64 ts;
 
 	rtk_read_persistent_clock(dev, &ts);
-	rtc_time_to_tm(ts.tv_sec, tm);
+	rtc_time64_to_tm(ts.tv_sec, tm);
 	dev_info(dev, "time read as %04d.%02d.%02d %02d:%02d:%02d",
 		1900+tm->tm_year,
 		tm->tm_mon,
@@ -338,7 +340,7 @@ static int rtk_rtc_settime(struct device *dev, struct rtc_time *tm)
 		tm->tm_min,
 		tm->tm_sec);
 
-	cur_sec = mktime(tm->tm_year + 1900,
+	cur_sec = mktime64(tm->tm_year + 1900,
 			tm->tm_mon + 1,
 			tm->tm_mday,
 			tm->tm_hour,
@@ -352,10 +354,10 @@ static int rtk_rtc_settime(struct device *dev, struct rtc_time *tm)
 #ifdef ALARM_ENABLE
 static int rtk_rtc_getalarm(struct device *dev, struct rtc_wkalrm *alrm)
 {
-	struct timespec ts;
+	struct timespec64 ts;
 
 	venus_rtc_read_alarm_persistent_clock(&ts);
-	rtc_time_to_tm(ts.tv_sec, &alrm->time);
+	rtc_time64_to_tm(ts.tv_sec, &alrm->time);
 	alrm->enabled = venus_rtc_alarm_aie_state();
 
 	return 0;
@@ -366,7 +368,7 @@ static int rtk_rtc_setalarm(struct device *dev, struct rtc_wkalrm *alrm)
 	unsigned long cur_sec;
 
 	venus_rtc_alarm_aie_enable(0);
-	cur_sec = mktime(alrm->time.tm_year + 1900, alrm->time.tm_mon + 1,
+	cur_sec = mktime64(alrm->time.tm_year + 1900, alrm->time.tm_mon + 1,
 			alrm->time.tm_mday, alrm->time.tm_hour,
 			alrm->time.tm_min, alrm->time.tm_sec);
 	venus_rtc_set_alarm_mmss(cur_sec);
@@ -526,7 +528,8 @@ static int  rtk_rtc_remove(struct platform_device *pdev)
 	struct rtc_device *rtc = platform_get_drvdata(pdev);
 
 	dev_info(&pdev->dev, "%s %s", __FILE__, __func__);
-	devm_rtc_device_unregister(&pdev->dev, rtc);
+//	rtc_device_release(&pdev->dev);
+    devm_rtc_device_unregister(&pdev->dev, rtc);
 
 	clk_disable_unprepare(rtc_clk);
 
