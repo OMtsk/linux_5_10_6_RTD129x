@@ -29,6 +29,7 @@
 #include <linux/workqueue.h>
 #include <soc/realtek/rtk_chip.h>
 
+//#include "cpufreq-dt.h"
 #ifdef CONFIG_CPU_FREQ_GOV_USERSPACE
 #define CONFIG_ARM_REALTEK_CPUFREQ_GOV_USERSPACE
 #endif
@@ -498,9 +499,9 @@ static int rtk_cpufreq_exit(struct cpufreq_policy *policy)
 	if (should_undo(priv, CPUFREQ_OPP_OF_CPUMASK_ADD_TABLE))
 		dev_pm_opp_of_cpumask_remove_table(policy->related_cpus);
 	if (should_undo(priv, CPUFREQ_OPP_SET_PROP_NAME))
-		dev_pm_opp_put_prop_name(dev);
+		dev_pm_opp_put_prop_name(priv->opp_table);
 	if (should_undo(priv, CPUFREQ_OPP_SET_REGULATOR))
-		dev_pm_opp_put_regulator(priv->opp_table);
+		dev_pm_opp_put_regulators(priv->opp_table);
 	if (should_undo(priv, CPUFREQ_GET_CLK))
 		clk_put(policy->clk);
 	kfree(priv);
@@ -519,6 +520,8 @@ static int rtk_cpufreq_init(struct cpufreq_policy *policy)
 	unsigned int transition_latency;
 	struct dev_pm_opp *suspend_opp;
 	int ret;
+	//const char * const def_reg_names[] = {"vdd", "vbb"};
+	//const struct of_device_id *much;
 
 	priv = kzalloc(sizeof(*priv), GFP_KERNEL);
 	if (!priv)
@@ -554,7 +557,12 @@ static int rtk_cpufreq_init(struct cpufreq_policy *policy)
 	set_inited(priv, CPUFREQ_GET_CLK);
 
 	/* try to get regulator */
-	opp_table = dev_pm_opp_set_regulator(dev, "cpu");
+	//much = dev_get_platdata(&dev);
+	//const char * const *reg_name = def_reg_names;
+	//if(much->data->reg_names)
+	//	reg_name = much->data->reg_names;
+	const char *reg_name = "cpu";
+	opp_table = dev_pm_opp_set_regulators(dev, &reg_name, 1);
 	if (IS_ERR(opp_table)) {
 		ret = PTR_ERR(opp_table);
 		dev_warn(dev, "continue without regulator\n");
@@ -621,19 +629,23 @@ static int rtk_cpufreq_init(struct cpufreq_policy *policy)
 	set_inited(priv, CPUFREQ_OPP_INIT_CPUFREQ_TABLE);
 
 	/* get suspend opp */
-	rcu_read_lock();
-	suspend_opp = dev_pm_opp_get_suspend_opp(dev);
-	if (suspend_opp)
-		policy->suspend_freq = dev_pm_opp_get_freq(suspend_opp) / 1000;
-	rcu_read_unlock();
+	//rcu_read_lock();
+	//suspend_opp = dev_pm_opp_get_suspend_opp(dev);
+	//if (suspend_opp)
+	policy->suspend_freq = dev_pm_opp_get_freq(suspend_opp) / 1000;
+	//rcu_read_unlock();
 
-	ret = cpufreq_table_validate_and_show(policy, freq_table);
-	if (ret) {
+	//cpufreq_frequency_table_cpuinfof(policy, freq_table);
+	policy->freq_table = freq_table;
+	//ret = set_freq_table_sorted(policy);
+
+//	ret = cpufreq_table_validate_and_show(policy, freq_table);
+/*	if (ret) {
 		dev_err(dev, "cpufreq_table_validate_and_show() returns %d\n",
 			ret);
 		goto error;
 	}
-
+*/
 	transition_latency = dev_pm_opp_get_max_transition_latency(dev);
 	if (!transition_latency)
 		transition_latency = 500000;
@@ -668,8 +680,9 @@ static void rtk_cpufreq_ready(struct cpufreq_policy *policy)
 		of_property_read_u32(np, "dynamic-power-coefficient",
 			&power_coefficient);
 
-		priv->cdev = of_cpufreq_power_cooling_register(np,
-			policy->related_cpus, power_coefficient, NULL);
+		priv->cdev = of_cpufreq_cooling_register(policy);
+		//priv->cdev = of_cpufreq_power_cooling_register(np,policy->related_cpus, power_coefficient, NULL);
+
 		if (IS_ERR(priv->cdev)) {
 			dev_err(priv->dev, "of_cpufreq_power_cooling_register() returns %ld\n",
 				PTR_ERR(priv->cdev));

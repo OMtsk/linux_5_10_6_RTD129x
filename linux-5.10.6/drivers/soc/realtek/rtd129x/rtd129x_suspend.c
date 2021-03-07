@@ -35,6 +35,7 @@
 #include <asm/suspend.h>
 #include <soc/realtek/memory.h>
 #include <soc/realtek/rtk_cpu.h>
+#include <soc/realtek/rtk_ipc_shm.h>
 
 #include "rtd129x_suspend.h"
 

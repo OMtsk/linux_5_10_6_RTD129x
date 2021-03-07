@@ -1184,7 +1184,7 @@ static int mmc_select_ddr50(struct mmc_card *card)
                 true, true, true);
     if (!err) {
         mmc_set_timing(card->host, MMC_TIMING_MMC_HS);
-        err = mmc_switch_status(card);
+        err = mmc_switch_status(card, true);
     }
 
     if (err)
@@ -1726,7 +1726,7 @@ bus_speed:
 }
 
 #ifdef CONFIG_MMC_RTK_EMMC
-int rtkemmc_select_timing(struct mmc_card *card)
+void rtkemmc_select_timing(struct mmc_card *card)
 {
         mmc_select_timing(card);
 }
@@ -1772,7 +1772,7 @@ static int mmc_hs200_tuning(struct mmc_card *card)
 	return mmc_execute_tuning(card);
 }
 #ifdef CONFIG_MMC_RTK_EMMC
-int rtkemmc_hs200_tuning(struct mmc_card *card)
+void rtkemmc_hs200_tuning(struct mmc_card *card)
 {
          mmc_hs200_tuning(card);
 }

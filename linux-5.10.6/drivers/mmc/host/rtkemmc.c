@@ -60,7 +60,7 @@
 //#include <soc/realtek/rtd129x_cpu.h>
 #include <soc/realtek/rtk_cpu.h>
 #include <soc/realtek/rtd129x_lockapi.h>
-
+#include "../core/card.h"
 #include <linux/clk.h>
 #include <linux/reset.h>
 
@@ -258,6 +258,7 @@ static struct rtk_host_ops emmc_ops = {
 	.restore_regs   = rtkemmc_restore_registers,
 };
 
+struct timer_list timerrr;
 
 //---------------------------------------------------------------------------------------------------------------------------
 #ifdef CONFIG_RTK_ACPU_RELOAD
@@ -2661,13 +2662,14 @@ static void rtkemmc_set_pin_mux(struct rtkemmc_host *emmc_port)
 	//rtk_lockapi_unlock2(flags2, _at_("rtkemmc_set_pin_mux"));
 }
 
-static void rtkemmc_timeout_timer(unsigned long data)
+static void rtkemmc_timeout_timer(/*unsigned long data*/ struct timer_list *t)
 {
 	struct rtkemmc_host *emmc_port;
 	unsigned long flags;
 //	unsigned long flags2;
 
-	emmc_port = (struct rtkemmc_host *)data;
+	//emmc_port = (struct rtkemmc_host *)data;
+	emmc_port = from_timer(emmc_port, t, timer);
 	MMCPRINTF("rtkemmc_timeout_timer fired ...\n");
 	MMCPRINTF("%s - int_wait=%08x\n", __func__, emmc_port->int_waiting);
     
@@ -5289,7 +5291,8 @@ static int rtkemmc_probe(struct platform_device *pdev)
 	} else
 		emmc_port->irq = irq;
 
-	setup_timer(&emmc_port->timer, rtkemmc_timeout_timer, (unsigned long)emmc_port);
+	//setup_timer(&emmc_port->timer, rtkemmc_timeout_timer, (unsigned long)emmc_port);
+	timer_setup(&emmc_port->timer, rtkemmc_timeout_timer, 0);
 #endif
 	emmc_port->ops->set_crt_muxpad(emmc_port);
 	

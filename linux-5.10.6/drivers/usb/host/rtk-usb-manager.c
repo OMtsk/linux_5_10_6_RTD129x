@@ -1732,7 +1732,7 @@ static void rtk_usb_manager_shutdown(struct platform_device *pdev)
 	__usb_clear_clock_reset(data);
 
 	dev_info(dev, "[USB] Exit %s\n", __func__);
-	return 0;
+	//return 0;
 }
 
 static struct platform_driver rtk_usb_manager_driver = {

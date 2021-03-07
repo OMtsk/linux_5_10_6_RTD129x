@@ -28,6 +28,7 @@
 #include <linux/cma.h>
 #include <linux/module.h>
 
+#include <linux/seq_file.h>
 #include "ion_rtk_carveout_heap.h"
 
 #define ION_CARVEOUT_ALLOCATE_FAIL -1
@@ -363,7 +364,7 @@ CMA_REALLOC:
 		if (cma_align > CONFIG_CMA_ALIGNMENT)
 			cma_align = CONFIG_CMA_ALIGNMENT;
 
-		page = cma_alloc(phandler->cpool, size>>PAGE_SHIFT, cma_align);
+		page = cma_alloc(phandler->cpool, size>>PAGE_SHIFT, cma_align, true);
 
 		if (page) {
 			page_info = kzalloc(sizeof(struct ION_RTK_CARVEOUT_PAGE_INFO), GFP_KERNEL);
@@ -721,7 +722,7 @@ static unsigned long ion_rtk_carveout_heap_gen_pool_algo(unsigned long *map, uns
 	if (rtk_carveout_heap != NULL) {
 		switch (rtk_carveout_heap->algo_mode) {
 			case ALGO_FIRST_FIT:
-				return gen_pool_first_fit(map, size, start, nr, data, NULL);
+				return gen_pool_first_fit(map, size, start, nr, data, NULL, 0);
 			case ALGO_LAST_FIT:
 				return ion_rtk_carveout_heap_gen_pool_algo_last_fit(map, size, start, nr, data);
 			default:
@@ -733,8 +734,7 @@ static unsigned long ion_rtk_carveout_heap_gen_pool_algo(unsigned long *map, uns
 	if (rtk_carveout_heap != NULL)
 		pr_err( " algo_mode=0x%x", rtk_carveout_heap->algo_mode);
 	pr_err(	 " size=%ld start=%ld, nr=%d\n", size, start, nr);
-	return gen_pool_first_fit(map, size, start, nr, data, NULL);
-
+	return gen_pool_first_fit(map, size, start, nr, data, NULL, 0);
 }
 
 static struct ion_heap_ops rtk_carveout_heap_ops = {

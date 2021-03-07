@@ -1,0 +1,80 @@
+drivers/staging/android/ion/ion.c: In function ‘ion_buffer_sync_for_device’:
+drivers/staging/android/ion/ion.c:944:3: error: too many arguments to function ‘zap_page_range’
+   zap_page_range(vma, vma->vm_start, vma->vm_end - vma->vm_start,
+   ^~~~~~~~~~~~~~
+In file included from ./include/linux/memblock.h:13:0,
+                 from drivers/staging/android/ion/ion.c:26:
+./include/linux/mm.h:1647:6: note: declared here
+ void zap_page_range(struct vm_area_struct *vma, unsigned long address,
+      ^~~~~~~~~~~~~~
+drivers/staging/android/ion/ion.c: In function ‘ion_vm_fault’:
+drivers/staging/android/ion/ion.c:961:8: error: implicit declaration of function ‘vm_insert_pfn’; did you mean ‘vmf_insert_pfn’? [-Werror=implicit-function-declaration]
+  ret = vm_insert_pfn(vma, (unsigned long)vmf->virtual_address, pfn);
+        ^~~~~~~~~~~~~
+        vmf_insert_pfn
+drivers/staging/android/ion/ion.c:961:45: error: ‘struct vm_fault’ has no member named ‘virtual_address’
+  ret = vm_insert_pfn(vma, (unsigned long)vmf->virtual_address, pfn);
+                                             ^~
+drivers/staging/android/ion/ion.c: At top level:
+drivers/staging/android/ion/ion.c:1022:42: error: static declaration of ‘ion_vma_ops’ follows non-static declaration
+ static const struct vm_operations_struct ion_vma_ops = {
+                                          ^~~~~~~~~~~
+In file included from drivers/staging/android/ion/ion.c:40:0:
+drivers/staging/android/ion/ion.h:213:42: note: previous declaration of ‘ion_vma_ops’ was here
+ extern const struct vm_operations_struct ion_vma_ops;
+                                          ^~~~~~~~~~~
+drivers/staging/android/ion/ion.c:1025:11: error: initialization from incompatible pointer type [-Werror=incompatible-pointer-types]
+  .fault = ion_vm_fault,
+           ^~~~~~~~~~~~
+drivers/staging/android/ion/ion.c:1025:11: note: (near initialization for ‘ion_vma_ops.fault’)
+drivers/staging/android/ion/ion.c:1145:3: error: ‘struct dma_buf_ops’ has no member named ‘kmap_atomic’
+  .kmap_atomic = ion_dma_buf_kmap,
+   ^~~~~~~~~~~
+drivers/staging/android/ion/ion.c:1145:17: error: initialization from incompatible pointer type [-Werror=incompatible-pointer-types]
+  .kmap_atomic = ion_dma_buf_kmap,
+                 ^~~~~~~~~~~~~~~~
+drivers/staging/android/ion/ion.c:1145:17: note: (near initialization for ‘dma_buf_ops.mmap’)
+drivers/staging/android/ion/ion.c:1146:3: error: ‘struct dma_buf_ops’ has no member named ‘kunmap_atomic’
+  .kunmap_atomic = ion_dma_buf_kunmap,
+   ^~~~~~~~~~~~~
+drivers/staging/android/ion/ion.c:1146:19: error: initialization from incompatible pointer type [-Werror=incompatible-pointer-types]
+  .kunmap_atomic = ion_dma_buf_kunmap,
+                   ^~~~~~~~~~~~~~~~~~
+drivers/staging/android/ion/ion.c:1146:19: note: (near initialization for ‘dma_buf_ops.vmap’)
+drivers/staging/android/ion/ion.c:1147:3: error: ‘struct dma_buf_ops’ has no member named ‘kmap’; did you mean ‘mmap’?
+  .kmap = ion_dma_buf_kmap,
+   ^~~~
+   mmap
+drivers/staging/android/ion/ion.c:1147:10: error: initialization from incompatible pointer type [-Werror=incompatible-pointer-types]
+  .kmap = ion_dma_buf_kmap,
+          ^~~~~~~~~~~~~~~~
+drivers/staging/android/ion/ion.c:1147:10: note: (near initialization for ‘dma_buf_ops.vunmap’)
+drivers/staging/android/ion/ion.c:1148:3: error: ‘struct dma_buf_ops’ has no member named ‘kunmap’; did you mean ‘vunmap’?
+  .kunmap = ion_dma_buf_kunmap,
+   ^~~~~~
+   vunmap
+drivers/staging/android/ion/ion.c:1148:12: warning: excess elements in struct initializer
+  .kunmap = ion_dma_buf_kunmap,
+            ^~~~~~~~~~~~~~~~~~
+drivers/staging/android/ion/ion.c:1148:12: note: (near initialization for ‘dma_buf_ops’)
+drivers/staging/android/ion/ion.c: In function ‘ion_debug_heap_show’:
+drivers/staging/android/ion/ion.c:1471:20: error: passing argument 1 of ‘atomic_read’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+        atomic_read(&buffer->ref.refcount));
+                    ^
+In file included from ./include/linux/atomic.h:82:0,
+                 from ./include/asm-generic/bitops/atomic.h:5,
+                 from ./arch/arm64/include/asm/bitops.h:26,
+                 from ./include/linux/bitops.h:29,
+                 from ./include/linux/kernel.h:12,
+                 from ./include/linux/list.h:9,
+                 from ./include/linux/rculist.h:10,
+                 from ./include/linux/pid.h:5,
+                 from ./include/linux/sched.h:14,
+                 from ./include/linux/ratelimit.h:6,
+                 from ./include/linux/dev_printk.h:16,
+                 from ./include/linux/device.h:15,
+                 from drivers/staging/android/ion/ion.c:18:
+./include/asm-generic/atomic-instrumented.h:25:1: note: expected ‘const atomic_t * {aka const struct <anonymous> *}’ but argument is of type ‘refcount_t * {aka struct refcount_struct *}’
+ atomic_read(const atomic_t *v)
+ ^~~~~~~~~~~
+

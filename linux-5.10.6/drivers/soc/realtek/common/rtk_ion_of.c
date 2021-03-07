@@ -319,7 +319,7 @@ static int rtk_ion_probe(struct platform_device *pdev)
 				struct ion_rtk_priv_pool * pool;
 				list_for_each_entry(pool, pools, list) {
 					if (pool->base == 0 && pool->type == RTK_CARVEOUT_GEN_POOL_TYPE) {
-						struct page *page = dma_alloc_from_contiguous(&(pdev->dev), pool->size >> PAGE_SHIFT, get_order(pool->size));
+						struct page *page = dma_alloc_from_contiguous(&(pdev->dev), pool->size >> PAGE_SHIFT, get_order(pool->size),false);
 						pool->base = page_to_phys(page);
 					}
 				}

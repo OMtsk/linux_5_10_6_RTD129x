@@ -54,6 +54,7 @@ struct rtk_sdmmc_host {
 
     struct tasklet_struct req_end_tasklet;
     struct timer_list timer;
+    struct timer_list timerrr;
 #if defined(CONFIG_ARCH_RTD129x) || defined(CONFIG_ARCH_RTD119X)
     struct timer_list plug_timer;
 #endif

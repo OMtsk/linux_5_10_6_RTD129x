@@ -46,10 +46,10 @@
 #include <soc/realtek/rtd129x_lockapi.h>
 #include <linux/pm_runtime.h>
 #include <linux/reset.h>
-
+#include <linux/dma-map-ops.h>
 #include "rtk-sdmmc-reg.h"
 #include "rtk-sdmmc.h"
-
+#include "../core/card.h"
 #define DRIVER_NAME "rtk-sdmmc"
 #define BANNER "Realtek SD/MMC Host Driver"
 
@@ -116,11 +116,14 @@ static int rtk_sdmmc_send_stop_cmd(struct mmc_command *cmd, struct rtk_sdmmc_hos
 static int rtk_sdmmc_send_cmd_get_rsp(struct sdmmc_cmd_pkt *cmd_info);
 static int rtk_sdmmc_stream(struct sdmmc_cmd_pkt *cmd_info);
 static void rtk_sdmmc_hw_initial(struct rtk_sdmmc_host *rtk_host);
-static void rtk_sdmmc_timeout(unsigned long data);
+//static void rtk_sdmmc_timeout(unsigned long data);
+static void rtk_sdmmc_timeout(struct timer_list *t);
 #if defined(CONFIG_ARCH_RTD129x) || defined(CONFIG_ARCH_RTD119X)
-static void rtk_sdmmc_plug(unsigned long data);
+static void rtk_sdmmc_plug(struct timer_list *t);
+//static void rtk_sdmmc_plug(unsigned long data);
 #endif
-static void rtk_sdmmc_cmd12_fun(unsigned long data);
+static void rtk_sdmmc_cmd12_fun(struct timer_list *t);
+//static void rtk_sdmmc_cmd12_fun(unsigned long data);
 static void rtk_sdmmc_set_access_mode(struct rtk_sdmmc_host *rtk_host,u8 level);
 void remove_sdcard(struct rtk_sdmmc_host *rtk_host);
 
@@ -179,6 +182,7 @@ bool compatible_flag=false;
 static struct clk *clk_cr;
 static struct clk *clk_sd_ip;
 static struct reset_control *rstc_cr;
+
 
 int get_mmc_runtime_resume_flag(void);
 void set_mmc_runtime_resume_flag(int flag);
@@ -566,12 +570,15 @@ static int rtk_sdmmc_pm_resume(struct device *dev)
 	}
 
 	ret = pm_runtime_force_resume(dev);
-	setup_timer(&rtk_host->timer, rtk_sdmmc_timeout, (unsigned long)rtk_host);
+	//setup_timer(&rtk_host->timer, rtk_sdmmc_timeout, (unsigned long)rtk_host);
+	timer_setup(&rtk_host->timer, rtk_sdmmc_timeout, 0);
 #if defined(CONFIG_ARCH_RTD129x) || defined(CONFIG_ARCH_RTD119X)
-	setup_timer(&rtk_host->plug_timer, rtk_sdmmc_plug, (unsigned long)rtk_host);
+//	setup_timer(&rtk_host->plug_timer, rtk_sdmmc_plug, (unsigned long)rtk_host);
+	timer_setup(&rtk_host->plug_timer, rtk_sdmmc_plug, 0);
 #endif
 #ifdef CMD25_WO_STOP_COMMAND
-	setup_timer(&rtk_host->rtk_sdmmc_stop_cmd, rtk_sdmmc_cmd12_fun, (unsigned long)rtk_host);
+//	setup_timer(&rtk_host->rtk_sdmmc_stop_cmd, rtk_sdmmc_cmd12_fun, (unsigned long)rtk_host);
+	timer_setup(&rtk_host->rtk_sdmmc_stop_cmd, rtk_sdmmc_cmd12_fun, 0);
 #endif
 	rtk_sdmmc_sync(rtk_host);
 #if defined(CONFIG_ARCH_RTD129x) || defined(CONFIG_ARCH_RTD119X)
@@ -3174,9 +3181,10 @@ static const struct mmc_host_ops rtk_sdmmc_ops ={
 };
 
 #ifdef CMD25_WO_STOP_COMMAND
-static void rtk_sdmmc_cmd12_fun(unsigned long data)
+static void rtk_sdmmc_cmd12_fun(/*unsigned long data*/ struct timer_list *t)
 {
-	struct rtk_sdmmc_host *rtk_host = (struct rtk_sdmmc_host *)data;
+//	struct rtk_sdmmc_host *rtk_host = (struct rtk_sdmmc_host *)data;
+	struct rtk_sdmmc_host *rtk_host = from_timer(rtk_host, t, timerrr);
 
 	if (sd_in_receive_data_state && rtk_host->rtk_sdmmc_cmd12 && rtk_host) {
 
@@ -3293,14 +3301,15 @@ static irqreturn_t rtk_sdmmc_wp_irq(int irq, void *data)
 	return IRQ_HANDLED;
 }
 #elif defined(CONFIG_ARCH_RTD129x) || defined(CONFIG_ARCH_RTD119X)
-static void rtk_sdmmc_plug(unsigned long data)
+static void rtk_sdmmc_plug(/*unsigned long data*/ struct timer_list *t)
 {
 	u32 reginfo = 0;
 	u32 det_time = 0;
 #ifdef CONFIG_ARCH_RTD119X
 	unsigned long timeout = 0;
 #endif
-	struct rtk_sdmmc_host *rtk_host = (struct rtk_sdmmc_host *)data;
+	struct rtk_sdmmc_host *rtk_host = from_timer(rtk_host, t, timerrr);
+	//struct rtk_sdmmc_host *rtk_host = (struct rtk_sdmmc_host *)data;
 	void __iomem *sdmmc_base = rtk_host->sdmmc;
 #if defined(CONFIG_ARCH_RTD129x)
 	unsigned long flags2;
@@ -3419,9 +3428,10 @@ static void rtk_sdmmc_req_end_tasklet(unsigned long param)
 	mmc_request_done(rtk_host->mmc, mrq);
 }
 
-static void rtk_sdmmc_timeout(unsigned long data)
+static void rtk_sdmmc_timeout(/*unsigned long data*/ struct timer_list *t)
 {
-	struct rtk_sdmmc_host *rtk_host = (struct rtk_sdmmc_host *)data;
+	//struct rtk_sdmmc_host *rtk_host = (struct rtk_sdmmc_host *)data;
+	struct rtk_sdmmc_host *rtk_host = from_timer(rtk_host, t, timerrr);
 	u32 int_status = readl(rtk_host->sdmmc+CR_SD_ISR);
 	u32 int_status_en = readl(rtk_host->sdmmc+CR_SD_ISREN);
 
@@ -3839,12 +3849,15 @@ static int rtk_sdmmc_probe(struct platform_device *pdev)
                 goto out;
 	}
 #elif defined(CONFIG_ARCH_RTD129x) || defined(CONFIG_ARCH_RTD119X)
-	setup_timer(&rtk_host->plug_timer, rtk_sdmmc_plug, (unsigned long)rtk_host);
+	//setup_timer(&rtk_host->plug_timer, rtk_sdmmc_plug, (unsigned long)rtk_host);
+	timer_setup(&rtk_host->plug_timer, rtk_sdmmc_plug, 0);
 #endif
-	setup_timer(&rtk_host->timer, rtk_sdmmc_timeout, (unsigned long)rtk_host);
+	//setup_timer(&rtk_host->timer, rtk_sdmmc_timeout, (unsigned long)rtk_host);
+	timer_setup(&rtk_host->timer, rtk_sdmmc_timeout, 0);
 
 #ifdef CMD25_WO_STOP_COMMAND
-	setup_timer(&rtk_host->rtk_sdmmc_stop_cmd, rtk_sdmmc_cmd12_fun, (unsigned long)rtk_host);
+	//setup_timer(&rtk_host->rtk_sdmmc_stop_cmd, rtk_sdmmc_cmd12_fun, (unsigned long)rtk_host);
+	timer_setup(&rtk_host->rtk_sdmmc_stop_cmd, rtk_sdmmc_cmd12_fun, 0);
 #endif
 	mmc->ops = &rtk_sdmmc_ops;
 	rtk_host->rtflags &= ~(RTKCR_FCARD_DETECTED|RTKCR_FCARD_SELECTED);

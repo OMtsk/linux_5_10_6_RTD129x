@@ -255,7 +255,7 @@ static const struct dev_pm_ops rtk_busfreq_pm_ops = {
 	.runtime_resume = rtk_busfreq_runtime_resume,
 };
 
-struct rtk_busfreq_initdata {
+struct rtk_busfreq_initdata{
 	struct device_node *parent_np;
 };
 
@@ -283,14 +283,14 @@ static int rtk_busfreq_parse_dt(struct device *dev,
 	if (data->parent_np)
 		return 0;
 
-	priv->edev_count = devfreq_event_get_edev_count(dev);
+	priv->edev_count = devfreq_event_get_edev_count(dev, "devfreq-events");
 	if (priv->edev_count < 0)
 		priv->edev_count = 0;
 
 	priv->edev = devm_kcalloc(dev, priv->edev_count, sizeof(*priv->edev),
 		GFP_KERNEL);
 	for (i = 0; i < priv->edev_count; i++) {
-		priv->edev[i] = devfreq_event_get_edev_by_phandle(dev, i);
+		priv->edev[i] = devfreq_event_get_edev_by_phandle(dev, "devfreq-events",i);
 		if (IS_ERR(priv->edev[i]))
 			return -EPROBE_DEFER;
 	}
@@ -355,7 +355,7 @@ passive:
 	passive_data = devm_kzalloc(dev, sizeof(*passive_data), GFP_KERNEL);
 	if (!passive_data)
 		goto error;
-	passive_data->parent = devfreq_get_devfreq_by_phandle(dev, 0);
+	passive_data->parent = devfreq_get_devfreq_by_phandle(dev, "devfreq-events", 0);
 
 	priv->cur_freq = profile->initial_freq;
 	priv->devfreq = devm_devfreq_add_device(dev, profile, "passive",

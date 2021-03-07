@@ -41,7 +41,7 @@
 #include "ion_priv.h"
 #include "compat_ion.h"
 
-#ifndef CONFIG_ION_RTK
+#ifdef CONFIG_ION_RTK
 #include "../uapi/ion_rtk.h"
 #endif
 
@@ -406,7 +406,7 @@ static int ion_handle_add(struct ion_client *client, struct ion_handle *handle)
 	return 0;
 }
 
-#ifndef CONFIG_ION_RTK
+#ifdef CONFIG_ION_RTK
 struct ion_heap * ion_get_client_heap_by_mask(struct ion_client *client,  unsigned int heap_id_mask)
 {
 	struct ion_device *dev = client->dev;
@@ -508,7 +508,7 @@ void ion_free(struct ion_client *client, struct ion_handle *handle)
 }
 EXPORT_SYMBOL(ion_free);
 
-#ifndef CONFIG_ION_RTK
+#ifdef CONFIG_ION_RTK
 int ion_phys(struct ion_client *client, struct ion_handle *handle,
 	     ion_phys_addr_t *addr, size_t *len)
 {
@@ -941,8 +941,7 @@ static void ion_buffer_sync_for_device(struct ion_buffer *buffer,
 	list_for_each_entry(vma_list, &buffer->vmas, list) {
 		struct vm_area_struct *vma = vma_list->vma;
 
-		zap_page_range(vma, vma->vm_start, vma->vm_end - vma->vm_start,
-			       NULL);
+		zap_page_range(vma, vma->vm_start, vma->vm_end - vma->vm_start);
 	}
 	mutex_unlock(&buffer->lock);
 }
@@ -958,7 +957,7 @@ static int ion_vm_fault(struct vm_area_struct *vma, struct vm_fault *vmf)
 	BUG_ON(!buffer->pages || !buffer->pages[vmf->pgoff]);
 
 	pfn = page_to_pfn(ion_buffer_page(buffer->pages[vmf->pgoff]));
-	ret = vm_insert_pfn(vma, (unsigned long)vmf->virtual_address, pfn);
+	ret = vmf_insert_pfn(vma, (unsigned long)vmf->address, pfn);
 	mutex_unlock(&buffer->lock);
 #if 1
 	/*
@@ -1011,7 +1010,7 @@ static void ion_vm_close(struct vm_area_struct *vma)
 	}
 	mutex_unlock(&buffer->lock);
 }
-#ifndef CONFIG_ION_RTK
+#ifdef CONFIG_ION_RTK
 const struct vm_operations_struct ion_vma_ops = {
 	.open = ion_vm_open,
 	.close = ion_vm_close,
@@ -1046,7 +1045,7 @@ static int ion_mmap(struct dma_buf *dmabuf, struct vm_area_struct *vma)
 		return 0;
 	}
 
-#ifndef CONFIG_ION_RTK
+#ifdef CONFIG_ION_RTK
 #if 0
 	if (buffer->heap->type == RTK_PHOENIX_ION_HEAP_TYPE_MEDIA ||
 		buffer->heap->type == RTK_PHOENIX_ION_HEAP_TYPE_AUDIO ||
@@ -1073,7 +1072,7 @@ static int ion_mmap(struct dma_buf *dmabuf, struct vm_area_struct *vma)
 	return ret;
 }
 
-#ifndef CONFIG_ION_RTK
+#ifdef CONFIG_ION_RTK
 int ion_mmap_by_handle(struct ion_handle *handle, struct vm_area_struct *vma)
 {
 	struct dma_buf dmabuf;
@@ -1257,7 +1256,7 @@ struct ion_handle *ion_import_dma_buf_fd(struct ion_client *client, int fd)
 }
 EXPORT_SYMBOL(ion_import_dma_buf_fd);
 
-#ifndef CONFIG_ION_RTK
+#ifdef CONFIG_ION_RTK
 struct ion_handle *ion_import_dma_buf_point(struct ion_client *client, struct dma_buf *dmabuf)
 {
 	struct ion_buffer *buffer;

@@ -11,7 +11,7 @@
 
 #include <linux/module.h>
 #include <linux/kernel.h>
-#include <linux/slab.h>
+//#include <linux/slab.h>
 #include <linux/fs.h>
 #include <linux/errno.h>
 #include <linux/types.h>
@@ -25,13 +25,13 @@
 #include <linux/io.h>
 #include <linux/uaccess.h>
 #include <linux/kthread.h>
-//#include <linux/kmemleak.h>
+#include <linux/kmemleak.h>
 
 #include "rtk_rpc.h"
 
-#include "uapi/ion.h"
-#include "ion/ion.h"
-#include "uapi/ion_rtk.h"
+#include "../../../../staging/android/uapi/ion.h"
+#include "../../../../staging/android/ion/ion.h"
+#include "../../../../staging/android/uapi/ion_rtk.h"
 
 /*
  * dump ring buffer rate limiting:
@@ -362,7 +362,7 @@ void rpc_ion_handler(RPC_DEV_EXTRA *extra)
 			ION_FLAG_NONCACHED | ION_FLAG_SCPUACC | ION_FLAG_HWIPACC | ION_FLAG_ACPUACC);
 
 		if (IS_ERR(handle)) {
-			pr_err("[%s] ERROR: ion_alloc fail %d\n", __func__, (int *) handle);
+			pr_err("[%s] ERROR: ion_alloc fail %n\n", __func__, (int *) handle);
 		}
 		if (ion_phys(fw_rpc_ion_client, handle, &phys_addr, &alloc_val) != 0) {
 			pr_err("[%s] ERROR: ion_phys fail\n", __func__);
@@ -385,7 +385,7 @@ void rpc_ion_handler(RPC_DEV_EXTRA *extra)
 #endif
 		rpc_entry = r_program_remove(phys_addr);
 		if (rpc_entry == NULL){
-			pr_err("[%s]cannot find rpc_entry to free:phys_addr:%x\n", __func__, phys_addr);
+			pr_err("[%s]cannot find rpc_entry to free:phys_addr:%lx\n", __func__, phys_addr);
 			return;
 		}
 		ion_free(fw_rpc_ion_client, rpc_entry->handle);
@@ -406,7 +406,7 @@ void rpc_ion_handler(RPC_DEV_EXTRA *extra)
 			ION_FLAG_NONCACHED  | ION_FLAG_HWIPACC);
 
 		if (IS_ERR(handle)) {
-			pr_err("[%s] ERROR: secure ion_alloc fail %d\n", __func__, (int *) handle);
+			pr_err("[%s] ERROR: secure ion_alloc fail %n\n", __func__, (int *) handle);
 		}
 		if (ion_phys(fw_rpc_ion_client, handle, &phys_addr, &alloc_val) != 0) {
 			pr_err("[%s] ERROR: secure ion_phys fail\n", __func__);
@@ -617,9 +617,10 @@ void rpc_dispatch(unsigned long data)
 int rpc_intr_init(void)
 {
 	static int is_init;
-	int result = 0, i;
-	is_init = 0;
 	int j = 0;
+	int i;
+	int result = 0;
+	is_init = 0;
 
 	fw_rpc_ion_client = ion_client_create(rtk_phoenix_ion_device,
 						"FW_REMOTE_ALLOC");
