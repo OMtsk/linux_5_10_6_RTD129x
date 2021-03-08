@@ -35,10 +35,10 @@ int g22xx_of_parse_cb(struct device_node *np,
 		struct regulator_state *state = &gd->state_coldboot;
 
 		if (of_property_read_bool(child, "regulator-on-in-suspend"))
-			state->enabled = true;
+			state->enabled = ENABLE_IN_SUSPEND;
 
 		if (of_property_read_bool(child, "regulator-off-in-suspend"))
-			state->disabled = true;
+			state->enabled = DISABLE_IN_SUSPEND;
 
 		if (!of_property_read_u32(child, "regulator-suspend-microvolt",
 			&val))
@@ -294,12 +294,12 @@ int g22xx_regulator_register(struct g22xx_device *gdev, struct g22xx_desc *gd,
 	 * sleep uV and mode, set the state to enable
 	 */
 	gd->state_mem = c->state_mem;
-	if (gd->state_mem.uV == 0 && gd->state_mem.disabled == 0) {
-		gd->state_mem.enabled = true;
+	if (gd->state_mem.uV == 0 && gd->state_mem.enabled != DISABLE_IN_SUSPEND) {
+		gd->state_mem.enabled = ENABLE_IN_SUSPEND;
 		c->state_mem = gd->state_mem;
 	}
-	if (gd->state_coldboot.uV == 0 && gd->state_coldboot.disabled == 0)
-		gd->state_coldboot.enabled = true;
+	if (gd->state_coldboot.uV == 0 && gd->state_coldboot.enabled != DISABLE_IN_SUSPEND)
+		gd->state_coldboot.enabled = ENABLE_IN_SUSPEND;
 
 	/* enable change mode */
 	if (g22xx_is_ldo(gd))

@@ -57,6 +57,10 @@
 #include "quirks.h"
 #include "sd_ops.h"
 
+#ifdef CONFIG_RTK_PLATFORM
+#include "../../base/base.h"
+#endif
+
 MODULE_ALIAS("mmc:block");
 #ifdef MODULE_PARAM_PREFIX
 #undef MODULE_PARAM_PREFIX
@@ -2248,6 +2252,22 @@ static inline int mmc_blk_readonly(struct mmc_card *card)
 	return mmc_card_readonly(card) ||
 	       !(card->csd.cmdclass & CCC_BLOCK_WRITE);
 }
+
+#ifdef CONFIG_RTK_PLATFORM
+void mmc_blk_set_ro(struct mmc_card *card)
+{
+    struct mmc_blk_data *md=NULL, *part_md=NULL;
+    md = card->dev.driver_data;
+    if(md!=NULL) {
+        md->read_only = mmc_blk_readonly(card);
+        set_disk_ro(md->disk, md->read_only);
+        list_for_each_entry(part_md, &md->part, part)
+            set_disk_ro(part_md->disk, md->read_only);
+    }    
+}
+EXPORT_SYMBOL(mmc_blk_set_ro);
+#endif /* CONFIG_RTK_PLATFORM */
+
 
 static struct mmc_blk_data *mmc_blk_alloc_req(struct mmc_card *card,
 					      struct device *parent,
