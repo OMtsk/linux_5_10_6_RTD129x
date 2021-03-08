@@ -75,6 +75,44 @@ struct sync_file *sync_file_create(struct dma_fence *fence)
 }
 EXPORT_SYMBOL(sync_file_create);
 
+  #ifdef CONFIG_RTK_PLATFORM
+  struct sync_file *sync_file_fdget(int fd) 
+  {
+      struct file *file = fget(fd);
+  
+      if (!file)
+          return NULL;
+  
+      if (file->f_op != &sync_file_fops)
+          goto err;
+  
+      return file->private_data;
+  
+  err:
+      fput(file);
+      return NULL;
+  }
+  #else
+  static struct sync_file *sync_file_fdget(int fd) 
+  {
+      struct file *file = fget(fd);
+  
+      if (!file)
+          return NULL;
+  
+      if (file->f_op != &sync_file_fops)
+          goto err;
+  
+      return file->private_data;
+  
+  err:
+      fput(file);
+      return NULL;
+  }
+  #endif /* CONFIG_RTK_PLATFORM */
+  EXPORT_SYMBOL(sync_file_fdget);
+
+/*
 static struct sync_file *sync_file_fdget(int fd)
 {
 	struct file *file = fget(fd);
@@ -91,7 +129,7 @@ err:
 	fput(file);
 	return NULL;
 }
-
+*/
 /**
  * sync_file_get_fence - get the fence related to the sync_file fd
  * @fd:		sync_file fd to get the fence from

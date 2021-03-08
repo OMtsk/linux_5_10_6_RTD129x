@@ -946,18 +946,20 @@ static void ion_buffer_sync_for_device(struct ion_buffer *buffer,
 	mutex_unlock(&buffer->lock);
 }
 
-static int ion_vm_fault(struct vm_area_struct *vma, struct vm_fault *vmf)
+static vm_fault_t ion_vm_fault(/*struct vm_area_struct *vma,*/ struct vm_fault *vmf)
 {
-	struct ion_buffer *buffer = vma->vm_private_data;
+	struct ion_buffer *buffer = vmf->vma->vm_private_data;
 	unsigned long pfn;
 	int ret;
+	enum vm_fault_reason res;
+
 
 	mutex_lock(&buffer->lock);
 	ion_buffer_page_dirty(buffer->pages + vmf->pgoff);
 	BUG_ON(!buffer->pages || !buffer->pages[vmf->pgoff]);
 
 	pfn = page_to_pfn(ion_buffer_page(buffer->pages[vmf->pgoff]));
-	ret = vmf_insert_pfn(vma, (unsigned long)vmf->address, pfn);
+	ret = vmf_insert_pfn(vmf->vma, (unsigned long)vmf->address, pfn);
 	mutex_unlock(&buffer->lock);
 #if 1
 	/*
@@ -971,14 +973,18 @@ static int ion_vm_fault(struct vm_area_struct *vma, struct vm_fault *vmf)
 	 */
 	if (ret == -EBUSY) {
 		printk(KERN_INFO "%s: -EBUSY\n", __func__);
-		return VM_FAULT_NOPAGE; // "VM_FAULT_RETRY" not work
+		res = VM_FAULT_NOPAGE; // "VM_FAULT_RETRY" not work
+		return res;
 	}
 #endif /* CONFIG_ARCH_RTD139x */
 #endif
-	if (ret)
-		return VM_FAULT_ERROR;
+	if (ret){
+		res = VM_FAULT_ERROR;
+		return res;
+	}
 
-	return VM_FAULT_NOPAGE;
+	res = VM_FAULT_NOPAGE;
+	return res;
 }
 
 static void ion_vm_open(struct vm_area_struct *vma)
@@ -1134,17 +1140,103 @@ static int ion_dma_buf_end_cpu_access(struct dma_buf *dmabuf,
 	return 0;
 }
 
+
+static struct sg_table *dup_sg_table(struct sg_table *table)
+{
+        struct sg_table *new_table;
+        int ret, i;
+        struct scatterlist *sg, *new_sg;
+
+        new_table = kzalloc(sizeof(*new_table), GFP_KERNEL);
+        if (!new_table)
+                return ERR_PTR(-ENOMEM);
+
+        ret = sg_alloc_table(new_table, table->orig_nents, GFP_KERNEL);
+        if (ret) {
+                kfree(new_table);
+                return ERR_PTR(-ENOMEM);
+        }
+
+        new_sg = new_table->sgl;
+        for_each_sgtable_sg(table, sg, i) {
+                memcpy(new_sg, sg, sizeof(*sg));
+                new_sg->dma_address = 0;
+                new_sg = sg_next(new_sg);
+        }
+
+	return new_table;
+}
+
+static void free_duped_table(struct sg_table *table)
+{
+        sg_free_table(table);
+        kfree(table);
+}
+
+
+struct ion_dma_buf_attachment {
+        struct device *dev;
+        struct sg_table *table;
+        struct list_head list;
+};
+
+static int ion_dma_buf_attach(struct dma_buf *dmabuf,
+                              struct dma_buf_attachment *attachment)
+{
+        struct ion_dma_buf_attachment *a;
+        struct sg_table *table;
+        struct ion_buffer *buffer = dmabuf->priv;
+
+        a = kzalloc(sizeof(*a), GFP_KERNEL);
+        if (!a)
+                return -ENOMEM;
+
+        table = dup_sg_table(buffer->sg_table);
+        if (IS_ERR(table)) {
+                kfree(a);
+                return -ENOMEM;
+        }
+
+        a->table = table;
+        a->dev = attachment->dev;
+        INIT_LIST_HEAD(&a->list);
+
+        attachment->priv = a;
+
+        mutex_lock(&buffer->lock);
+        list_add(&a->list, &buffer->attachments);
+        mutex_unlock(&buffer->lock);
+
+        return 0;
+} 
+
+static void ion_dma_buf_detach(struct dma_buf *dmabuf,
+                               struct dma_buf_attachment *attachment)
+{
+        struct ion_dma_buf_attachment *a = attachment->priv;
+        struct ion_buffer *buffer = dmabuf->priv;
+
+        mutex_lock(&buffer->lock);
+        list_del(&a->list);
+        mutex_unlock(&buffer->lock);
+        free_duped_table(a->table);
+
+        kfree(a);
+}
+
 static struct dma_buf_ops dma_buf_ops = {
 	.map_dma_buf = ion_map_dma_buf,
 	.unmap_dma_buf = ion_unmap_dma_buf,
 	.mmap = ion_mmap,
 	.release = ion_dma_buf_release,
+	.attach = ion_dma_buf_attach,
+	.detach = ion_dma_buf_detach,
 	.begin_cpu_access = ion_dma_buf_begin_cpu_access,
 	.end_cpu_access = ion_dma_buf_end_cpu_access,
-	.kmap_atomic = ion_dma_buf_kmap,
-	.kunmap_atomic = ion_dma_buf_kunmap,
-	.kmap = ion_dma_buf_kmap,
-	.kunmap = ion_dma_buf_kunmap,
+	//.kmap_atomic = ion_dma_buf_kmap,
+	//.kunmap_atomic = ion_dma_buf_kunmap,
+	//.kmap = ion_dma_buf_kmap,
+	//.kunmap = ion_dma_buf_kunmap,
 };
 
 struct dma_buf *ion_share_dma_buf(struct ion_client *client,
@@ -1464,10 +1556,11 @@ static int ion_debug_heap_show(struct seq_file *s, void *unused)
 			continue;
 		total_size += buffer->size;
 		if (!buffer->handle_count) {
-			seq_printf(s, "%16s %16u %16zu %d %d\n",
+			/*seq_printf(s, "%16s %16u %16zu %d %d\n",
 				   buffer->task_comm, buffer->pid,
 				   buffer->size, buffer->kmap_cnt,
 				   atomic_read(&buffer->ref.refcount));
+				   */
 			total_orphaned_size += buffer->size;
 		}
 	}
@@ -1652,3 +1745,5 @@ void ion_device_destroy(struct ion_device *dev)
 	kfree(dev);
 }
 EXPORT_SYMBOL(ion_device_destroy);
+
+

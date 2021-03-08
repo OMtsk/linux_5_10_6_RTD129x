@@ -47,9 +47,11 @@
 #include <linux/pm_runtime.h>
 #include <linux/reset.h>
 #include <linux/dma-map-ops.h>
+//#include <linux/suspend.h>
 #include "rtk-sdmmc-reg.h"
 #include "rtk-sdmmc.h"
 #include "../core/card.h"
+//#include "ini.h"
 #define DRIVER_NAME "rtk-sdmmc"
 #define BANNER "Realtek SD/MMC Host Driver"
 
@@ -129,7 +131,11 @@ void remove_sdcard(struct rtk_sdmmc_host *rtk_host);
 
 #ifndef CONFIG_ARCH_RTD119X
 #ifdef CONFIG_MMC_RTK_EMMC
+//int initial_flag2 = 0;
 int get_RTK_initial_flag(void);
+/*int get_RTK_initial_flag(void){
+	return initial_flag2;
+}*/
 #endif
 #endif
 void rtk_sdmmc_sync(struct rtk_sdmmc_host *rtk_host);
@@ -145,6 +151,9 @@ static u8 g_cmd[6];
 bool suspend_SD_insert_flag=false;
 int poll = 0;
 int get_RTK_PM_STATE(void);
+/*int get_RTK_PM_STATE(void){
+	return RTK_PM_STATE;
+}*/
 int pre_cmd = 0;
 static volatile u32 wait_stop_command_irq_done;
 static volatile u32 do_stop_command_wo_complete;

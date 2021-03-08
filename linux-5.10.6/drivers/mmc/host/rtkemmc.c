@@ -63,6 +63,7 @@
 #include "../core/card.h"
 #include <linux/clk.h>
 #include <linux/reset.h>
+//#include "ini.h"
 
 #ifdef CONFIG_REALTEK_PCBMGR
 #include <mach/pcbMgr.h>
@@ -197,6 +198,9 @@ static int mmc_Tuning_SDR50(struct rtkemmc_host *emmc_port);
 static int mmc_Tuning_DDR50(struct rtkemmc_host *emmc_port,u32 mode);
 static int mmc_Tuning_HS200(struct rtkemmc_host *emmc_port,u32 mode);
 void set_RTK_initial_flag(int flag);
+/*void set_RTK_initial_flag(int flag){
+	initial_flag2 = flag;
+}*/
 static int rtkemmc_execute_tuning(struct mmc_host *host, u32 opcode);
 static int rtkemmc_prepare_hs400_tuning(struct mmc_host *host, struct mmc_ios *ios);
 void phase(struct rtkemmc_host *emmc_port, u32 VP0, u32 VP1);

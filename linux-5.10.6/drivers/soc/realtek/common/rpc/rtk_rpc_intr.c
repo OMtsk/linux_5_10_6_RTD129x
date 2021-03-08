@@ -11,7 +11,7 @@
 
 #include <linux/module.h>
 #include <linux/kernel.h>
-//#include <linux/slab.h>
+#include <linux/slab.h>
 #include <linux/fs.h>
 #include <linux/errno.h>
 #include <linux/types.h>
@@ -29,9 +29,16 @@
 
 #include "rtk_rpc.h"
 
-#include "../../../../staging/android/uapi/ion.h"
+/*#include "../../../../staging/android/uapi/ion.h"
 #include "../../../../staging/android/ion/ion.h"
 #include "../../../../staging/android/uapi/ion_rtk.h"
+*/
+
+#include "rtk_rpc.h"
+#include "uapi/ion.h"
+#include "ion/ion.h"
+#include "uapi/ion_rtk.h"
+
 
 /*
  * dump ring buffer rate limiting:

@@ -1,0 +1,843 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	//
+ALGO_FIRST_FIT	ion/realtek/ion_rtk_carveout_heap.c	/^	ALGO_FIRST_FIT  = 0,$/;"	e	enum:ion_rtk_carveout_heap_gen_pool_algo_mode	file:
+ALGO_LAST_FIT	ion/realtek/ion_rtk_carveout_heap.c	/^	ALGO_LAST_FIT,$/;"	e	enum:ion_rtk_carveout_heap_gen_pool_algo_mode	file:
+ALIGNTO	ion/realtek/ion_rtk.c	/^#define ALIGNTO /;"	d	file:
+ASHMEM_FULL_NAME_LEN	ashmem.c	/^#define ASHMEM_FULL_NAME_LEN /;"	d	file:
+ASHMEM_GET_NAME	uapi/ashmem.h	/^#define ASHMEM_GET_NAME	/;"	d
+ASHMEM_GET_PIN_STATUS	uapi/ashmem.h	/^#define ASHMEM_GET_PIN_STATUS	/;"	d
+ASHMEM_GET_PROT_MASK	uapi/ashmem.h	/^#define ASHMEM_GET_PROT_MASK	/;"	d
+ASHMEM_GET_SIZE	uapi/ashmem.h	/^#define ASHMEM_GET_SIZE	/;"	d
+ASHMEM_IS_PINNED	uapi/ashmem.h	/^#define ASHMEM_IS_PINNED	/;"	d
+ASHMEM_IS_UNPINNED	uapi/ashmem.h	/^#define ASHMEM_IS_UNPINNED	/;"	d
+ASHMEM_NAME_DEF	uapi/ashmem.h	/^#define ASHMEM_NAME_DEF	/;"	d
+ASHMEM_NAME_LEN	uapi/ashmem.h	/^#define ASHMEM_NAME_LEN	/;"	d
+ASHMEM_NAME_PREFIX	ashmem.c	/^#define ASHMEM_NAME_PREFIX /;"	d	file:
+ASHMEM_NAME_PREFIX_LEN	ashmem.c	/^#define ASHMEM_NAME_PREFIX_LEN /;"	d	file:
+ASHMEM_NOT_PURGED	uapi/ashmem.h	/^#define ASHMEM_NOT_PURGED	/;"	d
+ASHMEM_PIN	uapi/ashmem.h	/^#define ASHMEM_PIN	/;"	d
+ASHMEM_PURGE_ALL_CACHES	uapi/ashmem.h	/^#define ASHMEM_PURGE_ALL_CACHES	/;"	d
+ASHMEM_SET_NAME	uapi/ashmem.h	/^#define ASHMEM_SET_NAME	/;"	d
+ASHMEM_SET_PROT_MASK	uapi/ashmem.h	/^#define ASHMEM_SET_PROT_MASK	/;"	d
+ASHMEM_SET_SIZE	uapi/ashmem.h	/^#define ASHMEM_SET_SIZE	/;"	d
+ASHMEM_UNPIN	uapi/ashmem.h	/^#define ASHMEM_UNPIN	/;"	d
+ASHMEM_WAS_PURGED	uapi/ashmem.h	/^#define ASHMEM_WAS_PURGED	/;"	d
+COMPAT_ASHMEM_SET_PROT_MASK	ashmem.h	/^#define COMPAT_ASHMEM_SET_PROT_MASK	/;"	d
+COMPAT_ASHMEM_SET_SIZE	ashmem.h	/^#define COMPAT_ASHMEM_SET_SIZE	/;"	d
+COMPAT_ION_IOC_ALLOC	ion/compat_ion.c	/^#define COMPAT_ION_IOC_ALLOC	/;"	d	file:
+COMPAT_ION_IOC_CUSTOM	ion/compat_ion.c	/^#define COMPAT_ION_IOC_CUSTOM	/;"	d	file:
+COMPAT_ION_IOC_FREE	ion/compat_ion.c	/^#define COMPAT_ION_IOC_FREE	/;"	d	file:
+COMPAT_ION_IOC_PHYS	ion/compat_ion.c	/^#define COMPAT_ION_IOC_PHYS	/;"	d	file:
+FREE	ion/realtek/ion_rtk_carveout_heap.c	/^		FREE,$/;"	e	enum:ion_carveout_heap_debug_show::__mem_state	file:
+ION_ALIGN	ion/realtek/ion_rtk.c	/^#define ION_ALIGN(/;"	d	file:
+ION_CARVEOUT_ALLOCATE_FAIL	ion/ion_carveout_heap.c	/^#define ION_CARVEOUT_ALLOCATE_FAIL	/;"	d	file:
+ION_CARVEOUT_ALLOCATE_FAIL	ion/realtek/ion_rtk_carveout_heap.c	/^#define ION_CARVEOUT_ALLOCATE_FAIL /;"	d	file:
+ION_CMA_ALLOCATE_FAILED	ion/ion_cma_heap.c	/^#define ION_CMA_ALLOCATE_FAILED /;"	d	file:
+ION_FLAG_ACPUACC	uapi/ion.h	/^#define ION_FLAG_ACPUACC	/;"	d
+ION_FLAG_CACHED	uapi/ion.h	/^#define ION_FLAG_CACHED /;"	d
+ION_FLAG_CACHED_NEEDS_SYNC	uapi/ion.h	/^#define ION_FLAG_CACHED_NEEDS_SYNC /;"	d
+ION_FLAG_HWIPACC	uapi/ion.h	/^#define ION_FLAG_HWIPACC	/;"	d
+ION_FLAG_NONCACHED	uapi/ion.h	/^#define ION_FLAG_NONCACHED	/;"	d
+ION_FLAG_SCPUACC	uapi/ion.h	/^#define ION_FLAG_SCPUACC	/;"	d
+ION_FLAG_SECURE_AUDIO	uapi/ion.h	/^#define ION_FLAG_SECURE_AUDIO	/;"	d
+ION_FLAG_SECURE_TPACC	uapi/ion.h	/^#define ION_FLAG_SECURE_TPACC	/;"	d
+ION_FLAG_VE_SPEC	uapi/ion.h	/^#define ION_FLAG_VE_SPEC	/;"	d
+ION_HEAP_CARVEOUT_MASK	uapi/ion.h	/^#define ION_HEAP_CARVEOUT_MASK	/;"	d
+ION_HEAP_FLAG_DEFER_FREE	ion/ion_priv.h	/^#define ION_HEAP_FLAG_DEFER_FREE /;"	d
+ION_HEAP_FLAG_DEFER_FREE	ion_back/ion.h	/^#define ION_HEAP_FLAG_DEFER_FREE /;"	d
+ION_HEAP_SYSTEM_CONTIG_MASK	uapi/ion.h	/^#define ION_HEAP_SYSTEM_CONTIG_MASK	/;"	d
+ION_HEAP_SYSTEM_MASK	uapi/ion.h	/^#define ION_HEAP_SYSTEM_MASK	/;"	d
+ION_HEAP_TYPE_CARVEOUT	uapi/ion.h	/^	ION_HEAP_TYPE_CARVEOUT,$/;"	e	enum:ion_heap_type
+ION_HEAP_TYPE_CHUNK	uapi/ion.h	/^	ION_HEAP_TYPE_CHUNK,$/;"	e	enum:ion_heap_type
+ION_HEAP_TYPE_CUSTOM	uapi/ion.h	/^	ION_HEAP_TYPE_CUSTOM, \/*$/;"	e	enum:ion_heap_type
+ION_HEAP_TYPE_DMA	uapi/ion.h	/^	ION_HEAP_TYPE_DMA,$/;"	e	enum:ion_heap_type
+ION_HEAP_TYPE_DMA_MASK	uapi/ion.h	/^#define ION_HEAP_TYPE_DMA_MASK	/;"	d
+ION_HEAP_TYPE_SYSTEM	uapi/ion.h	/^	ION_HEAP_TYPE_SYSTEM,$/;"	e	enum:ion_heap_type
+ION_HEAP_TYPE_SYSTEM_CONTIG	uapi/ion.h	/^	ION_HEAP_TYPE_SYSTEM_CONTIG,$/;"	e	enum:ion_heap_type
+ION_IOC_ALLOC	uapi/ion.h	/^#define ION_IOC_ALLOC	/;"	d
+ION_IOC_CUSTOM	uapi/ion.h	/^#define ION_IOC_CUSTOM	/;"	d
+ION_IOC_FREE	uapi/ion.h	/^#define ION_IOC_FREE	/;"	d
+ION_IOC_HEAP_QUERY	uapi/ion.h	/^#define ION_IOC_HEAP_QUERY /;"	d
+ION_IOC_IMPORT	uapi/ion.h	/^#define ION_IOC_IMPORT	/;"	d
+ION_IOC_MAGIC	uapi/ion.h	/^#define ION_IOC_MAGIC	/;"	d
+ION_IOC_MAP	uapi/ion.h	/^#define ION_IOC_MAP	/;"	d
+ION_IOC_PHYS	uapi/ion.h	/^#define ION_IOC_PHYS /;"	d
+ION_IOC_SHARE	uapi/ion.h	/^#define ION_IOC_SHARE	/;"	d
+ION_IOC_SYNC	uapi/ion.h	/^#define ION_IOC_SYNC	/;"	d
+ION_NUM_HEAP_IDS	uapi/ion.h	/^#define ION_NUM_HEAP_IDS	/;"	d
+ION_PRIV_FLAG_SHRINKER_FREE	ion/ion_priv.h	/^#define ION_PRIV_FLAG_SHRINKER_FREE /;"	d
+ION_PRIV_FLAG_SHRINKER_FREE	ion_back/ion.h	/^#define ION_PRIV_FLAG_SHRINKER_FREE /;"	d
+ION_RTK_CARVEOUT_ATTR	ion/realtek/ion_rtk_carveout_heap.c	/^#define ION_RTK_CARVEOUT_ATTR(/;"	d	file:
+ION_RTK_CARVEOUT_PAGE_INFO	ion/realtek/ion_rtk_carveout_heap.c	/^struct ION_RTK_CARVEOUT_PAGE_INFO {$/;"	s	file:
+ION_RTK_CARVEOUT_POOL_INFO	ion/realtek/ion_rtk_carveout_heap.c	/^struct ION_RTK_CARVEOUT_POOL_INFO {$/;"	s	file:
+ION_USAGE_ALGO_LAST_FIT	uapi/ion.h	/^#define ION_USAGE_ALGO_LAST_FIT	/;"	d
+ION_USAGE_MASK	uapi/ion.h	/^#define ION_USAGE_MASK	/;"	d
+ION_USAGE_MMAP_CACHED	uapi/ion.h	/^#define ION_USAGE_MMAP_CACHED	/;"	d
+ION_USAGE_MMAP_NONCACHED	uapi/ion.h	/^#define ION_USAGE_MMAP_NONCACHED	/;"	d
+ION_USAGE_MMAP_WRITECOMBINE	uapi/ion.h	/^#define ION_USAGE_MMAP_WRITECOMBINE	/;"	d
+ION_USAGE_PROTECTED	uapi/ion.h	/^#define ION_USAGE_PROTECTED	/;"	d
+MAX_HEAP_NAME	uapi/ion.h	/^#define MAX_HEAP_NAME	/;"	d
+NONE	ion/realtek/ion_rtk_carveout_heap.c	/^		NONE,$/;"	e	enum:ion_carveout_heap_debug_show::__mem_state	file:
+NUM_ORDERS	ion/ion_system_heap.c	/^#define NUM_ORDERS /;"	d	file:
+NUM_ORDERS	ion_back/ion_system_heap.c	/^#define NUM_ORDERS /;"	d	file:
+PLATFORM_HEAP	ion/ion_of.h	/^#define PLATFORM_HEAP(/;"	d
+POOL_FLAG_MISMATCH	ion/realtek/ion_rtk_carveout_heap.c	/^#define POOL_FLAG_MISMATCH(/;"	d	file:
+PROT_MASK	ashmem.c	/^#define PROT_MASK	/;"	d	file:
+RTK_CARVEOUT_CMA_POOL_TYPE	ion/realtek/ion_rtk_carveout_heap.h	/^    RTK_CARVEOUT_CMA_POOL_TYPE,$/;"	e	enum:ion_rtk_carveout_pool_type
+RTK_CARVEOUT_GEN_POOL_TYPE	ion/realtek/ion_rtk_carveout_heap.h	/^    RTK_CARVEOUT_GEN_POOL_TYPE = 0,$/;"	e	enum:ion_rtk_carveout_pool_type
+RTK_ION_FLAG_MASK	uapi/ion.h	/^#define RTK_ION_FLAG_MASK	/;"	d
+RTK_ION_FLAG_POOL_CONDITION	uapi/ion.h	/^#define RTK_ION_FLAG_POOL_CONDITION	/;"	d
+RTK_ION_IOC_FLUSH	uapi/ion_rtk.h	/^#define RTK_ION_IOC_FLUSH /;"	d
+RTK_ION_IOC_FLUSH_RANGE	uapi/ion_rtk.h	/^#define RTK_ION_IOC_FLUSH_RANGE /;"	d
+RTK_ION_IOC_GET_MEMORY_INFO	uapi/ion_rtk.h	/^#define RTK_ION_IOC_GET_MEMORY_INFO /;"	d
+RTK_ION_IOC_GET_MEMORY_INFO_S	uapi/ion_rtk.h	/^struct RTK_ION_IOC_GET_MEMORY_INFO_S {$/;"	s
+RTK_ION_IOC_GET_PHYINFO	uapi/ion_rtk.h	/^#define RTK_ION_IOC_GET_PHYINFO /;"	d
+RTK_ION_IOC_INVALIDATE	uapi/ion_rtk.h	/^#define RTK_ION_IOC_INVALIDATE /;"	d
+RTK_ION_IOC_INVALIDATE_RANGE	uapi/ion_rtk.h	/^#define RTK_ION_IOC_INVALIDATE_RANGE /;"	d
+RTK_ION_IOC_MAGIC	uapi/ion_rtk.h	/^#define RTK_ION_IOC_MAGIC /;"	d
+RTK_ION_IOC_PHY_INFO	uapi/ion_rtk.h	/^struct RTK_ION_IOC_PHY_INFO {$/;"	s
+RTK_ION_IOC_SYNC_RANE	uapi/ion_rtk.h	/^struct RTK_ION_IOC_SYNC_RANE {$/;"	s
+RTK_PHOENIX_ION_GET_LAST_ALLOC_ADDR	uapi/ion_rtk.h	/^#define RTK_PHOENIX_ION_GET_LAST_ALLOC_ADDR /;"	d
+RTK_PHOENIX_ION_HEAP_AUDIO_MASK	uapi/ion_rtk.h	/^#define RTK_PHOENIX_ION_HEAP_AUDIO_MASK /;"	d
+RTK_PHOENIX_ION_HEAP_LARGE_SURFACES	uapi/ion_rtk.h	/^	RTK_PHOENIX_ION_HEAP_LARGE_SURFACES,$/;"	e	enum:__anon4038e9ef0303
+RTK_PHOENIX_ION_HEAP_MEDIA_MASK	uapi/ion_rtk.h	/^#define RTK_PHOENIX_ION_HEAP_MEDIA_MASK /;"	d
+RTK_PHOENIX_ION_HEAP_NONSECURE_TILER	uapi/ion_rtk.h	/^	RTK_PHOENIX_ION_HEAP_NONSECURE_TILER,$/;"	e	enum:__anon4038e9ef0303
+RTK_PHOENIX_ION_HEAP_SECURE_INPUT	uapi/ion_rtk.h	/^	RTK_PHOENIX_ION_HEAP_SECURE_INPUT,$/;"	e	enum:__anon4038e9ef0303
+RTK_PHOENIX_ION_HEAP_SECURE_MASK	uapi/ion_rtk.h	/^#define RTK_PHOENIX_ION_HEAP_SECURE_MASK /;"	d
+RTK_PHOENIX_ION_HEAP_TILER	uapi/ion_rtk.h	/^	RTK_PHOENIX_ION_HEAP_TILER,$/;"	e	enum:__anon4038e9ef0303
+RTK_PHOENIX_ION_HEAP_TILER_MASK	uapi/ion_rtk.h	/^#define RTK_PHOENIX_ION_HEAP_TILER_MASK /;"	d
+RTK_PHOENIX_ION_HEAP_TYPE_AUDIO	uapi/ion_rtk.h	/^	RTK_PHOENIX_ION_HEAP_TYPE_AUDIO,$/;"	e	enum:__anon4038e9ef0103
+RTK_PHOENIX_ION_HEAP_TYPE_MEDIA	uapi/ion_rtk.h	/^	RTK_PHOENIX_ION_HEAP_TYPE_MEDIA,$/;"	e	enum:__anon4038e9ef0103
+RTK_PHOENIX_ION_HEAP_TYPE_SECURE	uapi/ion_rtk.h	/^	RTK_PHOENIX_ION_HEAP_TYPE_SECURE,$/;"	e	enum:__anon4038e9ef0103
+RTK_PHOENIX_ION_HEAP_TYPE_TILER	uapi/ion_rtk.h	/^	RTK_PHOENIX_ION_HEAP_TYPE_TILER = ION_HEAP_TYPE_CUSTOM + 1,$/;"	e	enum:__anon4038e9ef0103
+RTK_PHOENIX_ION_TILER_ALLOC	uapi/ion_rtk.h	/^#define RTK_PHOENIX_ION_TILER_ALLOC /;"	d
+TILER_PIXEL_FMT_16BIT	uapi/ion_rtk.h	/^	TILER_PIXEL_FMT_16BIT = 1,$/;"	e	enum:__anon4038e9ef0203
+TILER_PIXEL_FMT_32BIT	uapi/ion_rtk.h	/^	TILER_PIXEL_FMT_32BIT = 2,$/;"	e	enum:__anon4038e9ef0203
+TILER_PIXEL_FMT_8BIT	uapi/ion_rtk.h	/^	TILER_PIXEL_FMT_8BIT = 0,$/;"	e	enum:__anon4038e9ef0203
+TILER_PIXEL_FMT_MAX	uapi/ion_rtk.h	/^	TILER_PIXEL_FMT_MAX = 3$/;"	e	enum:__anon4038e9ef0203
+TILER_PIXEL_FMT_MIN	uapi/ion_rtk.h	/^	TILER_PIXEL_FMT_MIN = 0,$/;"	e	enum:__anon4038e9ef0203
+TILER_PIXEL_FMT_PAGE	uapi/ion_rtk.h	/^	TILER_PIXEL_FMT_PAGE = 3,$/;"	e	enum:__anon4038e9ef0203
+USED	ion/realtek/ion_rtk_carveout_heap.c	/^		USED,$/;"	e	enum:ion_carveout_heap_debug_show::__mem_state	file:
+_ION_H	ion_back/ion.h	/^#define _ION_H$/;"	d
+_ION_OF_H	ion/ion_of.h	/^#define _ION_OF_H$/;"	d
+_ION_PRIV_H	ion/ion_priv.h	/^#define _ION_PRIV_H$/;"	d
+_LINUX_ASHMEM_H	ashmem.h	/^#define _LINUX_ASHMEM_H$/;"	d
+_LINUX_COMPAT_ION_H	ion/compat_ion.h	/^#define _LINUX_COMPAT_ION_H$/;"	d
+_LINUX_ION_H	ion/ion.h	/^#define _LINUX_ION_H$/;"	d
+_LINUX_ION_RTK_CARVEOUT_HEAP_H	ion/realtek/ion_rtk_carveout_heap.h	/^#define _LINUX_ION_RTK_CARVEOUT_HEAP_H$/;"	d
+_LINUX_RTK_PHOENIX_ION_H	uapi/ion_rtk.h	/^#define _LINUX_RTK_PHOENIX_ION_H$/;"	d
+_UAPI_LINUX_ASHMEM_H	uapi/ashmem.h	/^#define _UAPI_LINUX_ASHMEM_H$/;"	d
+_UAPI_LINUX_ION_H	uapi/ion.h	/^#define _UAPI_LINUX_ION_H$/;"	d
+__ASHMEMIOC	uapi/ashmem.h	/^#define __ASHMEMIOC	/;"	d
+__anon4038e9ef0103	uapi/ion_rtk.h	/^enum {$/;"	g
+__anon4038e9ef0203	uapi/ion_rtk.h	/^enum {$/;"	g
+__anon4038e9ef0303	uapi/ion_rtk.h	/^enum {$/;"	g
+__anon9586ec96010a	ion/ion_priv.h	/^	union {$/;"	u	struct:ion_buffer
+__anon9df5c3d0010a	ion/ion_test.c	/^	union {$/;"	u	function:ion_test_ioctl	file:
+__ion_add_cma_heaps	ion_back/ion_cma_heap.c	/^static int __ion_add_cma_heaps(struct cma *cma, void *data)$/;"	f	typeref:typename:int	file:
+__ion_cma_heap_create	ion_back/ion_cma_heap.c	/^static struct ion_heap *__ion_cma_heap_create(struct cma *cma)$/;"	f	typeref:struct:ion_heap *	file:
+__ion_system_contig_heap_create	ion_back/ion_system_heap.c	/^static struct ion_heap *__ion_system_contig_heap_create(void)$/;"	f	typeref:struct:ion_heap *	file:
+__ion_system_heap_create	ion_back/ion_system_heap.c	/^static struct ion_heap *__ion_system_heap_create(void)$/;"	f	typeref:struct:ion_heap *	file:
+__mem_state	ion/realtek/ion_rtk_carveout_heap.c	/^	enum __mem_state {$/;"	g	function:ion_carveout_heap_debug_show	file:
+__read_mostly	ashmem.c	/^static struct kmem_cache *ashmem_area_cachep __read_mostly;$/;"	v	typeref:struct:kmem_cache * ashmem_area_cachep	file:
+__read_mostly	ashmem.c	/^static struct kmem_cache *ashmem_range_cachep __read_mostly;$/;"	v	typeref:struct:kmem_cache * ashmem_range_cachep	file:
+_ion_buffer_destroy	ion/ion.c	/^static void _ion_buffer_destroy(struct kref *kref)$/;"	f	typeref:typename:void	file:
+_ion_buffer_destroy	ion_back/ion.c	/^static void _ion_buffer_destroy(struct ion_buffer *buffer)$/;"	f	typeref:typename:void	file:
+_ion_heap_freelist_drain	ion/ion_heap.c	/^static size_t _ion_heap_freelist_drain(struct ion_heap *heap, size_t size,$/;"	f	typeref:typename:size_t	file:
+_ion_heap_freelist_drain	ion_back/ion_heap.c	/^static size_t _ion_heap_freelist_drain(struct ion_heap *heap, size_t size,$/;"	f	typeref:typename:size_t	file:
+addr	ion/compat_ion.c	/^	compat_ulong_t addr;$/;"	m	struct:compat_ion_phys_data	typeref:typename:compat_ulong_t	file:
+addr	uapi/ion.h	/^	unsigned long addr;$/;"	m	struct:ion_phys_data	typeref:typename:unsigned long
+addr	uapi/ion_rtk.h	/^	unsigned long long addr;$/;"	m	struct:RTK_ION_IOC_PHY_INFO	typeref:typename:unsigned long long
+algo_mode	ion/realtek/ion_rtk_carveout_heap.c	/^	enum ion_rtk_carveout_heap_gen_pool_algo_mode algo_mode;$/;"	m	struct:ion_rtk_carveout_heap	typeref:enum:ion_rtk_carveout_heap_gen_pool_algo_mode	file:
+align	ion/compat_ion.c	/^	compat_size_t align;$/;"	m	struct:compat_ion_allocation_data	typeref:typename:compat_size_t	file:
+align	ion/ion.h	/^	ion_phys_addr_t align;$/;"	m	struct:ion_platform_heap	typeref:typename:ion_phys_addr_t
+align	ion/ion_of.h	/^	int align;$/;"	m	struct:ion_of_heap	typeref:typename:int
+align	uapi/ion.h	/^	size_t align;$/;"	m	struct:ion_allocation_data	typeref:typename:size_t
+alloc_buffer_page	ion/ion_system_heap.c	/^static struct page *alloc_buffer_page(struct ion_system_heap *heap,$/;"	f	typeref:struct:page *	file:
+alloc_buffer_page	ion_back/ion_system_heap.c	/^static struct page *alloc_buffer_page(struct ion_system_heap *heap,$/;"	f	typeref:struct:page *	file:
+alloc_bytes_wm	ion_back/ion.h	/^	u64 alloc_bytes_wm;$/;"	m	struct:ion_heap	typeref:typename:u64
+alloc_largest_available	ion/ion_system_heap.c	/^static struct page *alloc_largest_available(struct ion_system_heap *heap,$/;"	f	typeref:struct:page *	file:
+alloc_largest_available	ion_back/ion_system_heap.c	/^static struct page *alloc_largest_available(struct ion_system_heap *heap,$/;"	f	typeref:struct:page *	file:
+allocate	ion/ion_priv.h	/^	int (*allocate)(struct ion_heap *heap,$/;"	m	struct:ion_heap_ops	typeref:typename:int (*)(struct ion_heap * heap,struct ion_buffer * buffer,unsigned long len,unsigned long align,unsigned long flags)
+allocate	ion_back/ion.h	/^	int (*allocate)(struct ion_heap *heap,$/;"	m	struct:ion_heap_ops	typeref:typename:int (*)(struct ion_heap * heap,struct ion_buffer * buffer,unsigned long len,unsigned long flags)
+allocated	ion/ion_chunk_heap.c	/^	unsigned long allocated;$/;"	m	struct:ion_chunk_heap	typeref:typename:unsigned long	file:
+allocation	ion/ion-ioctl.c	/^	struct ion_allocation_data allocation;$/;"	m	union:ion_ioctl_arg	typeref:struct:ion_allocation_data	file:
+allocation	ion_back/ion.c	/^	struct ion_allocation_data allocation;$/;"	m	union:ion_ioctl_arg	typeref:struct:ion_allocation_data	file:
+arg	ion/compat_ion.c	/^	compat_ulong_t arg;$/;"	m	struct:compat_ion_custom_data	typeref:typename:compat_ulong_t	file:
+arg	uapi/ion.h	/^	unsigned long arg;$/;"	m	struct:ion_custom_data	typeref:typename:unsigned long
+ashmem_area	ashmem.c	/^struct ashmem_area {$/;"	s	file:
+ashmem_fops	ashmem.c	/^static const struct file_operations ashmem_fops = {$/;"	v	typeref:typename:const struct file_operations	file:
+ashmem_get_pin_status	ashmem.c	/^static int ashmem_get_pin_status(struct ashmem_area *asma, size_t pgstart,$/;"	f	typeref:typename:int	file:
+ashmem_init	ashmem.c	/^static int __init ashmem_init(void)$/;"	f	typeref:typename:int __init	file:
+ashmem_ioctl	ashmem.c	/^static long ashmem_ioctl(struct file *file, unsigned int cmd, unsigned long arg)$/;"	f	typeref:typename:long	file:
+ashmem_llseek	ashmem.c	/^static loff_t ashmem_llseek(struct file *file, loff_t offset, int origin)$/;"	f	typeref:typename:loff_t	file:
+ashmem_misc	ashmem.c	/^static struct miscdevice ashmem_misc = {$/;"	v	typeref:struct:miscdevice	file:
+ashmem_mmap	ashmem.c	/^static int ashmem_mmap(struct file *file, struct vm_area_struct *vma)$/;"	f	typeref:typename:int	file:
+ashmem_open	ashmem.c	/^static int ashmem_open(struct inode *inode, struct file *file)$/;"	f	typeref:typename:int	file:
+ashmem_pin	ashmem.c	/^static int ashmem_pin(struct ashmem_area *asma, size_t pgstart, size_t pgend,$/;"	f	typeref:typename:int	file:
+ashmem_pin	uapi/ashmem.h	/^struct ashmem_pin {$/;"	s
+ashmem_pin_unpin	ashmem.c	/^static int ashmem_pin_unpin(struct ashmem_area *asma, unsigned long cmd,$/;"	f	typeref:typename:int	file:
+ashmem_range	ashmem.c	/^struct ashmem_range {$/;"	s	file:
+ashmem_read_iter	ashmem.c	/^static ssize_t ashmem_read_iter(struct kiocb *iocb, struct iov_iter *iter)$/;"	f	typeref:typename:ssize_t	file:
+ashmem_release	ashmem.c	/^static int ashmem_release(struct inode *ignored, struct file *file)$/;"	f	typeref:typename:int	file:
+ashmem_show_fdinfo	ashmem.c	/^static void ashmem_show_fdinfo(struct seq_file *m, struct file *file)$/;"	f	typeref:typename:void	file:
+ashmem_shrink_count	ashmem.c	/^ashmem_shrink_count(struct shrinker *shrink, struct shrink_control *sc)$/;"	f	typeref:typename:unsigned long	file:
+ashmem_shrink_inflight	ashmem.c	/^static atomic_t ashmem_shrink_inflight = ATOMIC_INIT(0);$/;"	v	typeref:typename:atomic_t	file:
+ashmem_shrink_scan	ashmem.c	/^ashmem_shrink_scan(struct shrinker *shrink, struct shrink_control *sc)$/;"	f	typeref:typename:unsigned long	file:
+ashmem_shrinker	ashmem.c	/^static struct shrinker ashmem_shrinker = {$/;"	v	typeref:struct:shrinker	file:
+ashmem_unpin	ashmem.c	/^static int ashmem_unpin(struct ashmem_area *asma, size_t pgstart, size_t pgend,$/;"	f	typeref:typename:int	file:
+ashmem_vmfile_get_unmapped_area	ashmem.c	/^ashmem_vmfile_get_unmapped_area(struct file *file, unsigned long addr,$/;"	f	typeref:typename:unsigned long	file:
+ashmem_vmfile_mmap	ashmem.c	/^static int ashmem_vmfile_mmap(struct file *file, struct vm_area_struct *vma)$/;"	f	typeref:typename:int	file:
+asma	ashmem.c	/^	struct ashmem_area *asma;$/;"	m	struct:ashmem_range	typeref:struct:ashmem_area *	file:
+attachments	ion_back/ion.h	/^	struct list_head attachments;$/;"	m	struct:ion_buffer	typeref:struct:list_head
+backing_shmem_inode_class	ashmem.c	/^static struct lock_class_key backing_shmem_inode_class;$/;"	v	typeref:struct:lock_class_key	file:
+base	ion/ion.h	/^	ion_phys_addr_t base;$/;"	m	struct:ion_platform_heap	typeref:typename:ion_phys_addr_t
+base	ion/ion_carveout_heap.c	/^	ion_phys_addr_t base;$/;"	m	struct:ion_carveout_heap	typeref:typename:ion_phys_addr_t	file:
+base	ion/ion_chunk_heap.c	/^	ion_phys_addr_t base;$/;"	m	struct:ion_chunk_heap	typeref:typename:ion_phys_addr_t	file:
+base	ion/realtek/ion_rtk_carveout_heap.c	/^	ion_phys_addr_t base;$/;"	m	struct:ION_RTK_CARVEOUT_PAGE_INFO	typeref:typename:ion_phys_addr_t	file:
+base	ion/realtek/ion_rtk_carveout_heap.c	/^	ion_phys_addr_t base;$/;"	m	struct:ION_RTK_CARVEOUT_POOL_INFO	typeref:typename:ion_phys_addr_t	file:
+base	ion/realtek/ion_rtk_carveout_heap.h	/^    ion_phys_addr_t base;$/;"	m	struct:ion_rtk_priv_pool	typeref:typename:ion_phys_addr_t
+buffer	ion/ion_priv.h	/^	struct ion_buffer *buffer;$/;"	m	struct:ion_handle	typeref:struct:ion_buffer *
+buffer_lock	ion/ion_priv.h	/^	struct mutex buffer_lock;$/;"	m	struct:ion_device	typeref:struct:mutex
+buffers	ion/ion_priv.h	/^	struct rb_root buffers;$/;"	m	struct:ion_device	typeref:struct:rb_root
+cached	ion/ion_priv.h	/^	bool cached;$/;"	m	struct:ion_page_pool	typeref:typename:bool
+cached_pools	ion/ion_system_heap.c	/^	struct ion_page_pool *cached_pools[NUM_ORDERS];$/;"	m	struct:ion_system_heap	typeref:struct:ion_page_pool * []	file:
+cached_turbo	ion/realtek/ion_rtk_carveout_heap.c	/^static bool cached_turbo = true;$/;"	v	typeref:typename:bool	file:
+calc_vm_may_flags	ashmem.c	/^static inline vm_flags_t calc_vm_may_flags(unsigned long prot)$/;"	f	typeref:typename:vm_flags_t	file:
+carveout_heap_ops	ion/ion_carveout_heap.c	/^static struct ion_heap_ops carveout_heap_ops = {$/;"	v	typeref:struct:ion_heap_ops	file:
+carveout_ptr	ion/ion_dummy_driver.c	/^static void *carveout_ptr;$/;"	v	typeref:typename:void *	file:
+chunk_heap_ops	ion/ion_chunk_heap.c	/^static struct ion_heap_ops chunk_heap_ops = {$/;"	v	typeref:struct:ion_heap_ops	file:
+chunk_ptr	ion/ion_dummy_driver.c	/^static void *chunk_ptr;$/;"	v	typeref:typename:void *	file:
+chunk_size	ion/ion_chunk_heap.c	/^	unsigned long chunk_size;$/;"	m	struct:ion_chunk_heap	typeref:typename:unsigned long	file:
+client	ion/ion_priv.h	/^	struct ion_client *client;$/;"	m	struct:ion_handle	typeref:struct:ion_client *
+clients	ion/ion_priv.h	/^	struct rb_root clients;$/;"	m	struct:ion_device	typeref:struct:rb_root
+clients_debug_root	ion/ion_priv.h	/^	struct dentry *clients_debug_root;$/;"	m	struct:ion_device	typeref:struct:dentry *
+cma	ion_back/ion_cma_heap.c	/^	struct cma *cma;$/;"	m	struct:ion_cma_heap	typeref:struct:cma *	file:
+cma_pool	ion/realtek/ion_rtk_carveout_heap.h	/^    struct cma * cma_pool;$/;"	m	struct:ion_rtk_priv_pool	typeref:struct:cma *
+cmd	ion/compat_ion.c	/^	compat_uint_t cmd;$/;"	m	struct:compat_ion_custom_data	typeref:typename:compat_uint_t	file:
+cmd	uapi/ion.h	/^	unsigned int cmd;$/;"	m	struct:ion_custom_data	typeref:typename:unsigned int
+cnt	uapi/ion.h	/^	__u32 cnt; \/* Total number of heaps to be copied *\/$/;"	m	struct:ion_heap_query	typeref:typename:__u32
+compat	ion/ion_of.h	/^	const char *compat;$/;"	m	struct:ion_of_heap	typeref:typename:const char *
+compat_ashmem_ioctl	ashmem.c	/^static long compat_ashmem_ioctl(struct file *file, unsigned int cmd,$/;"	f	typeref:typename:long	file:
+compat_get_ion_allocation_data	ion/compat_ion.c	/^static int compat_get_ion_allocation_data($/;"	f	typeref:typename:int	file:
+compat_get_ion_custom_data	ion/compat_ion.c	/^static int compat_get_ion_custom_data($/;"	f	typeref:typename:int	file:
+compat_get_ion_handle_data	ion/compat_ion.c	/^static int compat_get_ion_handle_data($/;"	f	typeref:typename:int	file:
+compat_get_ion_phys_data	ion/compat_ion.c	/^static int compat_get_ion_phys_data($/;"	f	typeref:typename:int	file:
+compat_ion_allocation_data	ion/compat_ion.c	/^struct compat_ion_allocation_data {$/;"	s	file:
+compat_ion_custom_data	ion/compat_ion.c	/^struct compat_ion_custom_data {$/;"	s	file:
+compat_ion_handle_data	ion/compat_ion.c	/^struct compat_ion_handle_data {$/;"	s	file:
+compat_ion_ioctl	ion/compat_ion.c	/^long compat_ion_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)$/;"	f	typeref:typename:long
+compat_ion_ioctl	ion/compat_ion.h	/^#define compat_ion_ioctl /;"	d
+compat_ion_phys_data	ion/compat_ion.c	/^struct compat_ion_phys_data {$/;"	s	file:
+compat_put_ion_allocation_data	ion/compat_ion.c	/^static int compat_put_ion_allocation_data($/;"	f	typeref:typename:int	file:
+compat_put_ion_phys_data	ion/compat_ion.c	/^static int compat_put_ion_phys_data($/;"	f	typeref:typename:int	file:
+cpool	ion/realtek/ion_rtk_carveout_heap.c	/^	struct cma * cpool;$/;"	m	struct:ION_RTK_CARVEOUT_POOL_INFO	typeref:struct:cma *	file:
+cpu_addr	ion/ion_cma_heap.c	/^	void *cpu_addr;$/;"	m	struct:ion_cma_buffer_info	typeref:typename:void *	file:
+custom	ion/ion-ioctl.c	/^	struct ion_custom_data custom;$/;"	m	union:ion_ioctl_arg	typeref:struct:ion_custom_data	file:
+custom_ioctl	ion/ion_priv.h	/^	long (*custom_ioctl)(struct ion_client *client, unsigned int cmd,$/;"	m	struct:ion_device	typeref:typename:long (*)(struct ion_client * client,unsigned int cmd,unsigned long arg)
+data	ion/hisilicon/hi6220_ion.c	/^	struct ion_platform_data *data;$/;"	m	struct:hisi_ion_dev	typeref:struct:ion_platform_data *	file:
+debug_client_fops	ion/ion.c	/^static const struct file_operations debug_client_fops = {$/;"	v	typeref:typename:const struct file_operations	file:
+debug_heap_fops	ion/ion.c	/^static const struct file_operations debug_heap_fops = {$/;"	v	typeref:typename:const struct file_operations	file:
+debug_root	ion/ion_priv.h	/^	struct dentry *debug_root;$/;"	m	struct:ion_client	typeref:struct:dentry *
+debug_root	ion/ion_priv.h	/^	struct dentry *debug_root;$/;"	m	struct:ion_device	typeref:struct:dentry *
+debug_root	ion_back/ion.h	/^	struct dentry *debug_root;$/;"	m	struct:ion_device	typeref:struct:dentry *
+debug_show	ion/ion_priv.h	/^	int (*debug_show)(struct ion_heap *heap, struct seq_file *, void *);$/;"	m	struct:ion_heap	typeref:typename:int (*)(struct ion_heap * heap,struct seq_file *,void *)
+debug_shrink_get	ion/ion.c	/^static int debug_shrink_get(void *data, u64 *val)$/;"	f	typeref:typename:int	file:
+debug_shrink_get	ion_back/ion.c	/^static int debug_shrink_get(void *data, u64 *val)$/;"	f	typeref:typename:int	file:
+debug_shrink_set	ion/ion.c	/^static int debug_shrink_set(void *data, u64 val)$/;"	f	typeref:typename:int	file:
+debug_shrink_set	ion_back/ion.c	/^static int debug_shrink_set(void *data, u64 val)$/;"	f	typeref:typename:int	file:
+debugfs_mutex	ion/ion.c	/^static struct mutex debugfs_mutex;$/;"	v	typeref:struct:mutex	file:
+dev	ion/ion_cma_heap.c	/^	struct device *dev;$/;"	m	struct:ion_cma_heap	typeref:struct:device *	file:
+dev	ion/ion_priv.h	/^	struct ion_device *dev;$/;"	m	struct:ion_buffer	typeref:struct:ion_device *
+dev	ion/ion_priv.h	/^	struct ion_device *dev;$/;"	m	struct:ion_client	typeref:struct:ion_device *
+dev	ion/ion_priv.h	/^	struct ion_device *dev;$/;"	m	struct:ion_heap	typeref:struct:ion_device *
+dev	ion/ion_priv.h	/^	struct miscdevice dev;$/;"	m	struct:ion_device	typeref:struct:miscdevice
+dev	ion/ion_test.c	/^	struct device *dev;$/;"	m	struct:ion_test_data	typeref:struct:device *	file:
+dev	ion_back/ion.c	/^	struct device *dev;$/;"	m	struct:ion_dma_buf_attachment	typeref:struct:device *	file:
+dev	ion_back/ion.h	/^	struct ion_device *dev;$/;"	m	struct:ion_buffer	typeref:struct:ion_device *
+dev	ion_back/ion.h	/^	struct ion_device *dev;$/;"	m	struct:ion_heap	typeref:struct:ion_device *
+dev	ion_back/ion.h	/^	struct miscdevice dev;$/;"	m	struct:ion_device	typeref:struct:miscdevice
+display_name	ion/ion_priv.h	/^	char *display_name;$/;"	m	struct:ion_client	typeref:typename:char *
+display_serial	ion/ion_priv.h	/^	int display_serial;$/;"	m	struct:ion_client	typeref:typename:int
+dma_buf	ion/ion_test.c	/^	struct dma_buf *dma_buf;$/;"	m	struct:ion_test_data	typeref:struct:dma_buf *	file:
+dma_buf_ops	ion/ion.c	/^static struct dma_buf_ops dma_buf_ops = {$/;"	v	typeref:struct:dma_buf_ops	file:
+dma_buf_ops	ion_back/ion.c	/^static const struct dma_buf_ops dma_buf_ops = {$/;"	v	typeref:typename:const struct dma_buf_ops	file:
+dmap_cnt	ion/ion_priv.h	/^	int dmap_cnt;$/;"	m	struct:ion_buffer	typeref:typename:int
+dummy_heaps	ion/ion_dummy_driver.c	/^static struct ion_platform_heap dummy_heaps[] = {$/;"	v	typeref:struct:ion_platform_heap[]	file:
+dummy_ion_pdata	ion/ion_dummy_driver.c	/^static struct ion_platform_data dummy_ion_pdata = {$/;"	v	typeref:struct:ion_platform_data	file:
+dup_sg_table	ion_back/ion.c	/^static struct sg_table *dup_sg_table(struct sg_table *table)$/;"	f	typeref:struct:sg_table *	file:
+fd	ion/ion-ioctl.c	/^	struct ion_fd_data fd;$/;"	m	union:ion_ioctl_arg	typeref:struct:ion_fd_data	file:
+fd	uapi/ion.h	/^	int fd;$/;"	m	struct:ion_fd_data	typeref:typename:int
+file	ashmem.c	/^	struct file *file;$/;"	m	struct:ashmem_area	typeref:struct:file *	file:
+flags	ion/compat_ion.c	/^	compat_uint_t flags;$/;"	m	struct:compat_ion_allocation_data	typeref:typename:compat_uint_t	file:
+flags	ion/ion_priv.h	/^	unsigned long flags;$/;"	m	struct:ion_buffer	typeref:typename:unsigned long
+flags	ion/ion_priv.h	/^	unsigned long flags;$/;"	m	struct:ion_heap	typeref:typename:unsigned long
+flags	ion/realtek/ion_rtk_carveout_heap.c	/^	unsigned long flags;$/;"	m	struct:ION_RTK_CARVEOUT_PAGE_INFO	typeref:typename:unsigned long	file:
+flags	ion/realtek/ion_rtk_carveout_heap.c	/^	unsigned long flags;$/;"	m	struct:ION_RTK_CARVEOUT_POOL_INFO	typeref:typename:unsigned long	file:
+flags	ion/realtek/ion_rtk_carveout_heap.h	/^    unsigned long flags;$/;"	m	struct:ion_rtk_priv_pool	typeref:typename:unsigned long
+flags	ion_back/ion.h	/^	unsigned long flags;$/;"	m	struct:ion_buffer	typeref:typename:unsigned long
+flags	ion_back/ion.h	/^	unsigned long flags;$/;"	m	struct:ion_heap	typeref:typename:unsigned long
+flags	uapi/ion.h	/^	unsigned int flags;$/;"	m	struct:ion_allocation_data	typeref:typename:unsigned int
+flags	uapi/ion_rtk.h	/^	unsigned int flags; \/* request  : Set the conditions to query, 0 is to query all the condition/;"	m	struct:RTK_ION_IOC_GET_MEMORY_INFO_S	typeref:typename:unsigned int
+free	ion/ion_priv.h	/^	void (*free)(struct ion_buffer *buffer);$/;"	m	struct:ion_heap_ops	typeref:typename:void (*)(struct ion_buffer * buffer)
+free	ion_back/ion.h	/^	void (*free)(struct ion_buffer *buffer);$/;"	m	struct:ion_heap_ops	typeref:typename:void (*)(struct ion_buffer * buffer)
+freeSize	ion/realtek/ion_rtk_carveout_heap.h	/^    unsigned long freeSize;$/;"	m	struct:ion_rtk_carveout_meminfo	typeref:typename:unsigned long
+freeSize	uapi/ion_rtk.h	/^	unsigned int freeSize; \/* response *\/$/;"	m	struct:RTK_ION_IOC_GET_MEMORY_INFO_S	typeref:typename:unsigned int
+free_buffer_page	ion/ion_system_heap.c	/^static void free_buffer_page(struct ion_system_heap *heap,$/;"	f	typeref:typename:void	file:
+free_buffer_page	ion_back/ion_system_heap.c	/^static void free_buffer_page(struct ion_system_heap *heap,$/;"	f	typeref:typename:void	file:
+free_duped_table	ion_back/ion.c	/^static void free_duped_table(struct sg_table *table)$/;"	f	typeref:typename:void	file:
+free_list	ion/ion_priv.h	/^	struct list_head free_list;$/;"	m	struct:ion_heap	typeref:struct:list_head
+free_list	ion_back/ion.h	/^	struct list_head free_list;$/;"	m	struct:ion_heap	typeref:struct:list_head
+free_list_size	ion/ion_priv.h	/^	size_t free_list_size;$/;"	m	struct:ion_heap	typeref:typename:size_t
+free_list_size	ion_back/ion.h	/^	size_t free_list_size;$/;"	m	struct:ion_heap	typeref:typename:size_t
+free_lock	ion/ion_priv.h	/^	spinlock_t free_lock;$/;"	m	struct:ion_heap	typeref:typename:spinlock_t
+free_lock	ion_back/ion.h	/^	spinlock_t free_lock;$/;"	m	struct:ion_heap	typeref:typename:spinlock_t
+getMemInfo	ion/realtek/ion_rtk_carveout_heap.h	/^    int          (*getMemInfo) (struct ion_heap * heap, unsigned int flags, struct ion_rtk_carve/;"	m	struct:ion_rtk_carveout_ops	typeref:typename:int (*)(struct ion_heap * heap,unsigned int flags,struct ion_rtk_carveout_meminfo * info)
+getVersion	ion/realtek/ion_rtk_carveout_heap.h	/^    unsigned int (*getVersion) (struct ion_heap * heap);$/;"	m	struct:ion_rtk_carveout_ops	typeref:typename:unsigned int (*)(struct ion_heap * heap)
+get_name	ashmem.c	/^static int get_name(struct ashmem_area *asma, void __user *name)$/;"	f	typeref:typename:int	file:
+get_rtk_carveout_ops	ion/realtek/ion_rtk_carveout_heap.c	/^struct ion_rtk_carveout_ops * get_rtk_carveout_ops(struct ion_heap * heap)$/;"	f	typeref:struct:ion_rtk_carveout_ops *
+gfp_mask	ion/ion_priv.h	/^	gfp_t gfp_mask;$/;"	m	struct:ion_page_pool	typeref:typename:gfp_t
+gfp_mask	ion_back/ion.h	/^	gfp_t gfp_mask;$/;"	m	struct:ion_page_pool	typeref:typename:gfp_t
+gpool	ion/realtek/ion_rtk_carveout_heap.c	/^	struct gen_pool *gpool;$/;"	m	struct:ION_RTK_CARVEOUT_POOL_INFO	typeref:struct:gen_pool *	file:
+handle	ion/compat_ion.c	/^	compat_int_t handle;$/;"	m	struct:compat_ion_allocation_data	typeref:typename:compat_int_t	file:
+handle	ion/compat_ion.c	/^	compat_int_t handle;$/;"	m	struct:compat_ion_handle_data	typeref:typename:compat_int_t	file:
+handle	ion/compat_ion.c	/^	compat_int_t handle;$/;"	m	struct:compat_ion_phys_data	typeref:typename:compat_int_t	file:
+handle	ion/ion-ioctl.c	/^	struct ion_handle_data handle;$/;"	m	union:ion_ioctl_arg	typeref:struct:ion_handle_data	file:
+handle	ion/ion_cma_heap.c	/^	dma_addr_t handle;$/;"	m	struct:ion_cma_buffer_info	typeref:typename:dma_addr_t	file:
+handle	uapi/ion.h	/^	ion_user_handle_t handle;$/;"	m	struct:ion_allocation_data	typeref:typename:ion_user_handle_t
+handle	uapi/ion.h	/^	ion_user_handle_t handle;$/;"	m	struct:ion_fd_data	typeref:typename:ion_user_handle_t
+handle	uapi/ion.h	/^	ion_user_handle_t handle;$/;"	m	struct:ion_handle_data	typeref:typename:ion_user_handle_t
+handle	uapi/ion.h	/^	ion_user_handle_t handle;$/;"	m	struct:ion_phys_data	typeref:typename:ion_user_handle_t
+handle	uapi/ion_rtk.h	/^	int handle;$/;"	m	struct:RTK_ION_IOC_PHY_INFO	typeref:typename:int
+handle	uapi/ion_rtk.h	/^	int handle;$/;"	m	struct:RTK_ION_IOC_SYNC_RANE	typeref:typename:int
+handle_count	ion/ion_priv.h	/^	int handle_count;$/;"	m	struct:ion_buffer	typeref:typename:int
+handles	ion/ion_priv.h	/^	struct rb_root handles;$/;"	m	struct:ion_client	typeref:struct:rb_root
+heap	ion/ion_carveout_heap.c	/^	struct ion_heap heap;$/;"	m	struct:ion_carveout_heap	typeref:struct:ion_heap	file:
+heap	ion/ion_chunk_heap.c	/^	struct ion_heap heap;$/;"	m	struct:ion_chunk_heap	typeref:struct:ion_heap	file:
+heap	ion/ion_cma_heap.c	/^	struct ion_heap heap;$/;"	m	struct:ion_cma_heap	typeref:struct:ion_heap	file:
+heap	ion/ion_priv.h	/^	struct ion_heap *heap;$/;"	m	struct:ion_buffer	typeref:struct:ion_heap *
+heap	ion/ion_system_heap.c	/^	struct ion_heap heap;$/;"	m	struct:ion_system_heap	typeref:struct:ion_heap	file:
+heap	ion/realtek/ion_rtk_carveout_heap.c	/^	struct ion_heap heap;$/;"	m	struct:ion_rtk_carveout_heap	typeref:struct:ion_heap	file:
+heap	ion_back/ion.h	/^	struct ion_heap *heap;$/;"	m	struct:ion_buffer	typeref:struct:ion_heap *
+heap	ion_back/ion_cma_heap.c	/^	struct ion_heap heap;$/;"	m	struct:ion_cma_heap	typeref:struct:ion_heap	file:
+heap	ion_back/ion_system_heap.c	/^	struct ion_heap heap;$/;"	m	struct:ion_system_heap	typeref:struct:ion_heap	file:
+heapMask	uapi/ion_rtk.h	/^	unsigned int heapMask; \/* request  : Select the heap to be queried *\/$/;"	m	struct:RTK_ION_IOC_GET_MEMORY_INFO_S	typeref:typename:unsigned int
+heap_cnt	ion/ion_priv.h	/^	int heap_cnt;$/;"	m	struct:ion_device	typeref:typename:int
+heap_cnt	ion_back/ion.h	/^	int heap_cnt;$/;"	m	struct:ion_device	typeref:typename:int
+heap_id	ion/ion_of.h	/^	int heap_id;$/;"	m	struct:ion_of_heap	typeref:typename:int
+heap_id	ion_back/ion.c	/^static int heap_id;$/;"	v	typeref:typename:int	file:
+heap_id	uapi/ion.h	/^	__u32 heap_id;$/;"	m	struct:ion_heap_data	typeref:typename:__u32
+heap_id_mask	ion/compat_ion.c	/^	compat_uint_t heap_id_mask;$/;"	m	struct:compat_ion_allocation_data	typeref:typename:compat_uint_t	file:
+heap_id_mask	uapi/ion.h	/^	unsigned int heap_id_mask;$/;"	m	struct:ion_allocation_data	typeref:typename:unsigned int
+heaps	ion/hisilicon/hi6220_ion.c	/^	struct ion_heap	**heaps;$/;"	m	struct:hisi_ion_dev	typeref:struct:ion_heap **	file:
+heaps	ion/ion.h	/^	struct ion_platform_heap *heaps;$/;"	m	struct:ion_platform_data	typeref:struct:ion_platform_heap *
+heaps	ion/ion_dummy_driver.c	/^static struct ion_heap **heaps;$/;"	v	typeref:struct:ion_heap **	file:
+heaps	ion/ion_priv.h	/^	struct plist_head heaps;$/;"	m	struct:ion_device	typeref:struct:plist_head
+heaps	ion/tegra/tegra_ion.c	/^static struct ion_heap **heaps;$/;"	v	typeref:struct:ion_heap **	file:
+heaps	ion_back/ion.h	/^	struct plist_head heaps;$/;"	m	struct:ion_device	typeref:struct:plist_head
+heaps	uapi/ion.h	/^	__u64 heaps; \/* buffer to be populated *\/$/;"	m	struct:ion_heap_query	typeref:typename:__u64
+heaps_debug_root	ion/ion_priv.h	/^	struct dentry *heaps_debug_root;$/;"	m	struct:ion_device	typeref:struct:dentry *
+hi6220_ion_driver	ion/hisilicon/hi6220_ion.c	/^static struct platform_driver hi6220_ion_driver = {$/;"	v	typeref:struct:platform_driver	file:
+hi6220_ion_init	ion/hisilicon/hi6220_ion.c	/^static int __init hi6220_ion_init(void)$/;"	f	typeref:typename:int __init	file:
+hi6220_ion_match_table	ion/hisilicon/hi6220_ion.c	/^static const struct of_device_id hi6220_ion_match_table[] = {$/;"	v	typeref:typename:const struct of_device_id[]	file:
+hi6220_ion_probe	ion/hisilicon/hi6220_ion.c	/^static int hi6220_ion_probe(struct platform_device *pdev)$/;"	f	typeref:typename:int	file:
+hi6220_ion_remove	ion/hisilicon/hi6220_ion.c	/^static int hi6220_ion_remove(struct platform_device *pdev)$/;"	f	typeref:typename:int	file:
+high_count	ion/ion_priv.h	/^	int high_count;$/;"	m	struct:ion_page_pool	typeref:typename:int
+high_count	ion_back/ion.h	/^	int high_count;$/;"	m	struct:ion_page_pool	typeref:typename:int
+high_items	ion/ion_priv.h	/^	struct list_head high_items;$/;"	m	struct:ion_page_pool	typeref:struct:list_head
+high_items	ion_back/ion.h	/^	struct list_head high_items;$/;"	m	struct:ion_page_pool	typeref:struct:list_head
+high_order_gfp_flags	ion/ion_system_heap.c	/^static gfp_t high_order_gfp_flags = (GFP_HIGHUSER | __GFP_ZERO | __GFP_NOWARN |$/;"	v	typeref:typename:gfp_t	file:
+high_order_gfp_flags	ion_back/ion_system_heap.c	/^static gfp_t high_order_gfp_flags = (GFP_HIGHUSER | __GFP_ZERO | __GFP_NOWARN |$/;"	v	typeref:typename:gfp_t	file:
+hisi_heaps	ion/hisilicon/hi6220_ion.c	/^static struct ion_of_heap hisi_heaps[] = {$/;"	v	typeref:struct:ion_of_heap[]	file:
+hisi_ion_dev	ion/hisilicon/hi6220_ion.c	/^struct hisi_ion_dev {$/;"	s	file:
+id	ion/ion.h	/^	unsigned int id;$/;"	m	struct:ion_platform_heap	typeref:typename:unsigned int
+id	ion/ion_priv.h	/^	int id;$/;"	m	struct:ion_handle	typeref:typename:int
+id	ion/ion_priv.h	/^	unsigned int id;$/;"	m	struct:ion_heap	typeref:typename:unsigned int
+id	ion_back/ion.h	/^	unsigned int id;$/;"	m	struct:ion_heap	typeref:typename:unsigned int
+idev	ion/hisilicon/hi6220_ion.c	/^	struct ion_device *idev;$/;"	m	struct:hisi_ion_dev	typeref:struct:ion_device *	file:
+idev	ion/ion_dummy_driver.c	/^static struct ion_device *idev;$/;"	v	typeref:struct:ion_device *	file:
+idev	ion/tegra/tegra_ion.c	/^static struct ion_device *idev;$/;"	v	typeref:struct:ion_device *	file:
+idr	ion/ion_priv.h	/^	struct idr idr;$/;"	m	struct:ion_client	typeref:struct:idr
+internal_dev	ion_back/ion.c	/^static struct ion_device *internal_dev;$/;"	v	typeref:struct:ion_device *	file:
+ion_add_cma_heaps	ion_back/ion_cma_heap.c	/^static int ion_add_cma_heaps(void)$/;"	f	typeref:typename:int	file:
+ion_alloc	ion/ion.c	/^struct ion_handle *ion_alloc(struct ion_client *client, size_t len,$/;"	f	typeref:struct:ion_handle *
+ion_alloc	ion_back/ion.c	/^static int ion_alloc(size_t len, unsigned int heap_id_mask, unsigned int flags)$/;"	f	typeref:typename:int	file:
+ion_allocation_data	uapi/ion.h	/^struct ion_allocation_data {$/;"	s
+ion_buffer	ion/ion_priv.h	/^struct ion_buffer {$/;"	s
+ion_buffer	ion_back/ion.h	/^struct ion_buffer {$/;"	s
+ion_buffer_add	ion/ion.c	/^static void ion_buffer_add(struct ion_device *dev,$/;"	f	typeref:typename:void	file:
+ion_buffer_add_to_handle	ion/ion.c	/^static void ion_buffer_add_to_handle(struct ion_buffer *buffer)$/;"	f	typeref:typename:void	file:
+ion_buffer_cached	ion/ion.c	/^bool ion_buffer_cached(struct ion_buffer *buffer)$/;"	f	typeref:typename:bool
+ion_buffer_create	ion/ion.c	/^static struct ion_buffer *ion_buffer_create(struct ion_heap *heap,$/;"	f	typeref:struct:ion_buffer *	file:
+ion_buffer_create	ion_back/ion.c	/^static struct ion_buffer *ion_buffer_create(struct ion_heap *heap,$/;"	f	typeref:struct:ion_buffer *	file:
+ion_buffer_destroy	ion/ion.c	/^void ion_buffer_destroy(struct ion_buffer *buffer)$/;"	f	typeref:typename:void
+ion_buffer_destroy	ion_back/ion.c	/^void ion_buffer_destroy(struct ion_buffer *buffer)$/;"	f	typeref:typename:void
+ion_buffer_fault_user_mappings	ion/ion.c	/^bool ion_buffer_fault_user_mappings(struct ion_buffer *buffer)$/;"	f	typeref:typename:bool
+ion_buffer_get	ion/ion.c	/^static void ion_buffer_get(struct ion_buffer *buffer)$/;"	f	typeref:typename:void	file:
+ion_buffer_kmap_get	ion/ion.c	/^static void *ion_buffer_kmap_get(struct ion_buffer *buffer)$/;"	f	typeref:typename:void *	file:
+ion_buffer_kmap_get	ion_back/ion.c	/^static void *ion_buffer_kmap_get(struct ion_buffer *buffer)$/;"	f	typeref:typename:void *	file:
+ion_buffer_kmap_put	ion/ion.c	/^static void ion_buffer_kmap_put(struct ion_buffer *buffer)$/;"	f	typeref:typename:void	file:
+ion_buffer_kmap_put	ion_back/ion.c	/^static void ion_buffer_kmap_put(struct ion_buffer *buffer)$/;"	f	typeref:typename:void	file:
+ion_buffer_page	ion/ion.c	/^static inline struct page *ion_buffer_page(struct page *page)$/;"	f	typeref:struct:page *	file:
+ion_buffer_page_clean	ion/ion.c	/^static inline void ion_buffer_page_clean(struct page **page)$/;"	f	typeref:typename:void	file:
+ion_buffer_page_dirty	ion/ion.c	/^static inline void ion_buffer_page_dirty(struct page **page)$/;"	f	typeref:typename:void	file:
+ion_buffer_page_is_dirty	ion/ion.c	/^static inline bool ion_buffer_page_is_dirty(struct page *page)$/;"	f	typeref:typename:bool	file:
+ion_buffer_put	ion/ion.c	/^static int ion_buffer_put(struct ion_buffer *buffer)$/;"	f	typeref:typename:int	file:
+ion_buffer_remove_from_handle	ion/ion.c	/^static void ion_buffer_remove_from_handle(struct ion_buffer *buffer)$/;"	f	typeref:typename:void	file:
+ion_buffer_sync_for_device	ion/ion.c	/^static void ion_buffer_sync_for_device(struct ion_buffer *buffer,$/;"	f	typeref:typename:void	file:
+ion_carveout_allocate	ion/ion_carveout_heap.c	/^static ion_phys_addr_t ion_carveout_allocate(struct ion_heap *heap,$/;"	f	typeref:typename:ion_phys_addr_t	file:
+ion_carveout_free	ion/ion_carveout_heap.c	/^static void ion_carveout_free(struct ion_heap *heap, ion_phys_addr_t addr,$/;"	f	typeref:typename:void	file:
+ion_carveout_heap	ion/ion_carveout_heap.c	/^struct ion_carveout_heap {$/;"	s	file:
+ion_carveout_heap_allocate	ion/ion_carveout_heap.c	/^static int ion_carveout_heap_allocate(struct ion_heap *heap,$/;"	f	typeref:typename:int	file:
+ion_carveout_heap_create	ion/ion_carveout_heap.c	/^struct ion_heap *ion_carveout_heap_create(struct ion_platform_heap *heap_data)$/;"	f	typeref:struct:ion_heap *
+ion_carveout_heap_debug_show	ion/realtek/ion_rtk_carveout_heap.c	/^static int ion_carveout_heap_debug_show(struct ion_heap *heap, struct seq_file *s,$/;"	f	typeref:typename:int	file:
+ion_carveout_heap_debug_show_list	ion/realtek/ion_rtk_carveout_heap.c	/^__maybe_unused static int ion_carveout_heap_debug_show_list($/;"	f	typeref:typename:__maybe_unused int	file:
+ion_carveout_heap_destroy	ion/ion_carveout_heap.c	/^void ion_carveout_heap_destroy(struct ion_heap *heap)$/;"	f	typeref:typename:void
+ion_carveout_heap_free	ion/ion_carveout_heap.c	/^static void ion_carveout_heap_free(struct ion_buffer *buffer)$/;"	f	typeref:typename:void	file:
+ion_carveout_heap_phys	ion/ion_carveout_heap.c	/^static int ion_carveout_heap_phys(struct ion_heap *heap,$/;"	f	typeref:typename:int	file:
+ion_chunk_heap	ion/ion_chunk_heap.c	/^struct ion_chunk_heap {$/;"	s	file:
+ion_chunk_heap_allocate	ion/ion_chunk_heap.c	/^static int ion_chunk_heap_allocate(struct ion_heap *heap,$/;"	f	typeref:typename:int	file:
+ion_chunk_heap_create	ion/ion_chunk_heap.c	/^struct ion_heap *ion_chunk_heap_create(struct ion_platform_heap *heap_data)$/;"	f	typeref:struct:ion_heap *
+ion_chunk_heap_destroy	ion/ion_chunk_heap.c	/^void ion_chunk_heap_destroy(struct ion_heap *heap)$/;"	f	typeref:typename:void
+ion_chunk_heap_free	ion/ion_chunk_heap.c	/^static void ion_chunk_heap_free(struct ion_buffer *buffer)$/;"	f	typeref:typename:void	file:
+ion_client	ion/ion_priv.h	/^struct ion_client {$/;"	s
+ion_client_create	ion/ion.c	/^struct ion_client *ion_client_create(struct ion_device *dev,$/;"	f	typeref:struct:ion_client *
+ion_client_destroy	ion/ion.c	/^void ion_client_destroy(struct ion_client *client)$/;"	f	typeref:typename:void
+ion_cma_allocate	ion/ion_cma_heap.c	/^static int ion_cma_allocate(struct ion_heap *heap, struct ion_buffer *buffer,$/;"	f	typeref:typename:int	file:
+ion_cma_allocate	ion_back/ion_cma_heap.c	/^static int ion_cma_allocate(struct ion_heap *heap, struct ion_buffer *buffer,$/;"	f	typeref:typename:int	file:
+ion_cma_buffer_info	ion/ion_cma_heap.c	/^struct ion_cma_buffer_info {$/;"	s	file:
+ion_cma_free	ion/ion_cma_heap.c	/^static void ion_cma_free(struct ion_buffer *buffer)$/;"	f	typeref:typename:void	file:
+ion_cma_free	ion_back/ion_cma_heap.c	/^static void ion_cma_free(struct ion_buffer *buffer)$/;"	f	typeref:typename:void	file:
+ion_cma_heap	ion/ion_cma_heap.c	/^struct ion_cma_heap {$/;"	s	file:
+ion_cma_heap	ion_back/ion_cma_heap.c	/^struct ion_cma_heap {$/;"	s	file:
+ion_cma_heap_create	ion/ion_cma_heap.c	/^struct ion_heap *ion_cma_heap_create(struct ion_platform_heap *data)$/;"	f	typeref:struct:ion_heap *
+ion_cma_heap_destroy	ion/ion_cma_heap.c	/^void ion_cma_heap_destroy(struct ion_heap *heap)$/;"	f	typeref:typename:void
+ion_cma_map_kernel	ion/ion_cma_heap.c	/^static void *ion_cma_map_kernel(struct ion_heap *heap,$/;"	f	typeref:typename:void *	file:
+ion_cma_mmap	ion/ion_cma_heap.c	/^static int ion_cma_mmap(struct ion_heap *mapper, struct ion_buffer *buffer,$/;"	f	typeref:typename:int	file:
+ion_cma_ops	ion/ion_cma_heap.c	/^static struct ion_heap_ops ion_cma_ops = {$/;"	v	typeref:struct:ion_heap_ops	file:
+ion_cma_ops	ion_back/ion_cma_heap.c	/^static struct ion_heap_ops ion_cma_ops = {$/;"	v	typeref:struct:ion_heap_ops	file:
+ion_cma_phys	ion/ion_cma_heap.c	/^static int ion_cma_phys(struct ion_heap *heap, struct ion_buffer *buffer,$/;"	f	typeref:typename:int	file:
+ion_cma_unmap_kernel	ion/ion_cma_heap.c	/^static void ion_cma_unmap_kernel(struct ion_heap *heap,$/;"	f	typeref:typename:void	file:
+ion_custom_data	uapi/ion.h	/^struct ion_custom_data {$/;"	s
+ion_debug_client_open	ion/ion.c	/^static int ion_debug_client_open(struct inode *inode, struct file *file)$/;"	f	typeref:typename:int	file:
+ion_debug_client_show	ion/ion.c	/^static int ion_debug_client_show(struct seq_file *s, void *unused)$/;"	f	typeref:typename:int	file:
+ion_debug_heap_open	ion/ion.c	/^static int ion_debug_heap_open(struct inode *inode, struct file *file)$/;"	f	typeref:typename:int	file:
+ion_debug_heap_show	ion/ion.c	/^static int ion_debug_heap_show(struct seq_file *s, void *unused)$/;"	f	typeref:typename:int	file:
+ion_debug_heap_total	ion/ion.c	/^static size_t ion_debug_heap_total(struct ion_client *client,$/;"	f	typeref:typename:size_t	file:
+ion_destroy_platform_data	ion/ion_of.c	/^void ion_destroy_platform_data(struct ion_platform_data *data)$/;"	f	typeref:typename:void
+ion_device	ion/ion_priv.h	/^struct ion_device {$/;"	s
+ion_device	ion_back/ion.h	/^struct ion_device {$/;"	s
+ion_device_add_heap	ion/ion.c	/^void ion_device_add_heap(struct ion_device *dev, struct ion_heap *heap)$/;"	f	typeref:typename:void
+ion_device_add_heap	ion_back/ion.c	/^void ion_device_add_heap(struct ion_heap *heap)$/;"	f	typeref:typename:void
+ion_device_create	ion/ion.c	/^struct ion_device *ion_device_create(long (*custom_ioctl)$/;"	f	typeref:struct:ion_device *
+ion_device_create	ion_back/ion.c	/^static int ion_device_create(void)$/;"	f	typeref:typename:int	file:
+ion_device_destroy	ion/ion.c	/^void ion_device_destroy(struct ion_device *dev)$/;"	f	typeref:typename:void
+ion_dma_buf_attach	ion_back/ion.c	/^static int ion_dma_buf_attach(struct dma_buf *dmabuf,$/;"	f	typeref:typename:int	file:
+ion_dma_buf_attachment	ion_back/ion.c	/^struct ion_dma_buf_attachment {$/;"	s	file:
+ion_dma_buf_begin_cpu_access	ion/ion.c	/^static int ion_dma_buf_begin_cpu_access(struct dma_buf *dmabuf,$/;"	f	typeref:typename:int	file:
+ion_dma_buf_begin_cpu_access	ion_back/ion.c	/^static int ion_dma_buf_begin_cpu_access(struct dma_buf *dmabuf,$/;"	f	typeref:typename:int	file:
+ion_dma_buf_detach	ion_back/ion.c	/^static void ion_dma_buf_detach(struct dma_buf *dmabuf,$/;"	f	typeref:typename:void	file:
+ion_dma_buf_end_cpu_access	ion/ion.c	/^static int ion_dma_buf_end_cpu_access(struct dma_buf *dmabuf,$/;"	f	typeref:typename:int	file:
+ion_dma_buf_end_cpu_access	ion_back/ion.c	/^static int ion_dma_buf_end_cpu_access(struct dma_buf *dmabuf,$/;"	f	typeref:typename:int	file:
+ion_dma_buf_kmap	ion/ion.c	/^static void *ion_dma_buf_kmap(struct dma_buf *dmabuf, unsigned long offset)$/;"	f	typeref:typename:void *	file:
+ion_dma_buf_kunmap	ion/ion.c	/^static void ion_dma_buf_kunmap(struct dma_buf *dmabuf, unsigned long offset,$/;"	f	typeref:typename:void	file:
+ion_dma_buf_release	ion/ion.c	/^static void ion_dma_buf_release(struct dma_buf *dmabuf)$/;"	f	typeref:typename:void	file:
+ion_dma_buf_release	ion_back/ion.c	/^static void ion_dma_buf_release(struct dma_buf *dmabuf)$/;"	f	typeref:typename:void	file:
+ion_driver	ion/tegra/tegra_ion.c	/^static struct platform_driver ion_driver = {$/;"	v	typeref:struct:platform_driver	file:
+ion_dummy_exit	ion/ion_dummy_driver.c	/^static void __exit ion_dummy_exit(void)$/;"	f	typeref:typename:void __exit	file:
+ion_dummy_init	ion/ion_dummy_driver.c	/^static int __init ion_dummy_init(void)$/;"	f	typeref:typename:int __init	file:
+ion_fd_data	uapi/ion.h	/^struct ion_fd_data {$/;"	s
+ion_fops	ion/ion.c	/^static const struct file_operations ion_fops = {$/;"	v	typeref:typename:const struct file_operations	file:
+ion_fops	ion_back/ion.c	/^static const struct file_operations ion_fops = {$/;"	v	typeref:typename:const struct file_operations	file:
+ion_free	ion/ion.c	/^void ion_free(struct ion_client *client, struct ion_handle *handle)$/;"	f	typeref:typename:void
+ion_free_nolock	ion/ion.c	/^void ion_free_nolock(struct ion_client *client,$/;"	f	typeref:typename:void
+ion_get_client_heap_by_mask	ion/ion.c	/^struct ion_heap * ion_get_client_heap_by_mask(struct ion_client *client,  unsigned int heap_id_m/;"	f	typeref:struct:ion_heap *
+ion_get_client_heap_by_mask	ion_back/ion.c	/^struct ion_heap * ion_get_client_heap_by_mask(struct ion_client *client,  unsigned int heap_id_m/;"	f	typeref:struct:ion_heap *
+ion_get_client_serial	ion/ion.c	/^static int ion_get_client_serial(const struct rb_root *root,$/;"	f	typeref:typename:int	file:
+ion_handle	ion/ion_priv.h	/^struct ion_handle {$/;"	s
+ion_handle_add	ion/ion.c	/^static int ion_handle_add(struct ion_client *client, struct ion_handle *handle)$/;"	f	typeref:typename:int	file:
+ion_handle_create	ion/ion.c	/^static struct ion_handle *ion_handle_create(struct ion_client *client,$/;"	f	typeref:struct:ion_handle *	file:
+ion_handle_data	uapi/ion.h	/^struct ion_handle_data {$/;"	s
+ion_handle_destroy	ion/ion.c	/^static void ion_handle_destroy(struct kref *kref)$/;"	f	typeref:typename:void	file:
+ion_handle_get	ion/ion.c	/^static void ion_handle_get(struct ion_handle *handle)$/;"	f	typeref:typename:void	file:
+ion_handle_get_by_id	ion/ion.c	/^struct ion_handle *ion_handle_get_by_id(struct ion_client *client,$/;"	f	typeref:struct:ion_handle *
+ion_handle_get_by_id_nolock	ion/ion.c	/^struct ion_handle *ion_handle_get_by_id_nolock(struct ion_client *client,$/;"	f	typeref:struct:ion_handle *
+ion_handle_kmap_get	ion/ion.c	/^static void *ion_handle_kmap_get(struct ion_handle *handle)$/;"	f	typeref:typename:void *	file:
+ion_handle_kmap_put	ion/ion.c	/^static void ion_handle_kmap_put(struct ion_handle *handle)$/;"	f	typeref:typename:void	file:
+ion_handle_lookup	ion/ion.c	/^static struct ion_handle *ion_handle_lookup(struct ion_client *client,$/;"	f	typeref:struct:ion_handle *	file:
+ion_handle_put	ion/ion.c	/^int ion_handle_put(struct ion_handle *handle)$/;"	f	typeref:typename:int
+ion_handle_put_nolock	ion/ion.c	/^int ion_handle_put_nolock(struct ion_handle *handle)$/;"	f	typeref:typename:int
+ion_handle_test_dma	ion/ion_test.c	/^static int ion_handle_test_dma(struct device *dev, struct dma_buf *dma_buf,$/;"	f	typeref:typename:int	file:
+ion_handle_test_kernel	ion/ion_test.c	/^static int ion_handle_test_kernel(struct dma_buf *dma_buf, void __user *ptr,$/;"	f	typeref:typename:int	file:
+ion_handle_validate	ion/ion.c	/^static bool ion_handle_validate(struct ion_client *client,$/;"	f	typeref:typename:bool	file:
+ion_heap	ion/ion_priv.h	/^struct ion_heap {$/;"	s
+ion_heap	ion_back/ion.h	/^struct ion_heap {$/;"	s
+ion_heap_buffer_zero	ion/ion_heap.c	/^int ion_heap_buffer_zero(struct ion_buffer *buffer)$/;"	f	typeref:typename:int
+ion_heap_buffer_zero	ion_back/ion_heap.c	/^int ion_heap_buffer_zero(struct ion_buffer *buffer)$/;"	f	typeref:typename:int
+ion_heap_clear_pages	ion/ion_heap.c	/^static int ion_heap_clear_pages(struct page **pages, int num, pgprot_t pgprot)$/;"	f	typeref:typename:int	file:
+ion_heap_clear_pages	ion_back/ion_heap.c	/^static int ion_heap_clear_pages(struct page **pages, int num, pgprot_t pgprot)$/;"	f	typeref:typename:int	file:
+ion_heap_create	ion/ion_heap.c	/^struct ion_heap *ion_heap_create(struct ion_platform_heap *heap_data)$/;"	f	typeref:struct:ion_heap *
+ion_heap_data	uapi/ion.h	/^struct ion_heap_data {$/;"	s
+ion_heap_deferred_free	ion/ion_heap.c	/^static int ion_heap_deferred_free(void *data)$/;"	f	typeref:typename:int	file:
+ion_heap_deferred_free	ion_back/ion_heap.c	/^static int ion_heap_deferred_free(void *data)$/;"	f	typeref:typename:int	file:
+ion_heap_destroy	ion/ion_heap.c	/^void ion_heap_destroy(struct ion_heap *heap)$/;"	f	typeref:typename:void
+ion_heap_freelist_add	ion/ion_heap.c	/^void ion_heap_freelist_add(struct ion_heap *heap, struct ion_buffer *buffer)$/;"	f	typeref:typename:void
+ion_heap_freelist_add	ion_back/ion_heap.c	/^void ion_heap_freelist_add(struct ion_heap *heap, struct ion_buffer *buffer)$/;"	f	typeref:typename:void
+ion_heap_freelist_drain	ion/ion_heap.c	/^size_t ion_heap_freelist_drain(struct ion_heap *heap, size_t size)$/;"	f	typeref:typename:size_t
+ion_heap_freelist_drain	ion_back/ion_heap.c	/^size_t ion_heap_freelist_drain(struct ion_heap *heap, size_t size)$/;"	f	typeref:typename:size_t
+ion_heap_freelist_shrink	ion/ion_heap.c	/^size_t ion_heap_freelist_shrink(struct ion_heap *heap, size_t size)$/;"	f	typeref:typename:size_t
+ion_heap_freelist_shrink	ion_back/ion_heap.c	/^size_t ion_heap_freelist_shrink(struct ion_heap *heap, size_t size)$/;"	f	typeref:typename:size_t
+ion_heap_freelist_size	ion/ion_heap.c	/^size_t ion_heap_freelist_size(struct ion_heap *heap)$/;"	f	typeref:typename:size_t
+ion_heap_freelist_size	ion_back/ion_heap.c	/^size_t ion_heap_freelist_size(struct ion_heap *heap)$/;"	f	typeref:typename:size_t
+ion_heap_init_deferred_free	ion/ion_heap.c	/^int ion_heap_init_deferred_free(struct ion_heap *heap)$/;"	f	typeref:typename:int
+ion_heap_init_deferred_free	ion_back/ion_heap.c	/^int ion_heap_init_deferred_free(struct ion_heap *heap)$/;"	f	typeref:typename:int
+ion_heap_init_shrinker	ion/ion_heap.c	/^void ion_heap_init_shrinker(struct ion_heap *heap)$/;"	f	typeref:typename:void
+ion_heap_init_shrinker	ion_back/ion_heap.c	/^int ion_heap_init_shrinker(struct ion_heap *heap)$/;"	f	typeref:typename:int
+ion_heap_map_kernel	ion/ion_heap.c	/^void *ion_heap_map_kernel(struct ion_heap *heap,$/;"	f	typeref:typename:void *
+ion_heap_map_kernel	ion_back/ion_heap.c	/^void *ion_heap_map_kernel(struct ion_heap *heap,$/;"	f	typeref:typename:void *
+ion_heap_map_user	ion/ion_heap.c	/^int ion_heap_map_user(struct ion_heap *heap, struct ion_buffer *buffer,$/;"	f	typeref:typename:int
+ion_heap_map_user	ion_back/ion_heap.c	/^int ion_heap_map_user(struct ion_heap *heap, struct ion_buffer *buffer,$/;"	f	typeref:typename:int
+ion_heap_ops	ion/ion_priv.h	/^struct ion_heap_ops {$/;"	s
+ion_heap_ops	ion_back/ion.h	/^struct ion_heap_ops {$/;"	s
+ion_heap_pages_zero	ion/ion_heap.c	/^int ion_heap_pages_zero(struct page *page, size_t size, pgprot_t pgprot)$/;"	f	typeref:typename:int
+ion_heap_query	uapi/ion.h	/^struct ion_heap_query {$/;"	s
+ion_heap_sglist_zero	ion/ion_heap.c	/^static int ion_heap_sglist_zero(struct scatterlist *sgl, unsigned int nents,$/;"	f	typeref:typename:int	file:
+ion_heap_sglist_zero	ion_back/ion_heap.c	/^static int ion_heap_sglist_zero(struct sg_table *sgt, pgprot_t pgprot)$/;"	f	typeref:typename:int	file:
+ion_heap_shrink_count	ion/ion_heap.c	/^static unsigned long ion_heap_shrink_count(struct shrinker *shrinker,$/;"	f	typeref:typename:unsigned long	file:
+ion_heap_shrink_count	ion_back/ion_heap.c	/^static unsigned long ion_heap_shrink_count(struct shrinker *shrinker,$/;"	f	typeref:typename:unsigned long	file:
+ion_heap_shrink_scan	ion/ion_heap.c	/^static unsigned long ion_heap_shrink_scan(struct shrinker *shrinker,$/;"	f	typeref:typename:unsigned long	file:
+ion_heap_shrink_scan	ion_back/ion_heap.c	/^static unsigned long ion_heap_shrink_scan(struct shrinker *shrinker,$/;"	f	typeref:typename:unsigned long	file:
+ion_heap_type	uapi/ion.h	/^enum ion_heap_type {$/;"	g
+ion_heap_unmap_kernel	ion/ion_heap.c	/^void ion_heap_unmap_kernel(struct ion_heap *heap,$/;"	f	typeref:typename:void
+ion_heap_unmap_kernel	ion_back/ion_heap.c	/^void ion_heap_unmap_kernel(struct ion_heap *heap,$/;"	f	typeref:typename:void
+ion_import_dma_buf	ion/ion.c	/^struct ion_handle *ion_import_dma_buf(struct ion_client *client,$/;"	f	typeref:struct:ion_handle *
+ion_import_dma_buf_fd	ion/ion.c	/^struct ion_handle *ion_import_dma_buf_fd(struct ion_client *client, int fd)$/;"	f	typeref:struct:ion_handle *
+ion_import_dma_buf_point	ion/ion.c	/^struct ion_handle *ion_import_dma_buf_point(struct ion_client *client, struct dma_buf *dmabuf)$/;"	f	typeref:struct:ion_handle *
+ion_import_dma_buf_point	ion_back/ion.c	/^struct ion_handle *ion_import_dma_buf_point(struct ion_client *client, struct dma_buf *dmabuf)$/;"	f	typeref:struct:ion_handle *
+ion_ioctl	ion/ion-ioctl.c	/^long ion_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)$/;"	f	typeref:typename:long
+ion_ioctl	ion_back/ion.c	/^static long ion_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)$/;"	f	typeref:typename:long	file:
+ion_ioctl_arg	ion/ion-ioctl.c	/^union ion_ioctl_arg {$/;"	u	file:
+ion_ioctl_arg	ion_back/ion.c	/^union ion_ioctl_arg {$/;"	u	file:
+ion_ioctl_dir	ion/ion-ioctl.c	/^static unsigned int ion_ioctl_dir(unsigned int cmd)$/;"	f	typeref:typename:unsigned int	file:
+ion_map_dma_buf	ion/ion.c	/^static struct sg_table *ion_map_dma_buf(struct dma_buf_attachment *attachment,$/;"	f	typeref:struct:sg_table *	file:
+ion_map_dma_buf	ion_back/ion.c	/^static struct sg_table *ion_map_dma_buf(struct dma_buf_attachment *attachment,$/;"	f	typeref:struct:sg_table *	file:
+ion_map_kernel	ion/ion.c	/^void *ion_map_kernel(struct ion_client *client, struct ion_handle *handle)$/;"	f	typeref:typename:void *
+ion_mmap	ion/ion.c	/^static int ion_mmap(struct dma_buf *dmabuf, struct vm_area_struct *vma)$/;"	f	typeref:typename:int	file:
+ion_mmap	ion_back/ion.c	/^static int ion_mmap(struct dma_buf *dmabuf, struct vm_area_struct *vma)$/;"	f	typeref:typename:int	file:
+ion_mmap_by_handle	ion/ion.c	/^int ion_mmap_by_handle(struct ion_handle *handle, struct vm_area_struct *vma)$/;"	f	typeref:typename:int
+ion_mmap_by_handle	ion_back/ion.c	/^int ion_mmap_by_handle(struct ion_handle *handle, struct vm_area_struct *vma)$/;"	f	typeref:typename:int
+ion_of_heap	ion/ion_of.h	/^struct ion_of_heap {$/;"	s
+ion_open	ion/ion.c	/^static int ion_open(struct inode *inode, struct file *file)$/;"	f	typeref:typename:int	file:
+ion_page_pool	ion/ion_priv.h	/^struct ion_page_pool {$/;"	s
+ion_page_pool	ion_back/ion.h	/^struct ion_page_pool {$/;"	s
+ion_page_pool_add	ion/ion_page_pool.c	/^static int ion_page_pool_add(struct ion_page_pool *pool, struct page *page)$/;"	f	typeref:typename:int	file:
+ion_page_pool_add	ion_back/ion_page_pool.c	/^static void ion_page_pool_add(struct ion_page_pool *pool, struct page *page)$/;"	f	typeref:typename:void	file:
+ion_page_pool_alloc	ion/ion_page_pool.c	/^struct page *ion_page_pool_alloc(struct ion_page_pool *pool)$/;"	f	typeref:struct:page *
+ion_page_pool_alloc	ion_back/ion_page_pool.c	/^struct page *ion_page_pool_alloc(struct ion_page_pool *pool)$/;"	f	typeref:struct:page *
+ion_page_pool_alloc_pages	ion/ion_page_pool.c	/^static void *ion_page_pool_alloc_pages(struct ion_page_pool *pool)$/;"	f	typeref:typename:void *	file:
+ion_page_pool_alloc_pages	ion_back/ion_page_pool.c	/^static inline struct page *ion_page_pool_alloc_pages(struct ion_page_pool *pool)$/;"	f	typeref:struct:page *	file:
+ion_page_pool_create	ion/ion_page_pool.c	/^struct ion_page_pool *ion_page_pool_create(gfp_t gfp_mask, unsigned int order,$/;"	f	typeref:struct:ion_page_pool *
+ion_page_pool_create	ion_back/ion_page_pool.c	/^struct ion_page_pool *ion_page_pool_create(gfp_t gfp_mask, unsigned int order)$/;"	f	typeref:struct:ion_page_pool *
+ion_page_pool_destroy	ion/ion_page_pool.c	/^void ion_page_pool_destroy(struct ion_page_pool *pool)$/;"	f	typeref:typename:void
+ion_page_pool_destroy	ion_back/ion_page_pool.c	/^void ion_page_pool_destroy(struct ion_page_pool *pool)$/;"	f	typeref:typename:void
+ion_page_pool_free	ion/ion_page_pool.c	/^void ion_page_pool_free(struct ion_page_pool *pool, struct page *page)$/;"	f	typeref:typename:void
+ion_page_pool_free	ion_back/ion_page_pool.c	/^void ion_page_pool_free(struct ion_page_pool *pool, struct page *page)$/;"	f	typeref:typename:void
+ion_page_pool_free_pages	ion/ion_page_pool.c	/^static void ion_page_pool_free_pages(struct ion_page_pool *pool,$/;"	f	typeref:typename:void	file:
+ion_page_pool_free_pages	ion_back/ion_page_pool.c	/^static void ion_page_pool_free_pages(struct ion_page_pool *pool,$/;"	f	typeref:typename:void	file:
+ion_page_pool_init	ion/ion_page_pool.c	/^static int __init ion_page_pool_init(void)$/;"	f	typeref:typename:int __init	file:
+ion_page_pool_remove	ion/ion_page_pool.c	/^static struct page *ion_page_pool_remove(struct ion_page_pool *pool, bool high)$/;"	f	typeref:struct:page *	file:
+ion_page_pool_remove	ion_back/ion_page_pool.c	/^static struct page *ion_page_pool_remove(struct ion_page_pool *pool, bool high)$/;"	f	typeref:struct:page *	file:
+ion_page_pool_shrink	ion/ion_page_pool.c	/^int ion_page_pool_shrink(struct ion_page_pool *pool, gfp_t gfp_mask,$/;"	f	typeref:typename:int
+ion_page_pool_shrink	ion_back/ion_page_pool.c	/^int ion_page_pool_shrink(struct ion_page_pool *pool, gfp_t gfp_mask,$/;"	f	typeref:typename:int
+ion_page_pool_total	ion/ion_page_pool.c	/^static int ion_page_pool_total(struct ion_page_pool *pool, bool high)$/;"	f	typeref:typename:int	file:
+ion_page_pool_total	ion_back/ion_page_pool.c	/^static int ion_page_pool_total(struct ion_page_pool *pool, bool high)$/;"	f	typeref:typename:int	file:
+ion_pages_sync_for_device	ion/ion.c	/^void ion_pages_sync_for_device(struct device *dev, struct page *page,$/;"	f	typeref:typename:void
+ion_parse_dt	ion/ion_of.c	/^struct ion_platform_data *ion_parse_dt(struct platform_device *pdev,$/;"	f	typeref:struct:ion_platform_data *
+ion_parse_dt_heap_common	ion/ion_of.c	/^static int ion_parse_dt_heap_common(struct device_node *heap_node,$/;"	f	typeref:typename:int	file:
+ion_phys	ion/ion.c	/^int ion_phys(struct ion_client *client, struct ion_handle *handle,$/;"	f	typeref:typename:int
+ion_phys	ion_back/ion.c	/^int ion_phys(struct ion_client *client, struct ion_handle *handle,$/;"	f	typeref:typename:int
+ion_phys_addr_t	ion/ion.h	/^#define ion_phys_addr_t /;"	d
+ion_phys_data	uapi/ion.h	/^struct ion_phys_data {$/;"	s
+ion_platform_data	ion/ion.h	/^struct ion_platform_data {$/;"	s
+ion_platform_heap	ion/ion.h	/^struct ion_platform_heap {$/;"	s
+ion_query_heaps	ion/ion.c	/^int ion_query_heaps(struct ion_client *client, struct ion_heap_query *query)$/;"	f	typeref:typename:int
+ion_query_heaps	ion_back/ion.c	/^static int ion_query_heaps(struct ion_heap_query *query)$/;"	f	typeref:typename:int	file:
+ion_release	ion/ion.c	/^static int ion_release(struct inode *inode, struct file *file)$/;"	f	typeref:typename:int	file:
+ion_root_client	ion/ion.c	/^static struct rb_root *ion_root_client;$/;"	v	typeref:struct:rb_root *	file:
+ion_rtk_attr_group	ion/realtek/ion_rtk_carveout_heap.c	/^static struct attribute_group ion_rtk_attr_group = {$/;"	v	typeref:struct:attribute_group	file:
+ion_rtk_attrs	ion/realtek/ion_rtk_carveout_heap.c	/^static struct attribute *ion_rtk_attrs[] = {$/;"	v	typeref:struct:attribute * []	file:
+ion_rtk_cached_turbo_attr	ion/realtek/ion_rtk_carveout_heap.c	/^static struct kobj_attribute ion_rtk_cached_turbo_attr = ION_RTK_CARVEOUT_ATTR(cached_turbo);$/;"	v	typeref:struct:kobj_attribute	file:
+ion_rtk_cached_turbo_show	ion/realtek/ion_rtk_carveout_heap.c	/^static ssize_t ion_rtk_cached_turbo_show(struct kobject *kobj, struct kobj_attribute *attr, char/;"	f	typeref:typename:ssize_t	file:
+ion_rtk_cached_turbo_store	ion/realtek/ion_rtk_carveout_heap.c	/^static ssize_t ion_rtk_cached_turbo_store(struct kobject *kobj, struct kobj_attribute *attr, con/;"	f	typeref:typename:ssize_t	file:
+ion_rtk_carveout_allocate	ion/realtek/ion_rtk_carveout_heap.c	/^struct ION_RTK_CARVEOUT_PAGE_INFO * ion_rtk_carveout_allocate(struct ion_heap *heap,$/;"	f	typeref:struct:ION_RTK_CARVEOUT_PAGE_INFO *
+ion_rtk_carveout_free	ion/realtek/ion_rtk_carveout_heap.c	/^void ion_rtk_carveout_free(struct ion_heap *heap, ion_phys_addr_t addr,$/;"	f	typeref:typename:void
+ion_rtk_carveout_get_meminfo	ion/realtek/ion_rtk_carveout_heap.c	/^static int ion_rtk_carveout_get_meminfo (struct ion_heap * heap, unsigned int flags, struct ion_/;"	f	typeref:typename:int	file:
+ion_rtk_carveout_get_version	ion/realtek/ion_rtk_carveout_heap.c	/^static unsigned int ion_rtk_carveout_get_version (struct ion_heap * heap)$/;"	f	typeref:typename:unsigned int	file:
+ion_rtk_carveout_heap	ion/realtek/ion_rtk_carveout_heap.c	/^struct ion_rtk_carveout_heap {$/;"	s	file:
+ion_rtk_carveout_heap_allocate	ion/realtek/ion_rtk_carveout_heap.c	/^static int ion_rtk_carveout_heap_allocate(struct ion_heap *heap,$/;"	f	typeref:typename:int	file:
+ion_rtk_carveout_heap_create	ion/realtek/ion_rtk_carveout_heap.c	/^struct ion_heap *ion_rtk_carveout_heap_create(struct ion_platform_heap *heap_data)$/;"	f	typeref:struct:ion_heap *
+ion_rtk_carveout_heap_destroy	ion/realtek/ion_rtk_carveout_heap.c	/^void ion_rtk_carveout_heap_destroy(struct ion_heap *heap)$/;"	f	typeref:typename:void
+ion_rtk_carveout_heap_free	ion/realtek/ion_rtk_carveout_heap.c	/^static void ion_rtk_carveout_heap_free(struct ion_buffer *buffer)$/;"	f	typeref:typename:void	file:
+ion_rtk_carveout_heap_gen_pool_algo	ion/realtek/ion_rtk_carveout_heap.c	/^static unsigned long ion_rtk_carveout_heap_gen_pool_algo(unsigned long *map, unsigned long size,$/;"	f	typeref:typename:unsigned long	file:
+ion_rtk_carveout_heap_gen_pool_algo_last_fit	ion/realtek/ion_rtk_carveout_heap.c	/^static unsigned long ion_rtk_carveout_heap_gen_pool_algo_last_fit(unsigned long *map, unsigned l/;"	f	typeref:typename:unsigned long	file:
+ion_rtk_carveout_heap_gen_pool_algo_mode	ion/realtek/ion_rtk_carveout_heap.c	/^enum ion_rtk_carveout_heap_gen_pool_algo_mode {$/;"	g	file:
+ion_rtk_carveout_heap_map_dma	ion/realtek/ion_rtk_carveout_heap.c	/^static struct sg_table *ion_rtk_carveout_heap_map_dma(struct ion_heap *heap,$/;"	f	typeref:struct:sg_table *	file:
+ion_rtk_carveout_heap_phys	ion/realtek/ion_rtk_carveout_heap.c	/^static int ion_rtk_carveout_heap_phys(struct ion_heap *heap,$/;"	f	typeref:typename:int	file:
+ion_rtk_carveout_heap_unmap_dma	ion/realtek/ion_rtk_carveout_heap.c	/^static void ion_rtk_carveout_heap_unmap_dma(struct ion_heap *heap,$/;"	f	typeref:typename:void	file:
+ion_rtk_carveout_meminfo	ion/realtek/ion_rtk_carveout_heap.h	/^struct ion_rtk_carveout_meminfo {$/;"	s
+ion_rtk_carveout_ops	ion/realtek/ion_rtk_carveout_heap.h	/^struct ion_rtk_carveout_ops {$/;"	s
+ion_rtk_carveout_pool_type	ion/realtek/ion_rtk_carveout_heap.h	/^enum ion_rtk_carveout_pool_type {$/;"	g
+ion_rtk_carveout_show_list	ion/realtek/ion_rtk_carveout_heap.c	/^void ion_rtk_carveout_show_list(struct ion_heap *heap)$/;"	f	typeref:typename:void
+ion_rtk_kobj	ion/realtek/ion_rtk_carveout_heap.c	/^static struct kobject *ion_rtk_kobj;$/;"	v	typeref:struct:kobject *	file:
+ion_rtk_priv_pool	ion/realtek/ion_rtk_carveout_heap.h	/^struct ion_rtk_priv_pool {$/;"	s
+ion_rtk_sysfs_init	ion/realtek/ion_rtk_carveout_heap.c	/^static int __init ion_rtk_sysfs_init(void)$/;"	f	typeref:typename:int __init	file:
+ion_setup_heap_common	ion/ion_of.c	/^static int ion_setup_heap_common(struct platform_device *parent,$/;"	f	typeref:typename:int	file:
+ion_sg_table	ion/ion.c	/^struct sg_table *ion_sg_table(struct ion_client *client,$/;"	f	typeref:struct:sg_table *
+ion_sg_table	ion_back/ion.c	/^struct sg_table *ion_sg_table(struct ion_client *client,$/;"	f	typeref:struct:sg_table *
+ion_share_dma_buf	ion/ion.c	/^struct dma_buf *ion_share_dma_buf(struct ion_client *client,$/;"	f	typeref:struct:dma_buf *
+ion_share_dma_buf_fd	ion/ion.c	/^int ion_share_dma_buf_fd(struct ion_client *client, struct ion_handle *handle)$/;"	f	typeref:typename:int
+ion_sync_for_device	ion/ion.c	/^int ion_sync_for_device(struct ion_client *client, int fd)$/;"	f	typeref:typename:int
+ion_system_contig_heap_allocate	ion/ion_system_heap.c	/^static int ion_system_contig_heap_allocate(struct ion_heap *heap,$/;"	f	typeref:typename:int	file:
+ion_system_contig_heap_allocate	ion_back/ion_system_heap.c	/^static int ion_system_contig_heap_allocate(struct ion_heap *heap,$/;"	f	typeref:typename:int	file:
+ion_system_contig_heap_create	ion/ion_system_heap.c	/^struct ion_heap *ion_system_contig_heap_create(struct ion_platform_heap *unused)$/;"	f	typeref:struct:ion_heap *
+ion_system_contig_heap_create	ion_back/ion_system_heap.c	/^static int ion_system_contig_heap_create(void)$/;"	f	typeref:typename:int	file:
+ion_system_contig_heap_destroy	ion/ion_system_heap.c	/^void ion_system_contig_heap_destroy(struct ion_heap *heap)$/;"	f	typeref:typename:void
+ion_system_contig_heap_free	ion/ion_system_heap.c	/^static void ion_system_contig_heap_free(struct ion_buffer *buffer)$/;"	f	typeref:typename:void	file:
+ion_system_contig_heap_free	ion_back/ion_system_heap.c	/^static void ion_system_contig_heap_free(struct ion_buffer *buffer)$/;"	f	typeref:typename:void	file:
+ion_system_contig_heap_phys	ion/ion_system_heap.c	/^static int ion_system_contig_heap_phys(struct ion_heap *heap,$/;"	f	typeref:typename:int	file:
+ion_system_heap	ion/ion_system_heap.c	/^struct ion_system_heap {$/;"	s	file:
+ion_system_heap	ion_back/ion_system_heap.c	/^struct ion_system_heap {$/;"	s	file:
+ion_system_heap_allocate	ion/ion_system_heap.c	/^static int ion_system_heap_allocate(struct ion_heap *heap,$/;"	f	typeref:typename:int	file:
+ion_system_heap_allocate	ion_back/ion_system_heap.c	/^static int ion_system_heap_allocate(struct ion_heap *heap,$/;"	f	typeref:typename:int	file:
+ion_system_heap_create	ion/ion_system_heap.c	/^struct ion_heap *ion_system_heap_create(struct ion_platform_heap *unused)$/;"	f	typeref:struct:ion_heap *
+ion_system_heap_create	ion_back/ion_system_heap.c	/^static int ion_system_heap_create(void)$/;"	f	typeref:typename:int	file:
+ion_system_heap_create_pools	ion/ion_system_heap.c	/^static int ion_system_heap_create_pools(struct ion_page_pool **pools,$/;"	f	typeref:typename:int	file:
+ion_system_heap_create_pools	ion_back/ion_system_heap.c	/^static int ion_system_heap_create_pools(struct ion_page_pool **pools)$/;"	f	typeref:typename:int	file:
+ion_system_heap_debug_show	ion/ion_system_heap.c	/^static int ion_system_heap_debug_show(struct ion_heap *heap, struct seq_file *s,$/;"	f	typeref:typename:int	file:
+ion_system_heap_destroy	ion/ion_system_heap.c	/^void ion_system_heap_destroy(struct ion_heap *heap)$/;"	f	typeref:typename:void
+ion_system_heap_destroy_pools	ion/ion_system_heap.c	/^static void ion_system_heap_destroy_pools(struct ion_page_pool **pools)$/;"	f	typeref:typename:void	file:
+ion_system_heap_destroy_pools	ion_back/ion_system_heap.c	/^static void ion_system_heap_destroy_pools(struct ion_page_pool **pools)$/;"	f	typeref:typename:void	file:
+ion_system_heap_free	ion/ion_system_heap.c	/^static void ion_system_heap_free(struct ion_buffer *buffer)$/;"	f	typeref:typename:void	file:
+ion_system_heap_free	ion_back/ion_system_heap.c	/^static void ion_system_heap_free(struct ion_buffer *buffer)$/;"	f	typeref:typename:void	file:
+ion_system_heap_shrink	ion/ion_system_heap.c	/^static int ion_system_heap_shrink(struct ion_heap *heap, gfp_t gfp_mask,$/;"	f	typeref:typename:int	file:
+ion_system_heap_shrink	ion_back/ion_system_heap.c	/^static int ion_system_heap_shrink(struct ion_heap *heap, gfp_t gfp_mask,$/;"	f	typeref:typename:int	file:
+ion_test_data	ion/ion_test.c	/^struct ion_test_data {$/;"	s	file:
+ion_test_device	ion/ion_test.c	/^struct ion_test_device {$/;"	s	file:
+ion_test_exit	ion/ion_test.c	/^static void __exit ion_test_exit(void)$/;"	f	typeref:typename:void __exit	file:
+ion_test_fops	ion/ion_test.c	/^static const struct file_operations ion_test_fops = {$/;"	v	typeref:typename:const struct file_operations	file:
+ion_test_init	ion/ion_test.c	/^static int __init ion_test_init(void)$/;"	f	typeref:typename:int __init	file:
+ion_test_ioctl	ion/ion_test.c	/^static long ion_test_ioctl(struct file *filp, unsigned int cmd,$/;"	f	typeref:typename:long	file:
+ion_test_open	ion/ion_test.c	/^static int ion_test_open(struct inode *inode, struct file *file)$/;"	f	typeref:typename:int	file:
+ion_test_pdev	ion/ion_test.c	/^static struct platform_device *ion_test_pdev;$/;"	v	typeref:struct:platform_device *	file:
+ion_test_platform_driver	ion/ion_test.c	/^static struct platform_driver ion_test_platform_driver = {$/;"	v	typeref:struct:platform_driver	file:
+ion_test_probe	ion/ion_test.c	/^static int __init ion_test_probe(struct platform_device *pdev)$/;"	f	typeref:typename:int __init	file:
+ion_test_release	ion/ion_test.c	/^static int ion_test_release(struct inode *inode, struct file *file)$/;"	f	typeref:typename:int	file:
+ion_test_remove	ion/ion_test.c	/^static int ion_test_remove(struct platform_device *pdev)$/;"	f	typeref:typename:int	file:
+ion_unmap_dma_buf	ion/ion.c	/^static void ion_unmap_dma_buf(struct dma_buf_attachment *attachment,$/;"	f	typeref:typename:void	file:
+ion_unmap_dma_buf	ion_back/ion.c	/^static void ion_unmap_dma_buf(struct dma_buf_attachment *attachment,$/;"	f	typeref:typename:void	file:
+ion_unmap_kernel	ion/ion.c	/^void ion_unmap_kernel(struct ion_client *client, struct ion_handle *handle)$/;"	f	typeref:typename:void
+ion_user_handle_t	uapi/ion.h	/^typedef int ion_user_handle_t;$/;"	t	typeref:typename:int
+ion_vm_close	ion/ion.c	/^static void ion_vm_close(struct vm_area_struct *vma)$/;"	f	typeref:typename:void	file:
+ion_vm_fault	ion/ion.c	/^static int ion_vm_fault(struct vm_area_struct *vma, struct vm_fault *vmf)$/;"	f	typeref:typename:int	file:
+ion_vm_open	ion/ion.c	/^static void ion_vm_open(struct vm_area_struct *vma)$/;"	f	typeref:typename:void	file:
+ion_vma_list	ion/ion.c	/^struct ion_vma_list {$/;"	s	file:
+ion_vma_ops	ion/ion.c	/^const struct vm_operations_struct ion_vma_ops = {$/;"	v	typeref:typename:const struct vm_operations_struct
+ion_vma_ops	ion/ion.c	/^static const struct vm_operations_struct ion_vma_ops = {$/;"	v	typeref:typename:const struct vm_operations_struct	file:
+ion_vma_ops	ion_back/ion.c	/^const struct vm_operations_struct ion_vma_ops = {$/;"	v	typeref:typename:const struct vm_operations_struct
+ion_vma_ops	ion_back/ion.c	/^static const struct vm_operations_struct ion_vma_ops = {$/;"	v	typeref:typename:const struct vm_operations_struct	file:
+is_client_alive	ion/ion.c	/^static int is_client_alive(struct ion_client *client)$/;"	f	typeref:typename:int	file:
+kmalloc_ops	ion/ion_system_heap.c	/^static struct ion_heap_ops kmalloc_ops = {$/;"	v	typeref:struct:ion_heap_ops	file:
+kmalloc_ops	ion_back/ion_system_heap.c	/^static struct ion_heap_ops kmalloc_ops = {$/;"	v	typeref:struct:ion_heap_ops	file:
+kmap_cnt	ion/ion_priv.h	/^	int kmap_cnt;$/;"	m	struct:ion_buffer	typeref:typename:int
+kmap_cnt	ion/ion_priv.h	/^	unsigned int kmap_cnt;$/;"	m	struct:ion_handle	typeref:typename:unsigned int
+kmap_cnt	ion_back/ion.h	/^	int kmap_cnt;$/;"	m	struct:ion_buffer	typeref:typename:int
+len	ion/compat_ion.c	/^	compat_size_t len;$/;"	m	struct:compat_ion_allocation_data	typeref:typename:compat_size_t	file:
+len	ion/compat_ion.c	/^	compat_size_t len;$/;"	m	struct:compat_ion_phys_data	typeref:typename:compat_size_t	file:
+len	uapi/ashmem.h	/^	__u32 len;	\/* length forward from offset, in bytes, page-aligned *\/$/;"	m	struct:ashmem_pin	typeref:typename:__u32
+len	uapi/ion.h	/^	size_t len;$/;"	m	struct:ion_allocation_data	typeref:typename:size_t
+len	uapi/ion.h	/^	unsigned int len;$/;"	m	struct:ion_phys_data	typeref:typename:unsigned int
+len	uapi/ion_rtk.h	/^	unsigned int len;$/;"	m	struct:RTK_ION_IOC_SYNC_RANE	typeref:typename:unsigned int
+len	uapi/ion_rtk.h	/^	unsigned long long len;$/;"	m	struct:RTK_ION_IOC_PHY_INFO	typeref:typename:unsigned long long
+list	ion/ion.c	/^	struct list_head list;$/;"	m	struct:ion_vma_list	typeref:struct:list_head	file:
+list	ion/ion_priv.h	/^		struct list_head list;$/;"	m	union:ion_buffer::__anon9586ec96010a	typeref:struct:list_head
+list	ion/ion_priv.h	/^	struct plist_node list;$/;"	m	struct:ion_page_pool	typeref:struct:plist_node
+list	ion/realtek/ion_rtk_carveout_heap.c	/^	struct list_head list;$/;"	m	struct:ION_RTK_CARVEOUT_PAGE_INFO	typeref:struct:list_head	file:
+list	ion/realtek/ion_rtk_carveout_heap.c	/^	struct list_head list;$/;"	m	struct:ION_RTK_CARVEOUT_POOL_INFO	typeref:struct:list_head	file:
+list	ion/realtek/ion_rtk_carveout_heap.h	/^    struct list_head list;$/;"	m	struct:ion_rtk_priv_pool	typeref:struct:list_head
+list	ion_back/ion.c	/^	struct list_head list;$/;"	m	struct:ion_dma_buf_attachment	typeref:struct:list_head	file:
+list	ion_back/ion.h	/^	struct list_head list;$/;"	m	struct:ion_buffer	typeref:struct:list_head
+list	ion_back/ion.h	/^	struct plist_node list;$/;"	m	struct:ion_page_pool	typeref:struct:plist_node
+lock	ion/ion_priv.h	/^	struct mutex lock;$/;"	m	struct:ion_buffer	typeref:struct:mutex
+lock	ion/ion_priv.h	/^	struct mutex lock;$/;"	m	struct:ion_client	typeref:struct:mutex
+lock	ion/ion_priv.h	/^	struct rw_semaphore lock;$/;"	m	struct:ion_device	typeref:struct:rw_semaphore
+lock	ion_back/ion.h	/^	struct mutex lock;$/;"	m	struct:ion_buffer	typeref:struct:mutex
+lock	ion_back/ion.h	/^	struct rw_semaphore lock;$/;"	m	struct:ion_device	typeref:struct:rw_semaphore
+low_count	ion/ion_priv.h	/^	int low_count;$/;"	m	struct:ion_page_pool	typeref:typename:int
+low_count	ion_back/ion.h	/^	int low_count;$/;"	m	struct:ion_page_pool	typeref:typename:int
+low_items	ion/ion_priv.h	/^	struct list_head low_items;$/;"	m	struct:ion_page_pool	typeref:struct:list_head
+low_items	ion_back/ion.h	/^	struct list_head low_items;$/;"	m	struct:ion_page_pool	typeref:struct:list_head
+low_order_gfp_flags	ion/ion_system_heap.c	/^static gfp_t low_order_gfp_flags  = (GFP_HIGHUSER | __GFP_ZERO);$/;"	v	typeref:typename:gfp_t	file:
+low_order_gfp_flags	ion_back/ion_system_heap.c	/^static gfp_t low_order_gfp_flags  = GFP_HIGHUSER | __GFP_ZERO;$/;"	v	typeref:typename:gfp_t	file:
+lru	ashmem.c	/^	struct list_head lru;$/;"	m	struct:ashmem_range	typeref:struct:list_head	file:
+lru_add	ashmem.c	/^static inline void lru_add(struct ashmem_range *range)$/;"	f	typeref:typename:void	file:
+lru_count	ashmem.c	/^static unsigned long lru_count;$/;"	v	typeref:typename:unsigned long	file:
+lru_del	ashmem.c	/^static inline void lru_del(struct ashmem_range *range)$/;"	f	typeref:typename:void	file:
+map_dma	ion/ion_priv.h	/^	struct sg_table * (*map_dma)(struct ion_heap *heap,$/;"	m	struct:ion_heap_ops	typeref:struct:sg_table * (*)(struct ion_heap * heap,struct ion_buffer * buffer)
+map_kernel	ion/ion_priv.h	/^	void * (*map_kernel)(struct ion_heap *heap, struct ion_buffer *buffer);$/;"	m	struct:ion_heap_ops	typeref:typename:void * (*)(struct ion_heap * heap,struct ion_buffer * buffer)
+map_kernel	ion_back/ion.h	/^	void * (*map_kernel)(struct ion_heap *heap, struct ion_buffer *buffer);$/;"	m	struct:ion_heap_ops	typeref:typename:void * (*)(struct ion_heap * heap,struct ion_buffer * buffer)
+map_user	ion/ion_priv.h	/^	int (*map_user)(struct ion_heap *mapper, struct ion_buffer *buffer,$/;"	m	struct:ion_heap_ops	typeref:typename:int (*)(struct ion_heap * mapper,struct ion_buffer * buffer,struct vm_area_struct * vma)
+map_user	ion_back/ion.h	/^	int (*map_user)(struct ion_heap *mapper, struct ion_buffer *buffer,$/;"	m	struct:ion_heap_ops	typeref:typename:int (*)(struct ion_heap * mapper,struct ion_buffer * buffer,struct vm_area_struct * vma)
+misc	ion/ion_test.c	/^	struct miscdevice misc;$/;"	m	struct:ion_test_device	typeref:struct:miscdevice	file:
+mutex	ion/ion_priv.h	/^	struct mutex mutex;$/;"	m	struct:ion_page_pool	typeref:struct:mutex
+mutex	ion_back/ion.h	/^	struct mutex mutex;$/;"	m	struct:ion_page_pool	typeref:struct:mutex
+name	ashmem.c	/^	char name[ASHMEM_FULL_NAME_LEN];$/;"	m	struct:ashmem_area	typeref:typename:char[]	file:
+name	ion/ion.h	/^	const char *name;$/;"	m	struct:ion_platform_heap	typeref:typename:const char *
+name	ion/ion_of.h	/^	const char *name;$/;"	m	struct:ion_of_heap	typeref:typename:const char *
+name	ion/ion_priv.h	/^	const char *name;$/;"	m	struct:ion_client	typeref:typename:const char *
+name	ion/ion_priv.h	/^	const char *name;$/;"	m	struct:ion_heap	typeref:typename:const char *
+name	ion_back/ion.h	/^	const char *name;$/;"	m	struct:ion_heap	typeref:typename:const char *
+name	uapi/ion.h	/^	char name[MAX_HEAP_NAME];$/;"	m	struct:ion_heap_data	typeref:typename:char[]
+node	ion/ion_priv.h	/^		struct rb_node node;$/;"	m	union:ion_buffer::__anon9586ec96010a	typeref:struct:rb_node
+node	ion/ion_priv.h	/^	struct plist_node node;$/;"	m	struct:ion_heap	typeref:struct:plist_node
+node	ion/ion_priv.h	/^	struct rb_node node;$/;"	m	struct:ion_client	typeref:struct:rb_node
+node	ion/ion_priv.h	/^	struct rb_node node;$/;"	m	struct:ion_handle	typeref:struct:rb_node
+node	ion_back/ion.h	/^	struct plist_node node;$/;"	m	struct:ion_heap	typeref:struct:plist_node
+nr	ion/ion.h	/^	int nr;$/;"	m	struct:ion_platform_data	typeref:typename:int
+num_heaps	ion/tegra/tegra_ion.c	/^static int num_heaps;$/;"	v	typeref:typename:int	file:
+num_of_alloc_bytes	ion_back/ion.h	/^	u64 num_of_alloc_bytes;$/;"	m	struct:ion_heap	typeref:typename:u64
+num_of_buffers	ion_back/ion.h	/^	u64 num_of_buffers;$/;"	m	struct:ion_heap	typeref:typename:u64
+offset	uapi/ashmem.h	/^	__u32 offset;	\/* offset into region, in bytes, page-aligned *\/$/;"	m	struct:ashmem_pin	typeref:typename:__u32
+ops	ion/ion_priv.h	/^	struct ion_heap_ops *ops;$/;"	m	struct:ion_heap	typeref:struct:ion_heap_ops *
+ops	ion_back/ion.h	/^	struct ion_heap_ops *ops;$/;"	m	struct:ion_heap	typeref:struct:ion_heap_ops *
+order	ion/ion_priv.h	/^	unsigned int order;$/;"	m	struct:ion_page_pool	typeref:typename:unsigned int
+order	ion_back/ion.h	/^	unsigned int order;$/;"	m	struct:ion_page_pool	typeref:typename:unsigned int
+order_to_index	ion/ion_system_heap.c	/^static int order_to_index(unsigned int order)$/;"	f	typeref:typename:int	file:
+order_to_index	ion_back/ion_system_heap.c	/^static int order_to_index(unsigned int order)$/;"	f	typeref:typename:int	file:
+order_to_size	ion/ion_system_heap.c	/^static inline unsigned int order_to_size(int order)$/;"	f	typeref:typename:unsigned int	file:
+order_to_size	ion_back/ion_system_heap.c	/^static inline unsigned int order_to_size(int order)$/;"	f	typeref:typename:unsigned int	file:
+orders	ion/ion_system_heap.c	/^static const unsigned int orders[] = {8, 4, 0};$/;"	v	typeref:typename:const unsigned int[]	file:
+orders	ion_back/ion_system_heap.c	/^static const unsigned int orders[] = {8, 4, 0};$/;"	v	typeref:typename:const unsigned int[]	file:
+page	ion/realtek/ion_rtk_carveout_heap.c	/^	struct page * page;$/;"	m	struct:ION_RTK_CARVEOUT_PAGE_INFO	typeref:struct:page *	file:
+page_handlers	ion/realtek/ion_rtk_carveout_heap.c	/^	struct list_head page_handlers;$/;"	m	struct:ion_rtk_carveout_heap	typeref:struct:list_head	file:
+page_in_range	ashmem.c	/^static inline bool page_in_range(struct ashmem_range *range, size_t page)$/;"	f	typeref:typename:bool	file:
+page_range_in_range	ashmem.c	/^static inline bool page_range_in_range(struct ashmem_range *range,$/;"	f	typeref:typename:bool	file:
+page_range_subsumed_by_range	ashmem.c	/^static inline bool page_range_subsumed_by_range(struct ashmem_range *range,$/;"	f	typeref:typename:bool	file:
+page_range_subsumes_range	ashmem.c	/^static inline bool page_range_subsumes_range(struct ashmem_range *range,$/;"	f	typeref:typename:bool	file:
+pagelock	ion/realtek/ion_rtk_carveout_heap.c	/^	struct mutex pagelock;$/;"	m	struct:ion_rtk_carveout_heap	typeref:struct:mutex	file:
+pages	ion/ion_priv.h	/^	struct page **pages;$/;"	m	struct:ion_buffer	typeref:struct:page **
+pgend	ashmem.c	/^	size_t pgend;$/;"	m	struct:ashmem_range	typeref:typename:size_t	file:
+pgstart	ashmem.c	/^	size_t pgstart;$/;"	m	struct:ashmem_range	typeref:typename:size_t	file:
+phyAddr	uapi/ion_rtk.h	/^	unsigned long long phyAddr;$/;"	m	struct:RTK_ION_IOC_SYNC_RANE	typeref:typename:unsigned long long
+phys	ion/ion-ioctl.c	/^	struct ion_phys_data phys;$/;"	m	union:ion_ioctl_arg	typeref:struct:ion_phys_data	file:
+phys	ion/ion_priv.h	/^	int (*phys)(struct ion_heap *heap, struct ion_buffer *buffer,$/;"	m	struct:ion_heap_ops	typeref:typename:int (*)(struct ion_heap * heap,struct ion_buffer * buffer,ion_phys_addr_t * addr,size_t * len)
+pid	ion/ion_priv.h	/^	pid_t pid;$/;"	m	struct:ion_buffer	typeref:typename:pid_t
+pid	ion/ion_priv.h	/^	pid_t pid;$/;"	m	struct:ion_client	typeref:typename:pid_t
+pid	ion/realtek/ion_rtk_carveout_heap.c	/^	pid_t pid;$/;"	m	struct:ION_RTK_CARVEOUT_PAGE_INFO	typeref:typename:pid_t	file:
+pool	ion/ion_carveout_heap.c	/^	struct gen_pool *pool;$/;"	m	struct:ion_carveout_heap	typeref:struct:gen_pool *	file:
+pool	ion/ion_chunk_heap.c	/^	struct gen_pool *pool;$/;"	m	struct:ion_chunk_heap	typeref:struct:gen_pool *	file:
+poolFlag2ION	ion/realtek/ion_rtk_carveout_heap.c	/^inline unsigned long poolFlag2ION (unsigned long flags)$/;"	f	typeref:typename:unsigned long
+pool_handlers	ion/realtek/ion_rtk_carveout_heap.c	/^	struct list_head pool_handlers;$/;"	m	struct:ion_rtk_carveout_heap	typeref:struct:list_head	file:
+pool_info	ion/realtek/ion_rtk_carveout_heap.c	/^	struct ION_RTK_CARVEOUT_POOL_INFO * pool_info;$/;"	m	struct:ION_RTK_CARVEOUT_PAGE_INFO	typeref:struct:ION_RTK_CARVEOUT_POOL_INFO *	file:
+poollock	ion/realtek/ion_rtk_carveout_heap.c	/^	struct mutex poollock;$/;"	m	struct:ion_rtk_carveout_heap	typeref:struct:mutex	file:
+pools	ion_back/ion_system_heap.c	/^	struct ion_page_pool *pools[NUM_ORDERS];$/;"	m	struct:ion_system_heap	typeref:struct:ion_page_pool * []	file:
+pr_fmt	ashmem.c	/^#define pr_fmt(/;"	d	file:
+pr_fmt	ion/hisilicon/hi6220_ion.c	/^#define pr_fmt(/;"	d	file:
+pr_fmt	ion/ion_test.c	/^#define pr_fmt(/;"	d	file:
+priv	ion/ion.h	/^	void *priv;$/;"	m	struct:ion_platform_heap	typeref:typename:void *
+priv_ops	ion/realtek/ion_rtk_carveout_heap.c	/^	struct ion_rtk_carveout_ops * priv_ops;$/;"	m	struct:ion_rtk_carveout_heap	typeref:struct:ion_rtk_carveout_ops *	file:
+priv_phys	ion/ion_priv.h	/^	ion_phys_addr_t priv_phys;$/;"	m	struct:ion_buffer	typeref:typename:ion_phys_addr_t
+priv_virt	ion/ion_priv.h	/^	void *priv_virt;$/;"	m	struct:ion_buffer	typeref:typename:void *
+priv_virt	ion_back/ion.h	/^	void *priv_virt;$/;"	m	struct:ion_buffer	typeref:typename:void *
+private_flags	ion/ion_priv.h	/^	unsigned long private_flags;$/;"	m	struct:ion_buffer	typeref:typename:unsigned long
+private_flags	ion_back/ion.h	/^	unsigned long private_flags;$/;"	m	struct:ion_buffer	typeref:typename:unsigned long
+prot_mask	ashmem.c	/^	unsigned long prot_mask;$/;"	m	struct:ashmem_area	typeref:typename:unsigned long	file:
+purged	ashmem.c	/^	unsigned int purged;$/;"	m	struct:ashmem_range	typeref:typename:unsigned int	file:
+query	ion/ion-ioctl.c	/^	struct ion_heap_query query;$/;"	m	union:ion_ioctl_arg	typeref:struct:ion_heap_query	file:
+query	ion_back/ion.c	/^	struct ion_heap_query query;$/;"	m	union:ion_ioctl_arg	typeref:struct:ion_heap_query	file:
+range_alloc	ashmem.c	/^static void range_alloc(struct ashmem_area *asma,$/;"	f	typeref:typename:void	file:
+range_before_page	ashmem.c	/^static inline bool range_before_page(struct ashmem_range *range,$/;"	f	typeref:typename:bool	file:
+range_del	ashmem.c	/^static void range_del(struct ashmem_range *range)$/;"	f	typeref:typename:void	file:
+range_on_lru	ashmem.c	/^static inline bool range_on_lru(struct ashmem_range *range)$/;"	f	typeref:typename:bool	file:
+range_shrink	ashmem.c	/^static inline void range_shrink(struct ashmem_range *range,$/;"	f	typeref:typename:void	file:
+range_size	ashmem.c	/^static inline unsigned long range_size(struct ashmem_range *range)$/;"	f	typeref:typename:unsigned long	file:
+ref	ion/ion_priv.h	/^	struct kref ref;$/;"	m	struct:ion_buffer	typeref:struct:kref
+ref	ion/ion_priv.h	/^	struct kref ref;$/;"	m	struct:ion_handle	typeref:struct:kref
+reserved0	uapi/ion.h	/^	__u32 reserved0; \/* align to 64bits *\/$/;"	m	struct:ion_heap_query	typeref:typename:__u32
+reserved0	uapi/ion.h	/^	__u32 reserved0;$/;"	m	struct:ion_heap_data	typeref:typename:__u32
+reserved1	uapi/ion.h	/^	__u32 reserved1;$/;"	m	struct:ion_heap_data	typeref:typename:__u32
+reserved1	uapi/ion.h	/^	__u32 reserved1;$/;"	m	struct:ion_heap_query	typeref:typename:__u32
+reserved2	uapi/ion.h	/^	__u32 reserved2;$/;"	m	struct:ion_heap_data	typeref:typename:__u32
+reserved2	uapi/ion.h	/^	__u32 reserved2;$/;"	m	struct:ion_heap_query	typeref:typename:__u32
+rmem_dma_ops	ion/ion_of.c	/^static const struct reserved_mem_ops rmem_dma_ops = {$/;"	v	typeref:typename:const struct reserved_mem_ops	file:
+rmem_ion_device_init	ion/ion_of.c	/^static int rmem_ion_device_init(struct reserved_mem *rmem, struct device *dev)$/;"	f	typeref:typename:int	file:
+rmem_ion_device_release	ion/ion_of.c	/^static void rmem_ion_device_release(struct reserved_mem *rmem,$/;"	f	typeref:typename:void	file:
+rmem_ion_setup	ion/ion_of.c	/^static int __init rmem_ion_setup(struct reserved_mem *rmem)$/;"	f	typeref:typename:int __init	file:
+rtk_carveout_heap_ops	ion/realtek/ion_rtk_carveout_heap.c	/^static struct ion_heap_ops rtk_carveout_heap_ops = {$/;"	v	typeref:struct:ion_heap_ops	file:
+rtk_carveout_heap_priv_ops	ion/realtek/ion_rtk_carveout_heap.c	/^static struct ion_rtk_carveout_ops rtk_carveout_heap_priv_ops = {$/;"	v	typeref:struct:ion_rtk_carveout_ops	file:
+rtk_ion_get_memory_info	ion/realtek/ion_rtk.c	/^static int rtk_ion_get_memory_info(struct ion_client *client, unsigned int heapMask, unsigned in/;"	f	typeref:typename:int	file:
+rtk_ion_get_phy_info	ion/realtek/ion_rtk.c	/^static int rtk_ion_get_phy_info(struct ion_client *client, struct RTK_ION_IOC_PHY_INFO * phyInfo/;"	f	typeref:typename:int	file:
+rtk_ion_sync_for_device	ion/realtek/ion_rtk.c	/^static int rtk_ion_sync_for_device(struct ion_client *client, int fd, int cmd)$/;"	f	typeref:typename:int	file:
+rtk_ion_sync_range_for_device	ion/realtek/ion_rtk.c	/^static int rtk_ion_sync_range_for_device(struct ion_client *client, int cmd, struct RTK_ION_IOC_/;"	f	typeref:typename:int	file:
+rtk_phoenix_ion_ioctl	ion/realtek/ion_rtk.c	/^long rtk_phoenix_ion_ioctl(struct ion_client *client, unsigned int cmd,$/;"	f	typeref:typename:long
+set_name	ashmem.c	/^static int set_name(struct ashmem_area *asma, void __user *name)$/;"	f	typeref:typename:int	file:
+set_prot_mask	ashmem.c	/^static int set_prot_mask(struct ashmem_area *asma, unsigned long prot)$/;"	f	typeref:typename:int	file:
+sg_table	ion/ion_priv.h	/^	struct sg_table *sg_table;$/;"	m	struct:ion_buffer	typeref:struct:sg_table *
+sg_table	ion_back/ion.h	/^	struct sg_table *sg_table;$/;"	m	struct:ion_buffer	typeref:struct:sg_table *
+shrink	ion/ion_priv.h	/^	int (*shrink)(struct ion_heap *heap, gfp_t gfp_mask, int nr_to_scan);$/;"	m	struct:ion_heap_ops	typeref:typename:int (*)(struct ion_heap * heap,gfp_t gfp_mask,int nr_to_scan)
+shrink	ion_back/ion.h	/^	int (*shrink)(struct ion_heap *heap, gfp_t gfp_mask, int nr_to_scan);$/;"	m	struct:ion_heap_ops	typeref:typename:int (*)(struct ion_heap * heap,gfp_t gfp_mask,int nr_to_scan)
+shrinker	ion/ion_priv.h	/^	struct shrinker shrinker;$/;"	m	struct:ion_heap	typeref:struct:shrinker
+shrinker	ion_back/ion.h	/^	struct shrinker shrinker;$/;"	m	struct:ion_heap	typeref:struct:shrinker
+size	ashmem.c	/^	size_t size;$/;"	m	struct:ashmem_area	typeref:typename:size_t	file:
+size	ion/ion.h	/^	size_t size;$/;"	m	struct:ion_platform_heap	typeref:typename:size_t
+size	ion/ion_chunk_heap.c	/^	unsigned long size;$/;"	m	struct:ion_chunk_heap	typeref:typename:unsigned long	file:
+size	ion/ion_priv.h	/^	size_t size;$/;"	m	struct:ion_buffer	typeref:typename:size_t
+size	ion/realtek/ion_rtk_carveout_heap.c	/^	size_t size;$/;"	m	struct:ION_RTK_CARVEOUT_PAGE_INFO	typeref:typename:size_t	file:
+size	ion/realtek/ion_rtk_carveout_heap.c	/^	size_t size;$/;"	m	struct:ION_RTK_CARVEOUT_POOL_INFO	typeref:typename:size_t	file:
+size	ion/realtek/ion_rtk_carveout_heap.h	/^    size_t size;$/;"	m	struct:ion_rtk_priv_pool	typeref:typename:size_t
+size	ion_back/ion.h	/^	size_t size;$/;"	m	struct:ion_buffer	typeref:typename:size_t
+stat_lock	ion_back/ion.h	/^	spinlock_t stat_lock;$/;"	m	struct:ion_heap	typeref:typename:spinlock_t
+system_heap_ops	ion/ion_system_heap.c	/^static struct ion_heap_ops system_heap_ops = {$/;"	v	typeref:struct:ion_heap_ops	file:
+system_heap_ops	ion_back/ion_system_heap.c	/^static struct ion_heap_ops system_heap_ops = {$/;"	v	typeref:struct:ion_heap_ops	file:
+table	ion/ion_cma_heap.c	/^	struct sg_table *table;$/;"	m	struct:ion_cma_buffer_info	typeref:struct:sg_table *	file:
+table	ion_back/ion.c	/^	struct sg_table *table;$/;"	m	struct:ion_dma_buf_attachment	typeref:struct:sg_table *	file:
+task	ion/ion_priv.h	/^	struct task_struct *task;$/;"	m	struct:ion_client	typeref:struct:task_struct *
+task	ion/ion_priv.h	/^	struct task_struct *task;$/;"	m	struct:ion_heap	typeref:struct:task_struct *
+task	ion_back/ion.h	/^	struct task_struct *task;$/;"	m	struct:ion_heap	typeref:struct:task_struct *
+task_comm	ion/ion_priv.h	/^	char task_comm[TASK_COMM_LEN];$/;"	m	struct:ion_buffer	typeref:typename:char[]
+task_comm	ion/realtek/ion_rtk_carveout_heap.c	/^	char task_comm[TASK_COMM_LEN];$/;"	m	struct:ION_RTK_CARVEOUT_PAGE_INFO	typeref:typename:char[]	file:
+tegra_ion_probe	ion/tegra/tegra_ion.c	/^static int tegra_ion_probe(struct platform_device *pdev)$/;"	f	typeref:typename:int	file:
+tegra_ion_remove	ion/tegra/tegra_ion.c	/^static int tegra_ion_remove(struct platform_device *pdev)$/;"	f	typeref:typename:int	file:
+test_rw	ion/ion_test.c	/^		struct ion_test_rw_data test_rw;$/;"	m	union:ion_test_ioctl::__anon9df5c3d0010a	typeref:struct:ion_test_rw_data	file:
+tgid	ion/realtek/ion_rtk_carveout_heap.c	/^	pid_t tgid;$/;"	m	struct:ION_RTK_CARVEOUT_PAGE_INFO	typeref:typename:pid_t	file:
+to_cma_heap	ion/ion_cma_heap.c	/^#define to_cma_heap(/;"	d	file:
+to_cma_heap	ion_back/ion_cma_heap.c	/^#define to_cma_heap(/;"	d	file:
+type	ion/ion.h	/^	enum ion_heap_type type;$/;"	m	struct:ion_platform_heap	typeref:enum:ion_heap_type
+type	ion/ion_of.h	/^	int type;$/;"	m	struct:ion_of_heap	typeref:typename:int
+type	ion/ion_priv.h	/^	enum ion_heap_type type;$/;"	m	struct:ion_heap	typeref:enum:ion_heap_type
+type	ion/realtek/ion_rtk_carveout_heap.c	/^	enum ion_rtk_carveout_pool_type type;$/;"	m	struct:ION_RTK_CARVEOUT_POOL_INFO	typeref:enum:ion_rtk_carveout_pool_type	file:
+type	ion/realtek/ion_rtk_carveout_heap.h	/^    enum ion_rtk_carveout_pool_type type;$/;"	m	struct:ion_rtk_priv_pool	typeref:enum:ion_rtk_carveout_pool_type
+type	ion_back/ion.h	/^	enum ion_heap_type type;$/;"	m	struct:ion_heap	typeref:enum:ion_heap_type
+type	uapi/ion.h	/^	__u32 type;$/;"	m	struct:ion_heap_data	typeref:typename:__u32
+u64_to_uptr	ion/ion_test.c	/^#define u64_to_uptr(/;"	d	file:
+uncached_pools	ion/ion_system_heap.c	/^	struct ion_page_pool *uncached_pools[NUM_ORDERS];$/;"	m	struct:ion_system_heap	typeref:struct:ion_page_pool * []	file:
+unmap_dma	ion/ion_priv.h	/^	void (*unmap_dma)(struct ion_heap *heap, struct ion_buffer *buffer);$/;"	m	struct:ion_heap_ops	typeref:typename:void (*)(struct ion_heap * heap,struct ion_buffer * buffer)
+unmap_kernel	ion/ion_priv.h	/^	void (*unmap_kernel)(struct ion_heap *heap, struct ion_buffer *buffer);$/;"	m	struct:ion_heap_ops	typeref:typename:void (*)(struct ion_heap * heap,struct ion_buffer * buffer)
+unmap_kernel	ion_back/ion.h	/^	void (*unmap_kernel)(struct ion_heap *heap, struct ion_buffer *buffer);$/;"	m	struct:ion_heap_ops	typeref:typename:void (*)(struct ion_heap * heap,struct ion_buffer * buffer)
+unpinned	ashmem.c	/^	struct list_head unpinned;$/;"	m	struct:ashmem_range	typeref:struct:list_head	file:
+unpinned_list	ashmem.c	/^	struct list_head unpinned_list;$/;"	m	struct:ashmem_area	typeref:struct:list_head	file:
+usedSize	ion/realtek/ion_rtk_carveout_heap.h	/^    unsigned long usedSize;$/;"	m	struct:ion_rtk_carveout_meminfo	typeref:typename:unsigned long
+usedSize	uapi/ion_rtk.h	/^	unsigned int usedSize; \/* response *\/$/;"	m	struct:RTK_ION_IOC_GET_MEMORY_INFO_S	typeref:typename:unsigned int
+vaddr	ion/ion_priv.h	/^	void *vaddr;$/;"	m	struct:ion_buffer	typeref:typename:void *
+vaddr	ion_back/ion.h	/^	void *vaddr;$/;"	m	struct:ion_buffer	typeref:typename:void *
+validate_ioctl_arg	ion/ion-ioctl.c	/^static int validate_ioctl_arg(unsigned int cmd, union ion_ioctl_arg *arg)$/;"	f	typeref:typename:int	file:
+validate_ioctl_arg	ion_back/ion.c	/^static int validate_ioctl_arg(unsigned int cmd, union ion_ioctl_arg *arg)$/;"	f	typeref:typename:int	file:
+version	ion/realtek/ion_rtk_carveout_heap.c	/^	unsigned long version;$/;"	m	struct:ion_rtk_carveout_heap	typeref:typename:unsigned long	file:
+vma	ion/ion.c	/^	struct vm_area_struct *vma;$/;"	m	struct:ion_vma_list	typeref:struct:vm_area_struct *	file:
+vmas	ion/ion_priv.h	/^	struct list_head vmas;$/;"	m	struct:ion_buffer	typeref:struct:list_head
+waitqueue	ion/ion_priv.h	/^	wait_queue_head_t waitqueue;$/;"	m	struct:ion_heap	typeref:typename:wait_queue_head_t
+waitqueue	ion_back/ion.h	/^	wait_queue_head_t waitqueue;$/;"	m	struct:ion_heap	typeref:typename:wait_queue_head_t

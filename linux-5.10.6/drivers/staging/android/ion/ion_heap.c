@@ -19,7 +19,8 @@
 #include <linux/kthread.h>
 #include <linux/mm.h>
 #include <linux/rtmutex.h>
-#include <linux/sched.h>
+//#include <linux/sched.h>
+#include <uapi/linux/sched/types.h>
 #include <linux/scatterlist.h>
 #include <linux/vmalloc.h>
 #include "ion.h"
@@ -125,7 +126,7 @@ int ion_heap_map_user(struct ion_heap *heap, struct ion_buffer *buffer,
 
 static int ion_heap_clear_pages(struct page **pages, int num, pgprot_t pgprot)
 {
-	void *addr = vm_map_ram(pages, num, -1, pgprot);
+	void *addr = vm_map_ram(pages, num, -1);
 
 	if (!addr)
 		return -ENOMEM;

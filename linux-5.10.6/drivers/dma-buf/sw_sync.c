@@ -112,7 +112,7 @@ static void sync_timeline_get(struct sync_timeline *obj)
 	kref_get(&obj->kref);
 }
 
-static void sync_timeline_put(struct sync_timeline *obj)
+void sync_timeline_put(struct sync_timeline *obj)
 {
 	kref_put(&obj->kref, sync_timeline_free);
 }
@@ -190,7 +190,7 @@ static const struct dma_fence_ops timeline_fence_ops = {
  * A sync implementation should call this any time one of it's fences
  * has signaled or has an error condition.
  */
-static void sync_timeline_signal(struct sync_timeline *obj, unsigned int inc)
+void sync_timeline_signal(struct sync_timeline *obj, unsigned int inc)
 {
 	struct sync_pt *pt, *next;
 
@@ -231,7 +231,7 @@ static void sync_timeline_signal(struct sync_timeline *obj, unsigned int inc)
  * the generic sync_timeline struct. Returns the sync_pt object or
  * NULL in case of error.
  */
-static struct sync_pt *sync_pt_create(struct sync_timeline *obj,
+struct sync_pt *sync_pt_create(struct sync_timeline *obj,
 				      unsigned int value)
 {
 	struct sync_pt *pt;
