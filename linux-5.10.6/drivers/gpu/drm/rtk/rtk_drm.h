@@ -16,6 +16,8 @@
 #ifndef _RTK_DRM_H_
 #define _RTK_DRM_H_
 
+#include <drm/drmP.h>
+
 #include <drm/drm_gem.h>
 #include <drm/drm_plane_helper.h>
 #include <drm/drm_fb_helper.h>

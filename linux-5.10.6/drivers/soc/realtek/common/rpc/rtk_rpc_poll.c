@@ -11,7 +11,7 @@
 
 #include <linux/module.h>
 #include <linux/kernel.h>
-#include <linux/slab.h>
+//#include <linux/slab.h>
 #include <linux/fs.h>
 #include <linux/errno.h>
 #include <linux/types.h>
@@ -21,7 +21,7 @@
 #include <linux/delay.h>
 #include <linux/dma-mapping.h>
 #include <linux/uaccess.h>
-#include <linux/kmemleak.h>
+//#include <linux/kmemleak.h>
 #include "rtk_rpc.h"
 
 volatile RPC_DEV *rpc_poll_devices;

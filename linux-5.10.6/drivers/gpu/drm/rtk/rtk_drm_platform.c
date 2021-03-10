@@ -25,7 +25,7 @@
 #include <linux/module.h>
 #include <linux/init.h>
 #include <linux/platform_device.h>
-#include <drm/drmP.h>
+//#include <drm/drmP.h>
 #include <drm/drm_crtc_helper.h>
 #include "rtk_drm.h"
 

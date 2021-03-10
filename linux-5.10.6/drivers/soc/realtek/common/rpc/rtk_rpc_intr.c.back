@@ -11,7 +11,7 @@
 
 #include <linux/module.h>
 #include <linux/kernel.h>
-//#include <linux/slab.h>
+#include <linux/slab.h>
 #include <linux/fs.h>
 #include <linux/errno.h>
 #include <linux/types.h>
@@ -304,12 +304,12 @@ ssize_t r_program_write(RPC_DEV_EXTRA *extra, RPC_DEV *dev, char *buf, size_t co
 
 	rtk_rpc_wmb(AVCPU2SCPU(dev->ringStart),PAGE_ALIGN(rpc_ring_size));
 
-//#if 1
+#if 1
 	rpc_send_interrupt();
-//#else
+#else
 		/* audio */
-//		writel((RPC_INT_SA | RPC_INT_WRITE_1), rpc_int_base+RPC_SB2_INT);
-//#endif
+		writel((RPC_INT_SA | RPC_INT_WRITE_1), rpc_int_base+RPC_SB2_INT);
+#endif
 	up_write(&dev->ptrSync->writeSem);
 	return ret;
 out:
@@ -478,7 +478,7 @@ static int remote_alloc_thread(void * p)
  */
 void rpc_dispatch(unsigned long data)
 {
-	/*RPC_DEV_EXTRA *extra = (RPC_DEV_EXTRA *) data;
+	RPC_DEV_EXTRA *extra = (RPC_DEV_EXTRA *) data;
 	RPC_DEV *dev = extra->dev;
 	RPC_PROCESS *proc = NULL;
 	uint32_t out;
@@ -513,6 +513,7 @@ void rpc_dispatch(unsigned long data)
 		pr_debug("%s: program:%u version:%u procedure:%u taskID:%u sysTID:%u sysPID:%u size:%u context:%x 90k:%u %s\n",
 			__func__, rpc.programID, rpc.versionID, rpc.procedureID, rpc.taskID, rpc.sysTID, rpc.sysPID,
 			rpc.parameterSize, rpc.mycontext, readl(rpc_refclk_base), in_atomic() ? "atomic" : "");
+#if 1   /*audio fw ion remote alloc handled by kernel*/
 		out += rpc.parameterSize;
 		if (out >= dev->ringEnd)
 			out = dev->ringStart + (out - dev->ringEnd);
@@ -524,26 +525,33 @@ void rpc_dispatch(unsigned long data)
 		spin_unlock_bh(&extra->lock);
 
 		return;
+#else
+#ifdef CONFIG_REALTEK_RPC_PROGRAM_REGISTER
+		proc = pick_supported_proc(extra, rpc.programID);
+#else
+		proc = pick_one_proc(extra);
+#endif /* CONFIG_REALTEK_RPC_PROGRAM_REGISTER */
+#endif
 		break;
 	case AUDIO_AGENT:
 	case VIDEO_AGENT:
 		proc = NULL;
-		show_rpc_struct(extra->name, &rpc);
-		// use sysPID directly 
-		if ((rpc.sysPID > 0) && (rpc.sysPID < pid_max)) {
+		//show_rpc_struct(extra->name, &rpc);
+		/* use sysPID directly */
+		if (rpc.sysPID > 0 && rpc.sysPID < pid_max) {
 			pr_info("lookup by sysPID:%d\n", rpc.sysPID);
 			proc = lookup_by_taskID(extra, rpc.sysPID);
 			if (proc == NULL)
 				show_rpc_struct(extra->name, &rpc);
 #ifdef RPC_SUPPORT_MULTI_CALLER_SEND_TID_PID
-		// lookup pid by sysTID 
+		/* lookup pid by sysTID */
 		} else if (rpc.sysTID > 0 && rpc.sysTID < pid_max) {
 			pr_info("lookup by sysTID:%d\n", rpc.sysTID);
 			proc = lookup_by_taskID(extra, rpc.sysTID);
 			if (proc == NULL)
 				show_rpc_struct(extra->name, &rpc);
 		}
-#endif // RPC_SUPPORT_MULTI_CALLER_SEND_TID_PID 
+#endif /* RPC_SUPPORT_MULTI_CALLER_SEND_TID_PID */
 		if (unlikely(proc == NULL)) {
 #ifdef CONFIG_REALTEK_RPC_PROGRAM_REGISTER
 			proc = pick_supported_proc(extra, rpc.programID);
@@ -561,26 +569,28 @@ void rpc_dispatch(unsigned long data)
 				return;
 
 			taskID = ntohl(taskID);
-	//		pr_debug("%s:%d taskID:%u\n", extra->name, __LINE__, taskID);
+			pr_debug("%s:%d taskID:%u\n", extra->name, __LINE__, taskID);
 			proc = lookup_by_taskID(extra, taskID);
 		}
 		break;
 	default:
 		if (in_atomic() && __ratelimit(&ring_dump_state)) {
-	//		pr_err("%s:%d invalid programID:%u!!! Out:%x next:%x In:%x\n",
-	//				__func__, __LINE__, rpc.programID, ringOut, nextRpc,
-	//				ringIn);
+			pr_err("%s:%d invalid programID:%u!!! Out:%x next:%x In:%x\n",
+					__func__, __LINE__, rpc.programID, ringOut, nextRpc,
+					ringIn);
 			show_rpc_struct(extra->name, &rpc);
 			dump_ring_buffer(extra->name, extra);
 		}
 		return;
+		//BUG();
+		//__WARN();
 	}
 
 	if (proc) {
 		found = 1;
 	} else if (__ratelimit(&ring_dump_state)) {
-	//	pr_err("%s:%d can't find process for handling %s programID:%u\n",
-	//			extra->name, __LINE__, extra->name, rpc.programID);
+		pr_err("%s:%d can't find process for handling %s programID:%u\n",
+				extra->name, __LINE__, extra->name, rpc.programID);
 		show_rpc_struct(extra->name, &rpc);
 	}
 
@@ -593,22 +603,20 @@ void rpc_dispatch(unsigned long data)
 		update_nextRpc(extra, out);
 		update_currProc(extra, proc);
 		wake_up_interruptible(&proc->waitQueue);
-	//	pr_debug("%s:%d ###Wakeup### proc:%p(%d) process:%p(%d) and \
+		pr_debug("%s:%d ###Wakeup### proc:%p(%d) process:%p(%d) and \
 				update nextRpc:%x for programID:%u\n",
-	//			extra->name, __LINE__, proc, proc ? proc->pid : 0,
-	//			extra->currProc,
-	//			extra->currProc ? ((RPC_PROCESS *)extra->currProc)->pid : 0,
-	//			extra->nextRpc, rpc.programID);
-	} 
-//	else {
-//#if 0
-//		pr_info("%s: clear %s(%p) current process\n",
-//				__func__, extra->name, dev);
-//		update_currProc(extra, NULL);
-//#endif
-//	}
-	spin_unlock_bh(&extra->lock);*/
-	return ;
+				extra->name, __LINE__, proc, proc ? proc->pid : 0,
+				extra->currProc,
+				extra->currProc ? ((RPC_PROCESS *)extra->currProc)->pid : 0,
+				extra->nextRpc, rpc.programID);
+	} else {
+#if 0
+		pr_info("%s: clear %s(%p) current process\n",
+				__func__, extra->name, dev);
+		update_currProc(extra, NULL);
+#endif
+	}
+	spin_unlock_bh(&extra->lock);
 }
 
 int rpc_intr_init(void)
@@ -1169,12 +1177,12 @@ ssize_t rpc_intr_write(struct file *filp, const char *buf, size_t count,
 	temp = (int) *f_pos;
 		//if (temp == 1)
 	if (temp == 1 || temp == 5) {
-//#if 1
+#if 1
 		rpc_send_interrupt();
-//#else
+#else
 		/* audio */
-//		writel((RPC_INT_SA | RPC_INT_WRITE_1), rpc_int_base+RPC_SB2_INT);
-//#endif
+		writel((RPC_INT_SA | RPC_INT_WRITE_1), rpc_int_base+RPC_SB2_INT);
+#endif
 	//rtd_outl(REG_SB2_CPU_INT, (RPC_INT_SA | RPC_INT_WRITE_1));
 	} else {
 		pr_err("error device number...");

@@ -1,7 +1,7 @@
 #ifndef __RTK_GEM_ION_HELPER_H__
 #define __RTK_GEM_ION_HELPER_H__
 
-#include <drm/drmP.h>
+//#include <drm/drmP.h>
 #include <drm/drm_gem.h>
 
 #include "rtk_drm.h"

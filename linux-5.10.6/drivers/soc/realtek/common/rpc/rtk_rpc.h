@@ -20,12 +20,14 @@
 #include <linux/devfs_fs_kernel.h>
 #endif
 #include "soc/realtek/memory.h"
-//#include <linux/kmemleak.h>
+#include <linux/kmemleak.h>
+//#include <linux/slab.h>
 
-#define MY_COPY
+#define MY_COPY 1
 
 extern const char *rpc_name;
 
+int rpc_intr_init(void);
 #define RPC_SB2_INT 0x0
 #define RPC_SB2_INT_EN 0x4
 #define RPC_INT_WRITE_1 1
@@ -42,8 +44,8 @@ __res; \
 }
 #endif
 
-#define CONFIG_REALTEK_RPC_PROGRAM_REGISTER
-#define RPC_SUPPORT_MULTI_CALLER_SEND_TID_PID
+#define CONFIG_REALTEK_RPC_PROGRAM_REGISTER 1
+#define RPC_SUPPORT_MULTI_CALLER_SEND_TID_PID 1
 
 //#define CONFIG_REALTEK_AVCPU
 
@@ -709,7 +711,6 @@ int rpc_poll_pause(void);
 int rpc_poll_suspend(void);
 int rpc_poll_resume(void);
 void rpc_poll_cleanup(void);
-int rpc_intr_init(void);
 int rpc_intr_pause(void);
 int rpc_intr_suspend(void);
 int rpc_intr_resume(void);

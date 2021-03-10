@@ -28,7 +28,7 @@
 #include <linux/interrupt.h>
 #include <linux/of.h>
 #include <linux/platform_device.h>
-#include <linux/dma-contiguous.h>
+//#include <linux/dma-contiguous.h>
 #include <linux/device.h>
 #include <linux/fb.h>
 #include <linux/switch.h>

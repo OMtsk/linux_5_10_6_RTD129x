@@ -12,7 +12,7 @@
 #include <linux/init.h>
 #include <linux/module.h>
 #include <linux/kernel.h>
-#include <linux/slab.h>
+//#include <linux/slab.h>
 #include <linux/fs.h>
 #include <linux/errno.h>
 #include <linux/types.h>
@@ -40,10 +40,10 @@
 #include <xen/xen.h>
 #endif
 
-#ifdef CONFIG_REALTEK_IR
+/*#ifdef CONFIG_REALTEK_IR
 extern int venus_irtx_getscancode(u32, u32*, u32*);
-#endif /* CONFIG_REALTEK_IR */
-
+#endif 
+*/
 //#define SHOW_TASKS_ON_SYSFS
 #define SHOW_TASKS_ON_DEBUGFS
 #define RPC_NAME "RTK_RPC"

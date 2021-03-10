@@ -5,7 +5,7 @@
 #include <linux/dma-buf.h>
 #include <linux/dma-mapping.h>
 
-#include <drm/drmP.h>
+//#include <drm/drmP.h>
 #include <drm/drm.h>
 #include "rtk_gem_ion.h"
 #include <drm/drm_vma_manager.h>
