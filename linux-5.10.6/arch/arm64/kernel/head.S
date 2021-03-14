@@ -767,13 +767,14 @@ SYM_FUNC_END(armv8_switch_to_el2)
 	 * cores are held until we're ready for them to initialise.
 	 */
 SYM_FUNC_START(secondary_holding_pen)
-	bl	el2_setup			// Drop to EL1, w0=cpu_boot_mode
+	/*bl	el2_setup			// Drop to EL1, w0=cpu_boot_mode
 
-	/*bl	set_cpu_boot_mode_flag
+	bl	set_cpu_boot_mode_flag
 	mrs	x0, mpidr_el1
 	mov_q	x1, MPIDR_HWID_BITMASK
 	and	x0, x0, x1
-	adr_l	x3, secondary_holding_pen_release*/
+	adr_l	x3, secondary_holding_pen_release
+	*/
 #ifdef CONFIG_RTK_PLATFORM
     bl armv8_switch_to_el2
 #endif /* CONFIG_RTK_PLATFORM */

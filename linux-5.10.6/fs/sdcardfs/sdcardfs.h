@@ -45,6 +45,7 @@
 #include <linux/security.h>
 #include <linux/string.h>
 #include <linux/list.h>
+#include <uapi/linux/mount.h>
 #include "multiuser.h"
 
 /* the file system name */

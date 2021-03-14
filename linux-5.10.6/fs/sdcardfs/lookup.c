@@ -20,7 +20,7 @@
 
 #include "sdcardfs.h"
 #include "linux/delay.h"
-
+#include "../internal.h"
 /* The dentry cache is just so we have properly sized dentries */
 static struct kmem_cache *sdcardfs_dentry_cachep;
 
@@ -121,7 +121,8 @@ struct inode *sdcardfs_iget(struct super_block *sb, struct inode *lower_inode, u
 	inode->i_ino = lower_inode->i_ino;
 	sdcardfs_set_lower_inode(inode, lower_inode);
 
-	inode->i_version++;
+	//inode->i_version++;
+	atomic64_inc(&inode->i_version);
 
 	/* use different set of inode ops for symlinks & directories */
 	if (S_ISDIR(lower_inode->i_mode))
@@ -275,8 +276,7 @@ static struct dentry *__sdcardfs_lookup(struct dentry *dentry,
 	lower_dir_mnt = lower_parent_path->mnt;
 
 	/* Use vfs_path_lookup to check if the dentry exists or not */
-	err = vfs_path_lookup(lower_dir_dentry, lower_dir_mnt, name->name, 0,
-				&lower_path);
+	err = vfs_path_lookup(lower_dir_dentry, lower_dir_mnt, name->name, 0, &lower_path);
 	/* check for other cases */
 	if (err == -ENOENT) {
 		struct file *file;

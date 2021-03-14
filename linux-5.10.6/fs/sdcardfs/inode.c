@@ -853,10 +853,10 @@ static int sdcardfs_fillattr(struct vfsmount *mnt, struct inode *inode,
 	data_put(top);
 	return 0;
 }
-
-static int sdcardfs_getattr(struct vfsmount *mnt, struct dentry *dentry,
-		 struct kstat *stat)
+/*
+static int sdcardfs_getattr(const struct path *path, struct kstat *stat, u32 request_mask, unsigned int query_flags)
 {
+    struct dentry *dentry = path->dentry;
 	struct kstat lower_stat;
 	struct path lower_path;
 	struct dentry *parent;
@@ -870,7 +870,7 @@ static int sdcardfs_getattr(struct vfsmount *mnt, struct dentry *dentry,
 	dput(parent);
 
 	sdcardfs_get_lower_path(dentry, &lower_path);
-	err = vfs_getattr(&lower_path, &lower_stat);
+	err = vfs_getattr(&lower_path, &lower_stat, request_mask, query_flags);
 	if (err)
 		goto out;
 	sdcardfs_copy_and_fix_attrs(d_inode(dentry),
@@ -880,7 +880,7 @@ out:
 	sdcardfs_put_lower_path(dentry, &lower_path);
 	return err;
 }
-
+*/
 const struct inode_operations sdcardfs_symlink_iops = {
 	.permission2	= sdcardfs_permission,
 	.setattr2	= sdcardfs_setattr,
@@ -904,7 +904,7 @@ const struct inode_operations sdcardfs_dir_iops = {
 	.rename		= sdcardfs_rename,
 	.setattr	= sdcardfs_setattr_wrn,
 	.setattr2	= sdcardfs_setattr,
-	.getattr	= sdcardfs_getattr,
+	//.getattr	= sdcardfs_getattr,
 	/* XXX Following operations are implemented,
 	 *     but FUSE(sdcard) or FAT does not support them
 	 *     These methods are *NOT* perfectly tested.
@@ -919,5 +919,5 @@ const struct inode_operations sdcardfs_main_iops = {
 	.permission2	= sdcardfs_permission,
 	.setattr	= sdcardfs_setattr_wrn,
 	.setattr2	= sdcardfs_setattr,
-	.getattr	= sdcardfs_getattr,
+	//.getattr	= sdcardfs_getattr,
 };

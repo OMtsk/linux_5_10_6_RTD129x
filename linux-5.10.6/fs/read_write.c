@@ -473,6 +473,18 @@ ssize_t kernel_read(struct file *file, void *buf, size_t count, loff_t *pos)
 }
 EXPORT_SYMBOL(kernel_read);
 
+
+ssize_t __vfs_read(struct file *file, char __user *buf, size_t count, loff_t *pos){
+
+	if (file->f_op->read)
+		return  file->f_op->read(file, buf, count, pos);
+	else if (file->f_op->read_iter)
+		return  new_sync_read(file, buf, count, pos);
+	else
+		return  -EINVAL;
+}
+EXPORT_SYMBOL(__vfs_read);
+
 ssize_t vfs_read(struct file *file, char __user *buf, size_t count, loff_t *pos)
 {
 	ssize_t ret;
@@ -490,12 +502,13 @@ ssize_t vfs_read(struct file *file, char __user *buf, size_t count, loff_t *pos)
 	if (count > MAX_RW_COUNT)
 		count =  MAX_RW_COUNT;
 
-	if (file->f_op->read)
+/*	if (file->f_op->read)
 		ret = file->f_op->read(file, buf, count, pos);
 	else if (file->f_op->read_iter)
 		ret = new_sync_read(file, buf, count, pos);
 	else
-		ret = -EINVAL;
+		ret = -EINVAL;*/
+	ret = __vfs_read(file, buf, count, pos);
 	if (ret > 0) {
 		fsnotify_access(file);
 		add_rchar(current, ret);
