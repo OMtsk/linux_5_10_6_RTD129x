@@ -79,6 +79,26 @@
 9990:
 	.endm
 
+#ifdef CONFIG_RTK_PLATFORM
+  /*
+  * Save/disable and restore interrupts.
+  */
+
+	.macro  disable_irq
+     msr daifset, #2
+     .endm
+  
+    .macro  save_and_disable_irqs, olddaif
+    mrs     \olddaif, daif
+    disable_irq
+    .endm
+  
+    .macro  restore_irqs, olddaif
+    msr     daif, \olddaif
+    .endm
+#endif /* CONFIG_RTK_PLATFORM */
+
+
 /*
  * RAS Error Synchronization barrier
  */

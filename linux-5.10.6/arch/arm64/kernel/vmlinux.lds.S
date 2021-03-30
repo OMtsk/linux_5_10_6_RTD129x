@@ -145,10 +145,10 @@ SECTIONS
 	 * Make sure that the .got.plt is either completely empty or it
 	 * contains only the lazy dispatch entries.
 	 */
-	.got.plt : { *(.got.plt) }
+	/*.got.plt : { *(.got.plt) }
 	ASSERT(SIZEOF(.got.plt) == 0 || SIZEOF(.got.plt) == 0x18,
 	       "Unexpected GOT/PLT entries detected!")
-
+*/
 	. = ALIGN(SEGMENT_ALIGN);
 	_etext = .;			/* End of text section */
 
@@ -277,10 +277,11 @@ SECTIONS
 	 * Sections that should stay zero sized, which is safer to
 	 * explicitly check instead of blindly discarding.
 	 */
-	.plt : {
+	/*.plt : {
 		*(.plt) *(.plt.*) *(.iplt) *(.igot .igot.plt)
 	}
 	ASSERT(SIZEOF(.plt) == 0, "Unexpected run-time procedure linkages detected!")
+	*/
 
 	.data.rel.ro : { *(.data.rel.ro) }
 	ASSERT(SIZEOF(.data.rel.ro) == 0, "Unexpected RELRO detected!")

@@ -200,6 +200,8 @@ static void __init zone_sizes_init(unsigned long min, unsigned long max)
 	free_area_init(max_zone_pfns);
 }
 
+#define PFN_MASK ((1UL << (64 - PAGE_SHIFT)) - 1)
+
 int pfn_valid(unsigned long pfn)
 {
 	phys_addr_t addr = pfn << PAGE_SHIFT;
@@ -214,7 +216,7 @@ int pfn_valid(unsigned long pfn)
 	if (!valid_section(__pfn_to_section(pfn)))
 		return 0;
 #endif
-	return memblock_is_map_memory(addr);
+	return (pfn & PFN_MASK) == pfn && memblock_is_map_memory(addr);
 }
 EXPORT_SYMBOL(pfn_valid);
 

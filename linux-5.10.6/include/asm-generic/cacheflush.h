@@ -12,7 +12,7 @@ struct address_space;
  * the cache is mapped to physical memory, not virtual memory
  */
 #ifndef flush_cache_all
-static inline void flush_cache_all(void)
+extern inline void flush_cache_all(void)
 {
 }
 #endif

@@ -86,6 +86,7 @@ static inline void gic_write_grpen1(u32 val)
 static inline void gic_write_sgi1r(u64 val)
 {
 	write_sysreg_s(val, SYS_ICC_SGI1R_EL1);
+	mb();
 }
 
 static inline u32 gic_read_sre(void)
@@ -112,6 +113,7 @@ static inline u32 gic_read_pmr(void)
 static __always_inline void gic_write_pmr(u32 val)
 {
 	write_sysreg_s(val, SYS_ICC_PMR_EL1);
+	mb();
 }
 
 static inline u32 gic_read_rpr(void)

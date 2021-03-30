@@ -23,31 +23,94 @@
 /*
  * Generic IO read/write.  These perform native-endian accesses.
  */
-#define __raw_writeb __raw_writeb
+
+static inline void __raw_writeb_no_log(u8 val, volatile void __iomem *addr)
+{
+    asm volatile("strb %w0, [%1]" : : "rZ" (val), "r" (addr));
+}
+
+static inline void __raw_writew_no_log(u16 val, volatile void __iomem *addr)
+{
+    asm volatile("strh %w0, [%1]" : : "rZ" (val), "r" (addr));
+}
+
+static inline void __raw_writel_no_log(u32 val, volatile void __iomem *addr)
+{
+    asm volatile("str %w0, [%1]" : : "rZ" (val), "r" (addr));
+}
+
+static inline void __raw_writeq_no_log(u64 val, volatile void __iomem *addr)
+{
+    asm volatile("str %x0, [%1]" : : "rZ" (val), "r" (addr));
+}
+
+static inline u8 __raw_readb_no_log(const volatile void __iomem *addr)
+{   
+    u8 val;
+    asm volatile(ALTERNATIVE("ldrb %w0, [%1]",
+                 "ldarb %w0, [%1]",
+                 ARM64_WORKAROUND_DEVICE_LOAD_ACQUIRE)
+             : "=r" (val) : "r" (addr));
+    return val;
+}
+
+static inline u16 __raw_readw_no_log(const volatile void __iomem *addr)
+{
+    u16 val;
+
+    asm volatile(ALTERNATIVE("ldrh %w0, [%1]",
+                 "ldarh %w0, [%1]",
+                 ARM64_WORKAROUND_DEVICE_LOAD_ACQUIRE)
+             : "=r" (val) : "r" (addr));
+    return val;
+}
+
+static inline u32 __raw_readl_no_log(const volatile void __iomem *addr)
+{
+    u32 val;
+    asm volatile(ALTERNATIVE("ldr %w0, [%1]",
+                 "ldar %w0, [%1]",
+                 ARM64_WORKAROUND_DEVICE_LOAD_ACQUIRE)
+             : "=r" (val) : "r" (addr));
+    return val;
+}
+
+static inline u64 __raw_readq_no_log(const volatile void __iomem *addr)
+{
+    u64 val;
+    asm volatile(ALTERNATIVE("ldr %0, [%1]",
+                 "ldar %0, [%1]",
+                 ARM64_WORKAROUND_DEVICE_LOAD_ACQUIRE)
+             : "=r" (val) : "r" (addr));
+    return val;
+}
+
+
+//#define __raw_writeb __raw_writeb
 static inline void __raw_writeb(u8 val, volatile void __iomem *addr)
 {
 	asm volatile("strb %w0, [%1]" : : "rZ" (val), "r" (addr));
 }
 
-#define __raw_writew __raw_writew
+//#define __raw_writew __raw_writew
 static inline void __raw_writew(u16 val, volatile void __iomem *addr)
 {
 	asm volatile("strh %w0, [%1]" : : "rZ" (val), "r" (addr));
 }
 
-#define __raw_writel __raw_writel
+//#define __raw_writel __raw_writel
 static __always_inline void __raw_writel(u32 val, volatile void __iomem *addr)
 {
 	asm volatile("str %w0, [%1]" : : "rZ" (val), "r" (addr));
 }
 
-#define __raw_writeq __raw_writeq
+//#define __raw_writeq __raw_writeq
 static inline void __raw_writeq(u64 val, volatile void __iomem *addr)
 {
 	asm volatile("str %x0, [%1]" : : "rZ" (val), "r" (addr));
 }
 
-#define __raw_readb __raw_readb
+//#define __raw_readb __raw_readb
 static inline u8 __raw_readb(const volatile void __iomem *addr)
 {
 	u8 val;
@@ -58,7 +121,7 @@ static inline u8 __raw_readb(const volatile void __iomem *addr)
 	return val;
 }
 
-#define __raw_readw __raw_readw
+//#define __raw_readw __raw_readw
 static inline u16 __raw_readw(const volatile void __iomem *addr)
 {
 	u16 val;
@@ -70,7 +133,7 @@ static inline u16 __raw_readw(const volatile void __iomem *addr)
 	return val;
 }
 
-#define __raw_readl __raw_readl
+//#define __raw_readl __raw_readl
 static __always_inline u32 __raw_readl(const volatile void __iomem *addr)
 {
 	u32 val;
@@ -81,7 +144,7 @@ static __always_inline u32 __raw_readl(const volatile void __iomem *addr)
 	return val;
 }
 
-#define __raw_readq __raw_readq
+//#define __raw_readq __raw_readq
 static inline u64 __raw_readq(const volatile void __iomem *addr)
 {
 	u64 val;
@@ -114,6 +177,40 @@ static inline u64 __raw_readq(const volatile void __iomem *addr)
 #define __iowmb()		dma_wmb()
 #define __iomb()		dma_mb()
 
+
+#define __raw_write_logged(v, a, _t) ({ \
+    int _ret; \
+    void *_addr = (void *)(a); \
+    _ret = uncached_logk(LOGK_WRITEL, _addr); \
+    ETB_WAYPOINT; \
+    __raw_write##_t##_no_log((v), _addr); \
+    if (_ret) \
+        LOG_BARRIER; \
+    })
+
+#define __raw_writeb(v, a)  __raw_write_logged((v), a, b)
+#define __raw_writew(v, a)  __raw_write_logged((v), a, w)
+#define __raw_writel(v, a)  __raw_write_logged((v), a, l)
+#define __raw_writeq(v, a)  __raw_write_logged((v), a, q)
+
+#define __raw_read_logged(a, _l, _t)    ({ \
+    _t __a; \
+    void *_addr = (void *)(a); \
+    int _ret; \
+    _ret = uncached_logk(LOGK_READL, _addr); \
+    ETB_WAYPOINT; \
+    __a = __raw_read##_l##_no_log(_addr); \
+    if (_ret) \
+        LOG_BARRIER; \
+    __a; \
+    })
+
+#define __raw_readb(a)      __raw_read_logged((a), b, u8)
+#define __raw_readw(a)      __raw_read_logged((a), w, u16)
+#define __raw_readl(a)      __raw_read_logged((a), l, u32)
+#define __raw_readq(a)      __raw_read_logged((a), q, u64)
+
+
 /*
  * Relaxed I/O memory access primitives. These follow the Device memory
  * ordering rules but do not guarantee any ordering relative to Normal memory
@@ -123,6 +220,18 @@ static inline u64 __raw_readq(const volatile void __iomem *addr)
 #define readw_relaxed(c)	({ u16 __r = le16_to_cpu((__force __le16)__raw_readw(c)); __r; })
 #define readl_relaxed(c)	({ u32 __r = le32_to_cpu((__force __le32)__raw_readl(c)); __r; })
 #define readq_relaxed(c)	({ u64 __r = le64_to_cpu((__force __le64)__raw_readq(c)); __r; })
+
+#define writeb_relaxed_no_log(v, c) ((void)__raw_writeb_no_log((v), (c)))
+#define writew_relaxed_no_log(v, c) ((void)__raw_writew_no_log((__force u16)cpu_to_le16(v), (c)))
+#define writel_relaxed_no_log(v, c) ((void)__raw_writel_no_log((__force u32)cpu_to_le32(v), (c)))
+#define writeq_relaxed_no_log(v, c) ((void)__raw_writeq_no_log((__force u64)cpu_to_le64(v), (c)))
+
+#define readb_relaxed_no_log(c) ({ u8 __v = __raw_readb_no_log(c); __v; })
+#define readw_relaxed_no_log(c) ({ u16 __v = le16_to_cpu((__force __le16)__raw_readw_no_log(c)); __v; })
+#define readl_relaxed_no_log(c) ({ u32 __v = le32_to_cpu((__force __le32)__raw_readl_no_log(c)); __v; })
+#define readq_relaxed_no_log(c) ({ u64 __v = le64_to_cpu((__force __le64)__raw_readq_no_log(c)); __v; })
+
+
 
 #define writeb_relaxed(v,c)	((void)__raw_writeb((v),(c)))
 #define writew_relaxed(v,c)	((void)__raw_writew((__force u16)cpu_to_le16(v),(c)))
@@ -143,6 +252,17 @@ static inline u64 __raw_readq(const volatile void __iomem *addr)
 #define writew(v,c)		({ __iowmb(); writew_relaxed((v),(c)); })
 #define writel(v,c)		({ __iowmb(); writel_relaxed((v),(c)); })
 #define writeq(v,c)		({ __iowmb(); writeq_relaxed((v),(c)); })
+
+#define readb_no_log(c)     ({ u8  __v = readb_relaxed_no_log(c); __iormb(); __v; })
+#define readw_no_log(c)     ({ u16 __v = readw_relaxed_no_log(c); __iormb(); __v; })
+#define readl_no_log(c)     ({ u32 __v = readl_relaxed_no_log(c); __iormb(); __v; })
+#define readq_no_log(c)     ({ u64 __v = readq_relaxed_no_log(c); __iormb(); __v; })
+
+#define writeb_no_log(v, c) ({ __iowmb(); writeb_relaxed_no_log((v), (c)); })
+#define writew_no_log(v, c) ({ __iowmb(); writew_relaxed_no_log((v), (c)); })
+#define writel_no_log(v, c) ({ __iowmb(); writel_relaxed_no_log((v), (c)); })
+#define writeq_no_log(v, c) ({ __iowmb(); writeq_relaxed_no_log((v), (c)); })
+
 
 /*
  *  I/O port access primitives.

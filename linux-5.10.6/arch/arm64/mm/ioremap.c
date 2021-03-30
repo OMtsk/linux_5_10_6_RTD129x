@@ -90,6 +90,10 @@ void iounmap(volatile void __iomem *io_addr)
 	 */
 	if (is_vmalloc_addr((void *)addr))
 		vunmap((void *)addr);
+#ifdef CONFIG_RTK_TRACER
+	 remove_vmap_info((void*)addr, 1);
+#endif
+
 }
 EXPORT_SYMBOL(iounmap);
 
