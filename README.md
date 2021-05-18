@@ -2,7 +2,7 @@ Linux kernel 5.10.6 for RTD1295 (Qua station)
 ===
 
 !!THIS KERNEL DOESN'T WORK!!
-Becouse it　maybe arch/arm64/* or some address wrong.
+  Becouse it maybe arch/arm64/* or some address wrong.
 
 
 
